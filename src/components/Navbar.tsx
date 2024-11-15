@@ -2,16 +2,22 @@ import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
+interface MenuItem {
+  title: string;
+  path: string;
+  submenu?: MenuItem[];
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
   const location = useLocation();
 
-  const leftMenuItems = [
+  const leftMenuItems: MenuItem[] = [
     {
       title: 'Home',
       path: '/',
-      submenu: null
+      //submenu: null
     },
     {
       title: 'Awards/Summit',
@@ -45,16 +51,11 @@ const Navbar = () => {
     }
   ];
 
-  const rightMenuItems = [
+  const rightMenuItems: MenuItem[] = [
     {
       title: 'About',
       path: '/about',
-      submenu: [
-        { title: 'Our Story', path: '/about#story' },
-        { title: 'Board Members', path: '/about#board' },
-        { title: 'Mission & Vision', path: '/about#mission' },
-        { title: 'Our Impact', path: '/about#impact' }
-      ]
+      //submenu: null
     },
     {
       title: '2024 Finalists',
@@ -89,7 +90,7 @@ const Navbar = () => {
     setIsOpen(false);
     setActiveSubmenu(null);
 
-    const [basePath, hash] = path.split('#');
+    const [, hash] = path.split('#');
     if (hash) {
       setTimeout(() => {
         const element = document.getElementById(hash);
@@ -100,7 +101,7 @@ const Navbar = () => {
     }
   };
 
-  const MenuItem = ({ item, side = 'left' }: { item: any, side?: 'left' | 'right' }) => (
+  const MenuItem = ({ item, side = 'left' }: { item: MenuItem, side?: 'left' | 'right' }) => (
     <div 
       className="relative group"
       onMouseEnter={() => setActiveSubmenu(item.title)}
@@ -124,7 +125,7 @@ const Navbar = () => {
           } mt-0 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-50`}
         >
           <div className="py-1">
-            {item.submenu.map((subItem: any, index: number) => (
+            {item.submenu.map((subItem: MenuItem, index: number) => (
               <Link
                 key={index}
                 to={subItem.path}
@@ -143,7 +144,7 @@ const Navbar = () => {
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between h-20">
+        <div className="flex justify-between items-center h-24">
           {/* Left Menu */}
           <div className="hidden lg:flex items-center flex-1">
             <div className="flex space-x-4">
@@ -157,9 +158,9 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/">
               <img
-                src="https://heosa.africa/wp-content/uploads/2024/10/AHEO-Logo.png"
+                src="/logo.png"
                 alt="AHEO Logo"
-                className="h-16 w-auto"
+                className="h-24 w-auto max-h-full"
               />
             </Link>
           </div>
@@ -204,7 +205,7 @@ const Navbar = () => {
                 
                 {item.submenu && activeSubmenu === item.title && (
                   <div className="pl-4">
-                    {item.submenu.map((subItem: any, index: number) => (
+                    {item.submenu.map((subItem: MenuItem, index: number) => (
                       <Link
                         key={index}
                         to={subItem.path}

@@ -1,22 +1,13 @@
 import React from 'react';
-import { Phone, MapPin, MessageCircle } from 'lucide-react';
+import { Phone, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const phoneNumbers = [
-    { number: '+27 12 345 6789', label: 'Main Office' },
-    { number: '+27 98 765 4321', label: 'Support' }
+    { number: '+27824355370', label: 'Main Office' },
+    { number: '+27799501565', label: 'Support' }
   ];
 
-  const address = {
-    street: '123 Healthcare Avenue',
-    city: 'Pretoria',
-    province: 'Gauteng',
-    country: 'South Africa',
-    postal: '0001'
-  };
-
-  const whatsapp = '+27 71 234 5678';
-
+  const whatsapp = '+27824355370';
   return (
     <div className="min-h-screen bg-gray-50 py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -67,6 +58,7 @@ const Contact = () => {
           </div>
 
           {/* Address */}
+          {/**
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="flex items-center justify-center w-16 h-16 bg-[#962326] rounded-full mx-auto mb-6">
               <MapPin className="h-8 w-8 text-white" />
@@ -92,6 +84,7 @@ const Contact = () => {
               </a>
             </div>
           </div>
+          */}
         </div>
       </div>
     </div>

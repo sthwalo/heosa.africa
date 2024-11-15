@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Calendar, Clock } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 interface CountdownProps {
   targetDate: string;
@@ -27,11 +27,20 @@ const EventCountdown = ({ targetDate, eventName }: CountdownProps) => {
           minutes: Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60)),
           seconds: Math.floor((difference % (1000 * 60)) / 1000)
         });
+      } else {
+        setTimeLeft({
+          days: 0,
+          hours: 0,
+          minutes: 0,
+          seconds: 0
+        });
       }
+
+      console.log('Time left:', timeLeft);
     }, 1000);
 
     return () => clearInterval(timer);
-  }, [targetDate]);
+  }, [targetDate, timeLeft]);
 
   return (
     <div className="bg-white/90 backdrop-blur-sm rounded-lg p-6 shadow-lg">
@@ -49,6 +58,9 @@ const EventCountdown = ({ targetDate, eventName }: CountdownProps) => {
           </div>
         ))}
       </div>
+      {timeLeft.days === 0 && timeLeft.hours === 0 && timeLeft.minutes === 0 && timeLeft.seconds === 0 ? (
+        <div className="text-center mt-4 text-lg font-bold text-[#962326]">EXPIRED</div>
+      ) : null}
     </div>
   );
 };

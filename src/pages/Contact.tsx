@@ -3,8 +3,8 @@ import { Phone, MapPin, MessageCircle } from 'lucide-react';
 
 const Contact = () => {
   const phoneNumbers = [
-    { number: '+27 12 345 6789', label: 'Main Office' },
-    { number: '+27 98 765 4321', label: 'Support' }
+    { number: '+27824355370', label: 'Main Office' },
+    { number: '+27799501565', label: 'Support' }
   ];
 
   const address = {
@@ -15,7 +15,7 @@ const Contact = () => {
     postal: '0001'
   };
 
-  const whatsapp = '+27 71 234 5678';
+  const whatsapp = '+27824355370';
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">

@@ -6,6 +6,15 @@ import { ArrowRight } from 'lucide-react';
 const EventsSlider = () => {
   const events = [
     {
+      id: 3,
+      name: "African Health Excellence Organisation Awards and Summit",
+      date: "2024-11-28",
+      image: "https://heosa.africa/wp-content/uploads/2024/09/10.png",
+      description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
+      location: "Johannesburg, South Africa",
+      time: "09:00 - 17:00"
+    }, 
+    {
       id: 1,
       name: "African Health Excellence Awards 2024",
       date: "2024-06-15",
@@ -22,7 +31,8 @@ const EventsSlider = () => {
       description: "Explore the latest innovations and technologies shaping the future of healthcare in Africa.",
       location: "Cape Town, South Africa",
       time: "09:00 - 17:00"
-    }
+    },
+    
   ];
 
   return (
