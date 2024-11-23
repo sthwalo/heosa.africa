@@ -1,9 +1,9 @@
-import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Awards from './pages/Awards';
+import Overview from './pages/Overview';
 import AwardsCategories from './pages/AwardsCategories';
 import AwardsWinners from './pages/AwardsWinners';
 import AwardsNominate from './pages/AwardsNominate';
@@ -26,6 +26,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/awards" element={<Awards />} />
+            <Route path="/awards/overview" element={<Overview />} />
             <Route path="/awards/categories" element={<AwardsCategories />} />
             <Route path="/awards/winners" element={<AwardsWinners />} />
             <Route path="/awards/nominate" element={<AwardsNominate />} />

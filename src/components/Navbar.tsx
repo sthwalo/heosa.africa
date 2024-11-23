@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -23,7 +23,7 @@ const Navbar = () => {
       title: 'Awards/Summit',
       path: '/awards',
       submenu: [
-        { title: 'Overview', path: '/awards' },
+        { title: 'Overview', path: '/awards/overview' },
         { title: 'Award Categories', path: '/awards/categories' },
         { title: 'Past Winners', path: '/awards/winners' },
         { title: 'Nominate', path: '/awards/nominate' }

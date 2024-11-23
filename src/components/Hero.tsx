@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Hero = () => {
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80"
+          src="https://heosa.africa/wp-content/uploads/2024/07/9.png"
           alt="Hero background"
           className="w-full h-full object-cover"
         />

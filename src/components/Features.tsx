@@ -1,4 +1,3 @@
-import React from 'react';
 import { Award, Users, BookOpen, TrendingUp } from 'lucide-react';
 
 const Features = () => {

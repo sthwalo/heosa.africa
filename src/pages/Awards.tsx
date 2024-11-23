@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link } from 'react-router-dom';
 import { Award, Trophy, Calendar, Users, ArrowRight } from 'lucide-react';
 

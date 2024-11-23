@@ -1,4 +1,3 @@
-import React from 'react';
 import { Building2, Users, Laptop } from 'lucide-react';
 
 const Partners = () => {
@@ -8,15 +7,20 @@ const Partners = () => {
       icon: <Building2 className="h-12 w-12 text-[#962326]" />,
       partners: [
         {
-          name: 'Healthcare Innovation Labs',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
+          name: 'South African Medical Association',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/SAMA.jpg',
           description: 'Leading research and development in healthcare solutions'
         },
         {
-          name: 'African Medical Association',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
+          name: 'S.A A.H.I.P V.H.I.A',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/SAAHIP-Logo.png',
           description: 'Advancing medical excellence across Africa'
-        }
+        },
+        { 
+          name: 'South African Medical Association Trade Union',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/banner-overlay-logo.png',
+          description: 'Leading research and development in healthcare solutions'
+        },
       ]
     },
     {
@@ -24,31 +28,52 @@ const Partners = () => {
       icon: <Users className="h-12 w-12 text-[#962326]" />,
       partners: [
         {
-          name: 'Premier Hospitals Group',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
-          description: 'Network of excellence in patient care'
+          name: 'The Department of Health Mpumalanga',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/mpumahealthdept.jpg',
+          description: 'Improving health status through the prevention of illnesses and the promotion of healthy lifestyles and to consistently improve the healthcare delivery system by focusing on access, equity, efficiency, quality and sustainability.'
         },
         {
-          name: 'Global Health Partners',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
-          description: 'International healthcare collaboration'
+          name: 'Denosa',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/Denosa-Logo.png',
+          description: 'The Democratic Nursing Organisation of South Africa'
         }
       ]
     },
     {
-      title: 'Technology Partners',
+      title: 'Sponsors',
       icon: <Laptop className="h-12 w-12 text-[#962326]" />,
       partners: [
         {
-          name: 'MedTech Solutions',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
-          description: 'Innovative healthcare technology solutions'
+          name: 'Project Artour',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/11.png',
+          description: 'Fashion on the go'
         },
         {
-          name: 'Digital Health Systems',
-          logo: 'https://images.unsplash.com/photo-1560179707-f14e90ef3623?auto=format&fit=crop&q=80&w=200&h=100',
-          description: 'Digital transformation in healthcare'
+          name: 'Inikiwe Consulting Services',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/2.png',
+          description: 'A finance and business consulting firm'
+        },
+        {
+          name: 'Stayeasy | Mbombela',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/3.png',
+          description: 'A travelling and accommodation agency'
+        },
+        {
+          name: 'Jumpstart',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/1.png',
+          description: 'The organization seeks to develop youth and women in rural areas to be prospective employees and entrepreneurs through skills development.'
+        },
+        {
+          name: 'Gozone Water',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/06/10.png',
+          description: 'We deliver only the healthiest remineralised ozonated water'
+        }, 
+        {
+          name: 'Old Mutual',
+          logo: 'https://heosa.africa/wp-content/uploads/2024/07/12.png',
+          description: 'Investments, Insurance & More'
         }
+
       ]
     }
   ];
