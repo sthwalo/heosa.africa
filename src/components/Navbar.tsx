@@ -35,8 +35,8 @@ const Navbar = () => {
       submenu: [
         { title: 'Strategic Partners', path: '/partners#strategic' },
         { title: 'Healthcare Providers', path: '/partners#healthcare' },
-        { title: 'Technology Partners', path: '/partners#technology' },
-        { title: 'Become a Partner', path: '/partners#join' }
+        { title: 'Sponsors', path: '/partners#Sponsors' },
+        { title: 'Become a Partner', path: '/partners#Become a Partner' }
       ]
     },
     {

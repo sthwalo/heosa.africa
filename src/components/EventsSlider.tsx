@@ -1,81 +1,70 @@
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import EventCountdown from './EventCountdown';
 import { ArrowRight } from 'lucide-react';
 
 const EventsSlider = () => {
   const events = [
     {
-      id: 3,
-      name: "African Health Excellence Organisation Awards and Summit",
-      date: "2024-11-28",
-      image: "https://heosa.africa/wp-content/uploads/2024/09/10.png",
+      id: 1,
+      name: "African Health Excellence Organisation Summit 2024",
+      date: "2024-11-29",
+      image: "https://heosa.africa/wp-content/uploads/2024/10/Awards-Poster.jpg",
       description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
       location: "Johannesburg, South Africa",
-      time: "09:00 - 17:00"
+      time: "09:00 - 17:00",
+      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit"
     }, 
     {
-      id: 1,
+      id: 2,
       name: "African Health Excellence Awards 2024",
-      date: "2024-06-15",
-      image: "https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?auto=format&fit=crop&q=80",
+      date: "2024-11-30",
+      image: "https://heosa.africa/wp-content/uploads/2024/10/SUMMIT-POSTER-scaled.jpg",
       description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
       location: "Johannesburg, South Africa",
-      time: "18:00 - 22:00"
-    },
-    {
-      id: 2,
-      name: "Healthcare Innovation Summit",
-      date: "2024-07-20",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&q=80",
-      description: "Explore the latest innovations and technologies shaping the future of healthcare in Africa.",
-      location: "Cape Town, South Africa",
-      time: "09:00 - 17:00"
-    },
-    
+      time: "18:00 - 22:00",
+      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards"
+    }
   ];
 
   return (
     <div className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-[#2B2A29] mb-8 text-center">Upcoming Events</h2>
-        
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-bold text-[#2B2A29]">Upcoming Events</h2>
+          <p className="mt-4 text-lg text-gray-600">Join us at our upcoming healthcare events</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {events.map((event) => (
-            <div key={event.id} className="relative group">
-              <div className="relative h-[400px] rounded-xl overflow-hidden">
+            <div 
+              key={event.id} 
+              className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
+            >
+              <div className="relative h-[600px] overflow-hidden">
                 <img
                   src={event.image}
                   alt={event.name}
-                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                  className="w-full h-full object-contain"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
-                
-                <div className="absolute bottom-0 left-0 right-0 p-6">
-                  <EventCountdown targetDate={event.date} eventName={event.name} />
-                </div>
               </div>
-              
-              <div className="mt-6 bg-white p-6 rounded-lg shadow-lg">
-                <h3 className="text-2xl font-semibold text-[#2B2A29] mb-2">{event.name}</h3>
-                <div className="mb-4 text-gray-600">
-                  <p className="mb-2">{event.location}</p>
-                  <p>{event.time}</p>
+              <div className="p-6 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-[#2B2A29] mb-2">{event.name}</h3>
+                <EventCountdown targetDate={event.date} eventName={event.name} />
+                <p className="text-gray-600 mt-4 flex-1">{event.description}</p>
+                <div className="mt-4 space-y-2 text-gray-600">
+                  <p> 📍 {event.location}</p>
+                  <p> 🕒 {event.time}</p>
                 </div>
-                <p className="text-gray-600 mb-4">{event.description}</p>
-                <div className="flex gap-4">
-                  <Link
-                    to="/medical-events/register"
-                    className="flex-1 inline-flex items-center justify-center px-6 py-3 bg-[#962326] text-white rounded-md hover:bg-[#A7864B] transition-colors"
+                <div className="mt-6 flex justify-between items-center">
+                  <a
+                    href={event.registerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center px-6 py-3 bg-[#962326] text-white rounded-md hover:bg-[#A7864B] transition-colors"
                   >
                     Register Now
                     <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                  <Link
-                    to={`/medical-events#${event.id}`}
-                    className="flex-1 inline-flex items-center justify-center px-6 py-3 border-2 border-[#962326] text-[#962326] rounded-md hover:bg-[#962326] hover:text-white transition-colors"
-                  >
-                    Learn More
-                  </Link>
+                  </a>
                 </div>
               </div>
             </div>

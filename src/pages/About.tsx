@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { Linkedin } from 'lucide-react';
 
 interface BoardMember {
@@ -56,7 +56,7 @@ const About = () => {
     {
       name: "Mr Valentine Zoza",
       role: "Brand Strategist",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/07/Board-HEO.png",
+      image: "https://heosa.africa/wp-content/uploads/2024/07/Board-HEO.png",
       description: "Valentine Zoza isn’t just a name, it’s a force for positive change across Africa and its diaspora. This award-winning Afrocentric Content Creator and Brand Strategist wears many hats – Social Entrepreneur, Linkedin Influencer, Change Maker, Women Empowerment Advocate and Pan-Africanist at heart. He is the Founder of Women Power Africa, Remarkable Africans and Zoza Communications. His unwavering dedication to empowering Africans and showcasing the continent’s potential has earned him global recognition, including a spot on MIPAD and the UN’s “Top 100 (Under 40) Most Influential People of African Descent.”",
       linkedinUrl: "https://www.linkedin.com/in/valentinezoza"
     }
