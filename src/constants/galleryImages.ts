@@ -18,7 +18,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 2,
     url: "https://heosa.africa/wp-content/uploads/2024/06/Medi-Personality-of-the-year-Christopher-Zungu.jpg",
-    title: "Medi Personality Award Ceremony",
+    title: "Media Personality Award Ceremony",
     category: "Events",
     description: "Christopher Zungu's award presentation"
   },
