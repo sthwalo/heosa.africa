@@ -1,5 +1,5 @@
-import React from 'react';
-import { Award, Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus } from 'lucide-react';
+//import React from 'react';
+import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus } from 'lucide-react';
 
 const AwardsCategories = () => {
   const votedCategories = [

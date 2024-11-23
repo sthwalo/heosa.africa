@@ -13,3 +13,11 @@ export const AWARD_WINNERS_2023 = {
   TSHIDI_SITHOLE: "https://heosa.africa/wp-content/uploads/2024/06/Ms-Tshidi-Sithole-Mabila.jpg",
   MULTI_TALENTED: "https://heosa.africa/wp-content/uploads/2024/06/Multi-talented-Dr-Khanyisile-Dr-Ziyanda.jpg"
 } as const;
+
+// Past Winners Images
+export const PAST_WINNERS = {
+  ESPACO_RELIVE: "https://heosa.africa/wp-content/uploads/2024/10/46-scaled.jpg",
+  EDITH_MHLONGO: "https://heosa.africa/wp-content/uploads/2024/10/13.jpg",
+  DR_PUTSWANA: "https://heosa.africa/wp-content/uploads/2024/10/37-scaled.jpg",
+  DR_PRECIOUS: "https://heosa.africa/wp-content/uploads/2024/10/38-scaled.jpg"
+} as const;

@@ -8,14 +8,15 @@ const Contact = () => {
   ];
 
   const address = {
-    street: '123 Healthcare Avenue',
-    city: 'Pretoria',
-    province: 'Gauteng',
+    street: 'Suite 1018, 6 Waxbill Street',
+    city: 'Mbombela',
+    province: 'Mpumalanga',
     country: 'South Africa',
-    postal: '0001'
+    postal: '1200'
   };
 
   const whatsapp = '+27824355370';
+  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.5276813242584!2d30.97894631544384!3d-25.47750968377558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee84a1017f005f9%3A0x2748e0d27e501adf!2s6%20Waxbill%20St%2C%20Riverside%20Park%2C%20Mbombela%2C%201200!5e0!3m2!1sen!2sza!4v1647856231074!5m2!1sen!2sza";
 
   return (
     <div className="min-h-screen bg-gray-50 pt-20">
@@ -25,7 +26,7 @@ const Contact = () => {
           <p className="text-lg text-gray-600">Get in touch with our team for any inquiries or support</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {/* Phone Numbers */}
           <div className="bg-white p-8 rounded-xl shadow-lg">
             <div className="flex items-center justify-center w-16 h-16 bg-[#962326] rounded-full mx-auto mb-6">
@@ -94,49 +95,21 @@ const Contact = () => {
           </div>
         </div>
 
-        {/* Contact Form */}
-        <div className="mt-16 bg-white rounded-xl shadow-lg p-8">
-          <h2 className="text-2xl font-semibold text-center mb-8">Send us a Message</h2>
-          <form className="max-w-2xl mx-auto">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
-                </label>
-                <input
-                  type="text"
-                  id="name"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#962326] focus:border-[#962326]"
-                />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#962326] focus:border-[#962326]"
-                />
-              </div>
-            </div>
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                Message
-              </label>
-              <textarea
-                id="message"
-                rows={4}
-                className="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-[#962326] focus:border-[#962326]"
-              ></textarea>
-            </div>
-            <button
-              type="submit"
-              className="w-full py-3 bg-[#962326] text-white rounded-md hover:bg-[#A7864B] transition-colors"
-            >
-              Send Message
-            </button>
-          </form>
+        {/* Google Maps Embed */}
+        <div className="bg-white rounded-xl shadow-lg overflow-hidden">
+          <div className="aspect-w-16 aspect-h-9">
+            <iframe
+              src={mapUrl}
+              width="100%"
+              height="450"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="HEOSA Office Location"
+              className="w-full"
+            ></iframe>
+          </div>
         </div>
       </div>
     </div>

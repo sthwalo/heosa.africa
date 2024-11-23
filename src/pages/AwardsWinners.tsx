@@ -1,5 +1,4 @@
 //import React from 'react';
-import { Trophy } from 'lucide-react';
 import { AWARD_WINNERS_2023 } from '../constants/images';
 
 const AWARD_CATEGORIES = [
@@ -12,7 +11,7 @@ const AWARD_CATEGORIES = [
   {
     name: "Medi Personality of the Year",
     winner: "Christopher Zungu",
-    image: AWARD_WINNERS_2023.MEDI_PERSONALITY,
+    image: AWARD_WINNERS_2023.MEDIA_PERSONALITY,
     achievement: "Exceptional media representation in healthcare"
   },
   {

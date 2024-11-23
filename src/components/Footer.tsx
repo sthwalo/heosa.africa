@@ -81,8 +81,8 @@ const Footer = () => {
               <li className="flex items-start gap-2">
                 <MapPin className="h-5 w-5 text-[#F2C849] flex-shrink-0" />
                 <span className="text-gray-300">
-                  123 Healthcare Avenue,<br />
-                  Pretoria, Gauteng<br />
+                  Suite 1018, 6 Waxbill Street,<br />
+                  Mbombela, 1200<br />
                   South Africa
                 </span>
               </li>
