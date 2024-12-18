@@ -14,7 +14,7 @@ export const AWARD_WINNERS_2023 = {
   MULTI_TALENTED: "https://heosa.africa/wp-content/uploads/2024/06/Multi-talented-Dr-Khanyisile-Dr-Ziyanda.jpg"
 } as const;
 
-export const AWARD_WINNERS_2024 = {
+/* export const AWARD_WINNERS_2024 = {
   HCP_AUTHOR: "/home/heosabcc/public_html/img/2024/Winners/HCP-Author-of-the-year.jpg",
   MEDIA_PERSONALITY: "/home/heosabcc/public_html/img/2024/Winners/Media-Personality-of-the-year.jpg",
   MENTOR: "/home/heosabcc/public_html/img/2024/Winners/Mentor-of-the-year.jpg",
@@ -26,6 +26,21 @@ export const AWARD_WINNERS_2024 = {
   HCP_COMMUNITY_BUILDER: "/home/heosabcc/public_html/img/2024/Winners/HCP-Community-Builder-of-the-year.jpg",
   HCP_EDUCATOR: "/home/heosabcc/public_html/img/2024/Winners/HCP-Educator-of-the-year.jpg",
   HCP_CHARITY_DRIVER: "/home/heosabcc/public_html/img/2024/Winners/HCP-Charity-Driver-of-the-year.jpg",
-  DIGITAL_HEALTH_INNOVATOR: "/home/heosabcc/public_html/img/2024/Winners/Digital-Health-Innovator.jpg",
+  DIGITAL_HEALTH_INNOVATOR: "/home/heosabcc/public_html/img/2024/Winners/Digital-Health-Innovator-of-the-year.jpg",
+  
+} as const; */
+export const AWARD_WINNERS_2024 = {
+  HEALTHCARE_LEADER: "public/img/Healthcare Leader of the year.jpg",
+  MEDIA_PERSONALITY: "public/img/HCP Media Personality of the year.jpg",
+  MENTOR: "public/img/HCP Mentor of the year.jpg",
+  WELLNESS: "public/img/Employee Wellness HCP of the year.jpg",
+  RESEARCHER: "public/img/Health Researcher of the year.jpg",
+  HEALTHCARE_INSTITUTION: "public/img/Health Institution of the year.jpg",
+  MULTI_TALENTED: "public/img/Multi-Talented HCP of the year.jpg",
+  RISING_STAR_HCP: "public/img/Rising Star HCP of the year.jpg",
+  HCP_COMMUNITY_BUILDER: "public/img/HCP Community Builder of the year.jpg",
+  HCP_EDUCATOR: "public/img/HCP Educator of the year.jpg",
+  HCP_CHARITY_DRIVER: "public/img/HCP Charity Driver of the year.jpg",
+  DIGITAL_HEALTH_INNOVATOR: "public/img/Digital Health Innovator of the year.jpg",
   
 } as const;
