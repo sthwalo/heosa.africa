@@ -10,61 +10,61 @@ const AWARD_CATEGORIES = [
   },
   {
     //name: "Media Personality",
-    winner: "Christopher Zungu",
+    winner: "Ms Moloko Mehlape",
     image: AWARD_WINNERS_2024.MEDIA_PERSONALITY,
     achievement: "Exceptional media representation in healthcare"
   },
   {
     //name: "Mentor",
-    winner: "Thembeka Buleni",
+    winner: "Dr Ashlin Rampul",
     image: AWARD_WINNERS_2024.MENTOR,
     achievement: "Dedicated mentorship in healthcare professionals"
   },
   {
     //name: "Employee Wellness HCP",
-    winner: "Noxolo Singwane",
+    winner: "Mr Sifiso Mkhatshwa",
     image: AWARD_WINNERS_2024.WELLNESS,
     achievement: "Exemplary compassion in patient care"
   },
   {
     //name: "Health Researcher",
-    winner: "Dr. Thembinkosi Ngcobo",
+    winner: "Dr Borna Nyaoke-Anoke",
     image: AWARD_WINNERS_2024.RESEARCHER,
     achievement: "Outstanding contributions to healthcare research"
   },
   {
     //name: "Health Institution of the Year",
-    winner: "Mr Sifiso Mkhatshwa",
+    winner: "Foundation for Alcohol Related Research",
     image: AWARD_WINNERS_2024.HEALTHCARE_INSTITUTION,
     achievement: "Recognized for outstanding contributions to healthcare literature"
   },
   {
     //name: "Multi-Talented HCP",
-    winner: "Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla",
+    winner: "Mr Sibusiso Mthembu(SbuNoah)",
     image: AWARD_WINNERS_2024.MULTI_TALENTED,
     achievement: "Versatility and excellence in multiple healthcare domains"
   },
   {
     //name: "Rising Star HCP",
-    winner: "Dr. Thembinkosi Ngcobo",
+    winner: "Dr. Thozama Siyotula",
     image: AWARD_WINNERS_2024.RISING_STAR_HCP,
     achievement: "Outstanding performance as a young healthcare professional"
   },
   {
     //name: "HCP Community Builder",
-    winner: "Dr. Thandeka Ngcobo",
+    winner: "Ms Bulelani Mkhize",
     image: AWARD_WINNERS_2024.HCP_COMMUNITY_BUILDER,
     achievement: "Excellent community service and health promotion projects"
   },
   {
     //name: "HCP Educator",
-    winner: "Dr. Thandeka Ngcobo",
+    winner: "Dr. Gugu Nhleko Tembe",
     image: AWARD_WINNERS_2024.HCP_EDUCATOR,
     achievement: "Innovative approaches to healthcare education"
   },
   {
     //name: "HCP Charity Driver",
-    winner: "Dr. Putswana Senoamadi",
+    winner: "Mrs Tshidi Sithole-Mabila",
     image: AWARD_WINNERS_2024.HCP_CHARITY_DRIVER,
     achievement: "Outstanding contributions to healthcare charity initiatives"
   },
