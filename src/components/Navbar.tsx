@@ -58,11 +58,11 @@ const Navbar = () => {
       //submenu: null
     },
     {
-      title: '2024 Finalists',
-      path: '/finalists',
+      title: 'Winners',
+      path: '/winners',
       submenu: [
         { title: 'View Finalists', path: '/finalists' },
-        { title: 'Vote Now', path: '/finalists/vote' },
+        { title: 'The Winners', path: '/awards/winners' },
         { title: 'Past Winners', path: '/finalists/past-winners' }
       ]
     },

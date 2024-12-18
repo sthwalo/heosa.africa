@@ -1,53 +1,71 @@
 //import React from 'react';
-import { AWARD_WINNERS_2023 } from '../constants/images';
+import { AWARD_WINNERS_2024 } from '../constants/images';
 
 const AWARD_CATEGORIES = [
   {
+    name: "Rising Star HCP",
+    winner: "Dr. Thembinkosi Ngcobo",
+    image: AWARD_WINNERS_2024.RISING_STAR_HCP,
+    achievement: "Outstanding performance as a young healthcare professional"
+  },
+  {
+    name: "HCP Community Builder",
+    winner: "Dr. Thandeka Ngcobo",
+    image: AWARD_WINNERS_2024.HCP_COMMUNITY_BUILDER,
+    achievement: "Excellent community service and health promotion projects"
+  },
+  {
+    name: "Digital Health Innovator",
+    winner: "Dr. Siyabonga Cwele",
+    image: AWARD_WINNERS_2024.DIGITAL_HEALTH_INNOVATOR,
+    achievement: "Innovative use of digital technology to improve healthcare"
+  },
+  {
     name: "HCP Author of the Year",
     winner: "Ms. Pamela Sedibe",
-    image: AWARD_WINNERS_2023.HCP_AUTHOR,
+    image: AWARD_WINNERS_2024.HCP_AUTHOR,
     achievement: "Recognized for outstanding contributions to healthcare literature"
   },
   {
     name: "Medi Personality of the Year",
     winner: "Christopher Zungu",
-    image: AWARD_WINNERS_2023.MEDIA_PERSONALITY,
+    image: AWARD_WINNERS_2024.MEDIA_PERSONALITY,
     achievement: "Exceptional media representation in healthcare"
   },
   {
     name: "Media HCP Educator of the Year",
     winner: "Dr. Thandeka Ngcobo",
-    image: AWARD_WINNERS_2023.HCP_EDUCATOR,
+    image: AWARD_WINNERS_2024.HCP_EDUCATOR,
     achievement: "Innovative approaches to healthcare education"
   },
   {
     name: "Mentor of the Year",
     winner: "Thembeka Buleni",
-    image: AWARD_WINNERS_2023.MENTOR,
+    image: AWARD_WINNERS_2024.MENTOR,
     achievement: "Dedicated mentorship in healthcare professionals"
   },
   {
-    name: "Most Compassionate HCP",
+    name: "Employee Wellness HCP",
     winner: "Noxolo Singwane",
-    image: AWARD_WINNERS_2023.MOST_COMPASSIONATE,
+    image: AWARD_WINNERS_2024.WELLNESS,
     achievement: "Exemplary compassion in patient care"
   },
   {
     name: "Most Voted HCP",
     winner: "Noxolo Singwane",
-    image: AWARD_WINNERS_2023.MOST_VOTED,
+    image: AWARD_WINNERS_2024.MOST_VOTED,
     achievement: "Recognized by peers for outstanding service"
   },
   {
     name: "Healthcare Leader",
-    winner: "Ms. Tshidi Sithole-Mabila",
-    image: AWARD_WINNERS_2023.TSHIDI_SITHOLE,
+    winner: "Dr. Putswana Senoamadi",
+    image: AWARD_WINNERS_2024.HEALTHCARE_LEADER,
     achievement: "Outstanding leadership in healthcare administration"
   },
   {
     name: "Multi-Talented HCP",
     winner: "Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla",
-    image: AWARD_WINNERS_2023.MULTI_TALENTED,
+    image: AWARD_WINNERS_2024.MULTI_TALENTED,
     achievement: "Versatility and excellence in multiple healthcare domains"
   }
 ];

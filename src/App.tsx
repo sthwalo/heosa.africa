@@ -12,10 +12,11 @@ import MedicalEvents from './pages/MedicalEvents';
 import MedicalEventsRegister from './pages/MedicalEventsRegister';
 import About from './pages/About';
 import Finalists from './pages/Finalists';
-import FinalistsWinners from './pages/FinalistsWinners';
+import PastWinners from './pages/PastWinners';
 import FinalistsVote from './pages/FinalistsVote';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
+import Winners from './pages/Winners';
 
 function App() {
   return (
@@ -34,8 +35,9 @@ function App() {
             <Route path="/medical-events" element={<MedicalEvents />} />
             <Route path="/medical-events/register" element={<MedicalEventsRegister />} />
             <Route path="/about" element={<About />} />
+            <Route path="/winners" element={<Winners />} />
             <Route path="/finalists" element={<Finalists />} />
-            <Route path="/finalists/past-winners" element={<FinalistsWinners />} />
+            <Route path="/finalists/past-winners" element={<PastWinners />} />
             <Route path="/finalists/vote" element={<FinalistsVote />} />
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
