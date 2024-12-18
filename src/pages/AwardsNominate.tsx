@@ -1,5 +1,5 @@
-import React from 'react';
-import { Award, AlertCircle } from 'lucide-react';
+//import React from 'react';
+import {AlertCircle } from 'lucide-react';
 
 const AwardsNominate = () => {
   const categories = [
@@ -31,11 +31,25 @@ const AwardsNominate = () => {
               <h2 className="text-xl font-semibold text-[#2B2A29]">Nomination Guidelines</h2>
             </div>
             <ul className="list-disc list-inside text-gray-600 space-y-2">
-              <li>Nominees must be healthcare professionals working in Africa</li>
-              <li>Self-nominations are accepted</li>
-              <li>Provide detailed information to support your nomination</li>
-              <li>Include relevant achievements and impact</li>
-              <li>Nominations close on May 31st, 2024</li>
+              <li>
+                    <strong>Nomination Process:</strong> Individuals may nominate their healthcare professional or institution under a specific category. Nominees must be healthcare professionals working in Africa
+                </li>
+                <li>
+                    <strong>Acceptance of Nomination:</strong> The nominated healthcare professional will be contacted by the office and must either accept or decline the nomination.
+                </li>
+                <li>
+                    <strong>Submission of Proof:</strong> Upon acceptance of the nomination, the healthcare professional is required to submit proof of their work in the specific category they have been nominated for.
+                </li>
+                <li>
+                    <strong>Shortlisting and Selection:</strong> The African Health Excellence Organisation Adjudication Committee will review the nominations, shortlist candidates, and select finalists based on established professional standards and criteria.
+                </li>
+                <li>
+                    <strong>Voting Process:</strong> Individuals will have the opportunity to vote for their favorite healthcare professional or institution among those shortlisted as finalists.
+                </li>
+                <li>
+                    <strong>Winners Announcement:</strong> The healthcare professionals who receive the most votes will be declared winners in their respective categories.
+                </li>
+                <li>Nominations close on <strong>May 30th, {new Date().getFullYear()}</strong></li> 
             </ul>
           </div>
 

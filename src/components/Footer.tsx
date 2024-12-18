@@ -10,7 +10,8 @@ const Footer = () => {
     { name: 'Awards', path: '/awards' },
     { name: 'Medical Events', path: '/medical-events' },
     { name: 'Gallery', path: '/gallery' },
-    { name: 'Contact', path: '/contact' }
+    { name: 'Contact', path: '/contact' },
+    {name: 'Terms and Conditions', path: '/t&cs'},
   ];
 
   const socialLinks = [
@@ -123,6 +124,9 @@ const Footer = () => {
               </Link>
               <Link to="/terms" className="text-gray-400 hover:text-[#F2C849] text-sm">
                 Terms of Service
+              </Link>
+              <Link to="/t&cs" className="text-gray-400 hover:text-[#F2C849] text-sm">
+                Terms and Conditions
               </Link>
             </div>
           </div>
