@@ -9,17 +9,17 @@ const Partners = () => {
       partners: [
         {
           name: 'South African Medical Association',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/SAMA.jpg',
+          logo: '/images/Sponsors/SAMA.jpg',
           description: 'Leading research and development in healthcare solutions'
         },
         {
           name: 'S.A A.H.I.P V.H.I.A',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/SAAHIP-Logo.png',
+          logo: '/images/Sponsors/7.png',
           description: 'Advancing medical excellence across Africa'
         },
         { 
           name: 'South African Medical Association Trade Union',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/banner-overlay-logo.png',
+          logo: '/images/Sponsors/4.png',
           description: 'Leading research and development in healthcare solutions'
         },
       ]
@@ -30,12 +30,12 @@ const Partners = () => {
       partners: [
         {
           name: 'The Department of Health Mpumalanga',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/mpumahealthdept.jpg',
+          logo: '/images/Sponsors/mpumahealthdept.jpg',
           description: 'Improving health status through the prevention of illnesses and the promotion of healthy lifestyles and to consistently improve the healthcare delivery system by focusing on access, equity, efficiency, quality and sustainability.'
         },
         {
           name: 'Denosa',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/Denosa-Logo.png',
+          logo: '/images/Sponsors/Denosa-Logo.png',
           description: 'The Democratic Nursing Organisation of South Africa'
         }
       ]
@@ -46,32 +46,32 @@ const Partners = () => {
       partners: [
         {
           name: 'Project Artour',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/11.png',
+          logo: '/images/Sponsors/11.png',
           description: 'Fashion on the go'
         },
         {
           name: 'Inikiwe Consulting Services',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/2.png',
+          logo: '/images/Sponsors/2.png',
           description: 'A finance and business consulting firm'
         },
         {
           name: 'Stayeasy | Mbombela',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/3.png',
+          logo: '/images/Sponsors/3.png',
           description: 'A travelling and accommodation agency'
         },
         {
           name: 'Jumpstart',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/1.png',
+          logo: '/images/Sponsors/1.png',
           description: 'The organization that seeks to develop youth and women in rural areas to be prospective employees and entrepreneurs through skills development.'
         },
         {
           name: 'Gozone Water',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/06/10.png',
+          logo: '/images/Sponsors/10.png',
           description: 'We deliver only the healthiest remineralised ozonated water'
         }, 
         {
           name: 'Old Mutual',
-          logo: 'https://heosa.africa/wp-content/uploads/2024/07/12.png',
+          logo: '/images/Sponsors/12.png',
           description: 'Investments, Insurance & More'
         }
       ]
