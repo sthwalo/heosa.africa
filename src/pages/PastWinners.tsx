@@ -7,49 +7,49 @@ const FinalistsWinners = () => {
       year: 2023,
       winners: [
         {
-          category: "HCP Author of the Year",
+          //category: "HCP Author of the Year",
           winner: "Ms. Pamela Sedibe",
           image: "/images/winners/23/Pamela.jpg",
           description: "Recognized for outstanding contributions to healthcare literature"
         },
         {
-          category: "Medi Personality of the Year",
+         // category: "Medi Personality of the Year",
           winner: "Christopher Zungu",
           image: "/images/winners/23/Zungu.jpg",
           description: "Exceptional media representation in healthcare"
         },
         {
-          category: "Media HCP Educator of the Year",
+          //category: "Media HCP Educator of the Year",
           winner: "Dr. Thandeka Ngcobo",
           image: "/images/winners/23/Ngcobo.jpg",
           description: "Innovative approaches to healthcare education"
         },
         {
-          category: "Mentor of the Year",
+          //category: "Mentor of the Year",
           winner: "Thembeka Buleni",
           image: "/images/winners/23/Buleni.jpg",
           description: "Dedicated mentorship in healthcare professionals"
         },
         {
-          category: "Most Compassionate HCP",
+          //category: "Most Compassionate HCP",
           winner: "Noxolo Singwane",
           image: "/images/winners/23/Singwane.jpg",
           description: "Exemplary compassion in patient care"
         },
         {
-          category: "Most Voted HCP",
+          //category: "Most Voted HCP",
           winner: "Noxolo Singwane",
           image: "/images/winners/23/Singwane.jpg",
           description: "Recognized by peers for outstanding service"
         },
         {
-          category: "Healthcare Leader",
+          //category: "Healthcare Leader",
           winner: "Ms. Tshidi Sithole-Mabila",
           image: "/images/winners/23/Ms-Tshidi-Sithole-Mabila.jpg",
           description: "Outstanding leadership in healthcare administration"
         },
         {
-          category: "Multi-Talented HCP of the Year",
+          category: "",
           winner: "Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla",
           image: "/images/winners/23/Dr-Khanyisile-Dr-Ziyanda.jpg",
           description: "Outstanding achievements across multiple healthcare disciplines"

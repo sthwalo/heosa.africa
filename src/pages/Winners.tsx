@@ -3,73 +3,73 @@
 
 const AWARD_CATEGORIES = [
   {
-    name: "Healthcare Leader",
+    //name: "Healthcare Leader",
     winner: "Dr. Putswana Senoamadi",
     image: "/images/winners/24/Healthcare Leader.jpg",
     achievement: "Outstanding leadership in healthcare administration"
   },
   {
-    name: "Media Personality",
+    //name: "Media Personality",
     winner: "Ms Moloko Mehlape",
     image: "/images/winners/24/Media Personality.jpg",
     achievement: "Exceptional media representation in healthcare"
   },
   {
-    name: "Mentor",
+    //name: "Mentor",
     winner: "Dr Ashlin Rampul",
     image: "/images/winners/24/Mentor.jpg",
     achievement: "Dedicated mentorship in healthcare professionals"
   },
   {
-    name: "Employee Wellness HCP",
+    //name: "Employee Wellness HCP",
     winner: "Mr Sifiso Mkhatshwa",
     image: "/images/winners/24/Employee Wellness.jpg",
     achievement: "Exemplary compassion in patient care"
   },
   {
-    name: "Health Researcher",
+    //name: "Health Researcher",
     winner: "Dr Borna Nyaoke-Anoke",
     image: "/images/winners/24/Health Researcher.jpg",
     achievement: "Outstanding contributions to healthcare research"
   },
   {
-    name: "Health Institution of the Year",
+    //name: "Health Institution of the Year",
     winner: "Foundation for Alcohol Related Research",
     image: "/images/winners/24/Health Institution.jpg",
     achievement: "Recognized for outstanding contributions to healthcare literature"
   },
   {
-    name: "Multi-Talented HCP",
+    //name: "Multi-Talented HCP",
     winner: "Mr Sibusiso Mthembu(SbuNoah)",
     image: "/images/winners/24/Multi-Talented.jpg",
     achievement: "Versatility and excellence in multiple healthcare domains"
   },
   {
-    name: "Rising Star HCP",
+    //name: "Rising Star HCP",
     winner: "Dr. Thozama Siyotula",
     image: "/images/winners/24/Rising Star.jpg",
     achievement: "Outstanding performance as a young healthcare professional"
   },
   {
-    name: "HCP Community Builder",
+    //name: "HCP Community Builder",
     winner: "Ms Bulelani Mkhize",
     image: "/images/winners/24/Community Builder.jpg",
     achievement: "Excellent community service and health promotion projects"
   },
   {
-    name: "HCP Educator",
+    //name: "HCP Educator",
     winner: "Dr. Gugu Nhleko Tembe",
     image: "/images/winners/24/Educator.jpg",
     achievement: "Innovative approaches to healthcare education"
   },
   {
-    name: "HCP Charity Driver",
+    //name: "HCP Charity Driver",
     winner: "Mrs Tshidi Sithole-Mabila",
     image: "/images/winners/24/Charity Driver.jpg",
     achievement: "Outstanding contributions to healthcare charity initiatives"
   },
   {
-    name: "Digital Health Innovator",
+    name: "",
     winner: "Ms Clementine Phale",
     image: "/images/winners/24/Digital Innovator.jpg",
     achievement: "Innovative use of digital technology to improve healthcare"
