@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { X } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface GalleryImage {
   id: number;
@@ -10,27 +10,69 @@ interface GalleryImage {
   images?: string[];
 }
 
-const GALLERY_IMAGES: Omit<GalleryImage, 'images'>[] = [
+const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 1,
-    url: '/images/events/',
-    title: 'Gala Dinner',
+    url: 'images/summit/388.png',
+    images: [
+      '/images/summit/306.png',
+      '/images/summit/307.png',
+      '/images/summit/310.png',
+      '/images/summit/311.png',
+      '/images/summit/314.png',
+      '/images/summit/325.png',
+      '/images/summit/327.png',
+      '/images/summit/339.png',
+      '/images/summit/340.png',
+      '/images/summit/388.png',
+      '/images/summit/411.png',
+
+    ],
+    title: 'Summit & Exhibition',
     category: 'Events',
     description: 'Celebrating excellence in healthcare',
   },
   {
     id: 2,
-    url: '/images/awards/',
-    title: 'Exhibition',
+    url: 'images/events/File 10.png',
+    images: [
+      '/videos/Nominees1.mp4',
+      '/videos/Nominees2.mp4',
+      '/videos/Nominees3.mp4',
+      '/videos/Nominees4.mp4',
+      '/videos/Nominees5.mp4',
+      '/videos/Nominees6.mp4',
+      '/videos/Nominees7.mp4',
+      '/videos/Nominees8.mp4',
+      '/videos/Nominees9.mp4',
+      '/videos/Nominees10.mp4',
+      '/videos/Nominees11.mp4',
+    ],
+    title: 'Ceremony',
     category: 'Awards',
-    description: 'Celebrating excellence in healthcare',
+    description: 'Showcasing the latest innovations in healthcare.',
   },
   {
     id: 3,
-    url: '/videos/',
-    title: 'Award Ceremony',
-    category: 'Videos',
-    description: 'Celebrating excellence in healthcare',
+    url: 'images/events/File 28.png',
+    images: [
+      '/images/events/File 10.png',
+      '/images/events/File 11.png',
+      '/images/events/File 12.png',
+      '/images/events/File 13.png',
+      '/images/events/File 17.png',
+      '/images/events/File 18.png',
+      '/images/events/File 19.png',
+      '/images/events/File 20.png',
+      '/images/events/File 21.png',
+      '/images/events/File 22.png',
+      '/images/events/File 23.png',
+      '/images/events/File 28.png',
+
+    ],
+    title: 'Award Gala',
+    category: 'Awards',
+    description: 'Honoring the achievements of healthcare professionals.',
   },
 ];
 
@@ -40,12 +82,28 @@ const Gallery = () => {
 
   const categories = ['All', ...Array.from(new Set(GALLERY_IMAGES.map(img => img.category)))];
 
-  const filteredImages = selectedCategory === 'All' 
-    ? GALLERY_IMAGES 
+  const filteredImages = selectedCategory === 'All'
+    ? GALLERY_IMAGES
     : GALLERY_IMAGES.filter(img => img.category === selectedCategory);
 
   const ImageModal = () => {
     if (!selectedImage) return null;
+
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    if (!selectedImage) return null;
+    if (!selectedImage.images) return null;
+    const handleNextImage = () => {
+      setCurrentImageIndex((prevIndex) =>
+        (prevIndex + 1) % selectedImage.images!.length
+      );
+    };
+
+    const handlePrevImage = () => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === 0 ? selectedImage.images!.length - 1 : prevIndex - 1
+      );
+    };
 
     return (
       <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
@@ -55,29 +113,54 @@ const Gallery = () => {
         >
           <X className="h-8 w-8" />
         </button>
-        <div className="max-w-4xl w-full">
-          {selectedImage.category === 'Videos' ? (
-            <video
-              src={`${process.env.PUBLIC_URL}${selectedImage.url}${selectedImage.id}.${selectedImage.images?.[0].split('.').pop()}`}
-              controls
-              className="w-full h-auto rounded-lg"
-            />
+        <div className="max-w-4xl w-full relative">
+          {selectedImage.images ? (
+            <>
+              {selectedImage.images[currentImageIndex].endsWith('.mp4') ? (
+                <video
+                  src={selectedImage.images[currentImageIndex]}
+                  controls
+                  className="w-full h-auto rounded-lg"
+                />
+              ) : (
+                <img
+                  src={selectedImage.images[currentImageIndex]}
+                  alt={selectedImage.title}
+                  className="w-full h-auto rounded-lg"
+                />
+              )}
+              <button
+                onClick={handlePrevImage}
+                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
+              >
+                <ChevronLeft className="h-6 w-6" />
+              </button>
+              <button
+                onClick={handleNextImage}
+                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
+              >
+                <ChevronRight className="h-6 w-6" />
+              </button>
+            </>
           ) : (
             <img
-              src={`${process.env.PUBLIC_URL}${selectedImage.url}${selectedImage.id}.${selectedImage.images?.[0].split('.').pop()}`}
+              src={selectedImage.url}
               alt={selectedImage.title}
               className="w-full h-auto rounded-lg"
             />
           )}
-          <div className="mt-4 text-white">
+          <div className="mt-4 text-white text-center">
             <h3 className="text-xl font-semibold">{selectedImage.title}</h3>
-            <p className="text-gray-300">{selectedImage.description}</p>
+            {selectedImage.description && (
+              <p className="text-gray-300">{selectedImage.description}</p>
+            )}
             <p className="text-gray-400 mt-2">{selectedImage.category}</p>
           </div>
         </div>
       </div>
     );
   };
+
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
@@ -94,11 +177,10 @@ const Gallery = () => {
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all ${
-                selectedCategory === category
-                  ? 'bg-[#962326] text-white'
-                  : 'bg-white text-[#2B2A29] hover:bg-[#F2C849] hover:text-white'
-              }`}
+              className={`px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all ${selectedCategory === category
+                ? 'bg-[#962326] text-white'
+                : 'bg-white text-[#2B2A29] hover:bg-[#F2C849] hover:text-white'
+                }`}
             >
               {category}
             </button>
@@ -112,21 +194,11 @@ const Gallery = () => {
               className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-white shadow-lg hover:shadow-xl transition-shadow"
               onClick={() => setSelectedImage(image)}
             >
-              {image.category === 'Videos' ? (
-                <video
-                  src={`${process.env.PUBLIC_URL}${image.url}${image.id}.mp4`}
-                  className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                />
-              ) : (
-                <img
-                  src={`${process.env.PUBLIC_URL}${image.url}${image.id}.jpg`}
-                  alt={image.title}
-                  className="w-full h-full object-cover"
-                />
-              )}
+              <img
+                src={image.url}
+                alt={image.title}
+                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-lg font-semibold">{image.title}</h3>
