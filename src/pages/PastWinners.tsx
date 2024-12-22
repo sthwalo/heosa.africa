@@ -1,6 +1,5 @@
 //import React from 'react';
 import { Trophy } from 'lucide-react';
-import { AWARD_WINNERS_2023 } from '../constants/images';
 
 const FinalistsWinners = () => {
   const pastWinners = [
@@ -10,49 +9,49 @@ const FinalistsWinners = () => {
         {
           category: "HCP Author of the Year",
           winner: "Ms. Pamela Sedibe",
-          image: AWARD_WINNERS_2023.HCP_AUTHOR,
+          image: "/images/winners/23/HCP_Author of the year Ms. Pamela Sedibe.jpg",
           description: "Recognized for outstanding contributions to healthcare literature"
         },
         {
           category: "Medi Personality of the Year",
           winner: "Christopher Zungu",
-          image: AWARD_WINNERS_2023.MEDIA_PERSONALITY,
+          image: "/images/winners/23/Media Personality of the year Christopher Zungu.jpg",
           description: "Exceptional media representation in healthcare"
         },
         {
           category: "Media HCP Educator of the Year",
           winner: "Dr. Thandeka Ngcobo",
-          image: AWARD_WINNERS_2023.HCP_EDUCATOR,
+          image: "/images/winners/23/Media HCP Educator of the year Dr. Thandeka Ngcobo.jpg",
           description: "Innovative approaches to healthcare education"
         },
         {
           category: "Mentor of the Year",
           winner: "Thembeka Buleni",
-          image: AWARD_WINNERS_2023.MENTOR,
+          image: "/images/winners/23/Mentor of the year Thembeka Buleni.jpg",
           description: "Dedicated mentorship in healthcare professionals"
         },
         {
           category: "Most Compassionate HCP",
           winner: "Noxolo Singwane",
-          image: AWARD_WINNERS_2023.MOST_COMPASSIONATE,
+          image: "/images/winners/23/Most Compassionate HCP.jpg",
           description: "Exemplary compassion in patient care"
         },
         {
           category: "Most Voted HCP",
           winner: "Noxolo Singwane",
-          image: AWARD_WINNERS_2023.MOST_VOTED,
+          image: "/images/winners/23/Most Voted HCP Noxolo Singwane.jpg",
           description: "Recognized by peers for outstanding service"
         },
         {
           category: "Healthcare Leader",
           winner: "Ms. Tshidi Sithole-Mabila",
-          image: AWARD_WINNERS_2023.TSHIDI_SITHOLE,
+          image: "/images/winners/23/Healthcare Leader Ms. Tshidi Sithole-Mabila.jpg",
           description: "Outstanding leadership in healthcare administration"
         },
         {
           category: "Multi-Talented HCP of the Year",
           winner: "Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla",
-          image: AWARD_WINNERS_2023.MULTI_TALENTED,
+          image: "/images/winners/23/Multi-Talented HCP of the Year Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla.jpg",
           description: "Outstanding achievements across multiple healthcare disciplines"
         }
       ]

@@ -1,77 +1,77 @@
 //import React from 'react';
-import { AWARD_WINNERS_2024 } from '../constants/images';
+
 
 const AWARD_CATEGORIES = [
   {
     //name: "Healthcare Leader",
     winner: "Dr. Putswana Senoamadi",
-    image: AWARD_WINNERS_2024.HEALTHCARE_LEADER,
+    image: "/images/winners/24/Healthcare Leader.jpg",
     achievement: "Outstanding leadership in healthcare administration"
   },
   {
     //name: "Media Personality",
     winner: "Ms Moloko Mehlape",
-    image: AWARD_WINNERS_2024.MEDIA_PERSONALITY,
+    image: "/images/winners/24/Media Personality of the year.jpg",
     achievement: "Exceptional media representation in healthcare"
   },
   {
     //name: "Mentor",
     winner: "Dr Ashlin Rampul",
-    image: AWARD_WINNERS_2024.MENTOR,
+    image: "/images/winners/24/Mentor of the year.jpg",
     achievement: "Dedicated mentorship in healthcare professionals"
   },
   {
     //name: "Employee Wellness HCP",
     winner: "Mr Sifiso Mkhatshwa",
-    image: AWARD_WINNERS_2024.WELLNESS,
+    image: "/images/winners/24/Employee Wellness HCP of the year.jpg",
     achievement: "Exemplary compassion in patient care"
   },
   {
     //name: "Health Researcher",
     winner: "Dr Borna Nyaoke-Anoke",
-    image: AWARD_WINNERS_2024.RESEARCHER,
+    image: "/images/winners/24/Health Researcher of the year.jpg",
     achievement: "Outstanding contributions to healthcare research"
   },
   {
     //name: "Health Institution of the Year",
     winner: "Foundation for Alcohol Related Research",
-    image: AWARD_WINNERS_2024.HEALTHCARE_INSTITUTION,
+    image: "/images/winners/24/Health Institution of the year.jpg",
     achievement: "Recognized for outstanding contributions to healthcare literature"
   },
   {
     //name: "Multi-Talented HCP",
     winner: "Mr Sibusiso Mthembu(SbuNoah)",
-    image: AWARD_WINNERS_2024.MULTI_TALENTED,
+    image: "/images/winners/24/Multi-Talented HCP of the year.jpg",
     achievement: "Versatility and excellence in multiple healthcare domains"
   },
   {
     //name: "Rising Star HCP",
     winner: "Dr. Thozama Siyotula",
-    image: AWARD_WINNERS_2024.RISING_STAR_HCP,
+    image: "/images/winners/24/Rising Star HCP of the year.jpg",
     achievement: "Outstanding performance as a young healthcare professional"
   },
   {
     //name: "HCP Community Builder",
     winner: "Ms Bulelani Mkhize",
-    image: AWARD_WINNERS_2024.HCP_COMMUNITY_BUILDER,
+    image: "/images/winners/24/HCP_Community Builder of the year.jpg",
     achievement: "Excellent community service and health promotion projects"
   },
   {
     //name: "HCP Educator",
     winner: "Dr. Gugu Nhleko Tembe",
-    image: AWARD_WINNERS_2024.HCP_EDUCATOR,
+    image: "/images/winners/24/HCP_Educator of the year.jpg",
     achievement: "Innovative approaches to healthcare education"
   },
   {
     //name: "HCP Charity Driver",
     winner: "Mrs Tshidi Sithole-Mabila",
-    image: AWARD_WINNERS_2024.HCP_CHARITY_DRIVER,
+    image: "/images/winners/24/HCP_Charity Driver of the year.jpg",
     achievement: "Outstanding contributions to healthcare charity initiatives"
   },
   {
     //name: "Digital Health Innovator",
     winner: "Ms Clementine Phale",
-    image: AWARD_WINNERS_2024.DIGITAL_HEALTH_INNOVATOR,
+    image: "/images/winners/24/Digital Health Innovator of the year.jpg",
     achievement: "Innovative use of digital technology to improve healthcare"
   },
 ];

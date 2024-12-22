@@ -14,49 +14,49 @@ const About = () => {
     {
       name: "Dr Eric Khumalo",
       role: "Chairperson",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/Board-HEO.png",
+      image: "/images/Board/1.png",
       description: "Dr. Khumalo is a distinguished medical professional with over 15 years of experience in internal medicine. Currently serving as the Chairperson of the Board at House of Excellence Organisation, He combines exceptional clinical expertise with visionary leadership to advance the mission and values of the organization.",
       linkedinUrl: "https://www.linkedin.com/in/dr-eric-khumalo"
     },
     {
       name: "Ms Sylvia Maseko",
       role: "Secretary",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/4.png",
+      image: "/images/Board/4.png",
       description: "Sylvia Maseko is a dedicated professional serving as the Secretary for the African Health Excellence Organisation. With a strong background in healthcare administration and organizational management, Sylvia plays a crucial role in facilitating the smooth operations of the organization. Her passion for enhancing healthcare standards across Africa drives her commitment to supporting healthcare professionals and advocating for excellence in the industry. Sylvia’s exceptional communication skills and attention to detail ensure that the organization’s initiatives are effectively implemented, fostering collaboration and innovation within the healthcare community. Through her work, she aims to contribute significantly to the advancement of healthcare excellence across the continent.",
       linkedinUrl: "https://www.linkedin.com/in/sylviamaseko"
     },
     {
       name: "Dr Patrick Maduna",
       role: "Chief of Party",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/2-1.png",
+      image: "/images/Board/2.png",
       description: "Dr. Maduna is a highly respected retired family physician with over 30 years of dedicated service in family medicine. Currently, serves as the Chief of Party at House of Excellence Organisation. Leveraging a wealth of clinical experience and strategic insight, He plays a pivotal role in guiding the organisation towards its goals and enhancing community health outcomes.",
       linkedinUrl: "https://www.linkedin.com/in/patrick-maduna-64234312"
     },
     {
       name: "Rtd Judge President Francis Legodi",
       role: "Legal Advisor",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/3-1.png",
+      image: "/images/Board/3.png",
       description: "Judge Legodi our legal advisor brings invaluable expertise as a retired judge, offering unparalleled insight and judgment. With a distinguished career on the bench, they provide astute guidance and ensure adherence to legal standards across our operations. Their deep understanding of law and commitment to justice enrich our decision-making processes, reinforcing our dedication to integrity and compliance.",
       linkedinUrl: "https://www.linkedin.com/in/dr-eric-khumalo"
     },
     {
       name: "Ms Sezanele Zondi",
       role: "Media Liaison",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/5.png",
+      image: "/images/Board/5.png",
       description: "Ms Zondi is the Media Liaison at House of Excellence Organisation. With years of experience in communications and public relations, She expertly manages the organization's media presence, ensuring clear and effective communication of its mission and activities. Her role involves liaising with media outlets, crafting press releases, and coordinating public outreach efforts to enhance the organization's visibility and engagement with the community.",
       linkedinUrl: "https://www.linkedin.com/in/sezanele-zondi-mba-0728595a"
     },
     {
       name: "Mr Thobile Shongwe",
       role: "Treasurer",
-      image: "https://heosa.africa/wp/wp-content/uploads/2024/06/6.png",
+      image: "/images/Board/6.png",
       description: "Thobile Shongwe brings over eleven years of expertise in risk management, auditing, and training. As a pioneering Chief Risk Officer in the public sector, Thobile led strategic risk management initiatives and chaired provincial forums. With a background in senior management at the Department of Agriculture, Thobile drove programmatic success and implemented effective risk mitigation strategies, including fraud prevention. Passionate about innovation and strategic planning, Thobile excels in optimizing systems to achieve organizational goals.",
       linkedinUrl: "https://www.linkedin.com/in/thobile-shongwe-82681b64"
     },
     {
       name: "Mr Valentine Zoza",
       role: "Brand Strategist",
-      image: "https://heosa.africa/wp-content/uploads/2024/07/Board-HEO.png",
+      image: "/images/Board/Zoza.png",
       description: "Valentine Zoza isn’t just a name, it’s a force for positive change across Africa and its diaspora. This award-winning Afrocentric Content Creator and Brand Strategist wears many hats – Social Entrepreneur, Linkedin Influencer, Change Maker, Women Empowerment Advocate and Pan-Africanist at heart. He is the Founder of Women Power Africa, Remarkable Africans and Zoza Communications. His unwavering dedication to empowering Africans and showcasing the continent’s potential has earned him global recognition, including a spot on MIPAD and the UN’s “Top 100 (Under 40) Most Influential People of African Descent.”",
       linkedinUrl: "https://www.linkedin.com/in/valentinezoza"
     }

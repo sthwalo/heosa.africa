@@ -8,7 +8,7 @@ const EventsSlider = () => {
       id: 1,
       name: "African Health Excellence Organisation Summit 2024",
       date: "2024-11-29",
-      image: "https://heosa.africa/wp-content/uploads/2024/10/SUMMIT-POSTER-scaled.jpg",
+      image: "/images/Summit.jpeg",
       description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
       location: "Johannesburg, South Africa",
       time: "09:00 - 17:00",
@@ -18,7 +18,7 @@ const EventsSlider = () => {
       id: 2,
       name: "African Health Excellence Awards 2024",
       date: "2024-11-30",
-      image: "https://heosa.africa/wp-content/uploads/2024/10/Awards-Poster.jpg",
+      image: "/images/Gala.jpeg", 
       description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
       location: "Johannesburg, South Africa",
       time: "18:00 - 22:00",
@@ -30,7 +30,7 @@ const EventsSlider = () => {
     <div className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#2B2A29]">Upcoming Events</h2>
+          <h2 className="text-3xl font-bold text-[#2B2A29]">Past and Upcoming Events</h2>
           <p className="mt-4 text-lg text-gray-600">Join us at our upcoming healthcare events</p>
         </div>
 

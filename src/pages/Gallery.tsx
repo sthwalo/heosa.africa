@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { X } from 'lucide-react';
-import { GALLERY_IMAGES } from '../constants/galleryImages';
 
 interface GalleryImage {
   id: number;
@@ -8,7 +7,32 @@ interface GalleryImage {
   title: string;
   category: string;
   description?: string;
+  images?: string[];
 }
+
+const GALLERY_IMAGES: Omit<GalleryImage, 'images'>[] = [
+  {
+    id: 1,
+    url: '/images/events/',
+    title: 'Gala Dinner',
+    category: 'Events',
+    description: 'Celebrating excellence in healthcare',
+  },
+  {
+    id: 2,
+    url: '/images/awards/',
+    title: 'Exhibition',
+    category: 'Awards',
+    description: 'Celebrating excellence in healthcare',
+  },
+  {
+    id: 3,
+    url: '/videos/',
+    title: 'Award Ceremony',
+    category: 'Videos',
+    description: 'Celebrating excellence in healthcare',
+  },
+];
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
@@ -32,11 +56,19 @@ const Gallery = () => {
           <X className="h-8 w-8" />
         </button>
         <div className="max-w-4xl w-full">
-          <img
-            src={selectedImage.url}
-            alt={selectedImage.title}
-            className="w-full h-auto rounded-lg"
-          />
+          {selectedImage.category === 'Videos' ? (
+            <video
+              src={`${process.env.PUBLIC_URL}${selectedImage.url}${selectedImage.id}.${selectedImage.images?.[0].split('.').pop()}`}
+              controls
+              className="w-full h-auto rounded-lg"
+            />
+          ) : (
+            <img
+              src={`${process.env.PUBLIC_URL}${selectedImage.url}${selectedImage.id}.${selectedImage.images?.[0].split('.').pop()}`}
+              alt={selectedImage.title}
+              className="w-full h-auto rounded-lg"
+            />
+          )}
           <div className="mt-4 text-white">
             <h3 className="text-xl font-semibold">{selectedImage.title}</h3>
             <p className="text-gray-300">{selectedImage.description}</p>
@@ -57,7 +89,6 @@ const Gallery = () => {
           </p>
         </div>
 
-        {/* Category Filters */}
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           {categories.map((category) => (
             <button
@@ -74,7 +105,6 @@ const Gallery = () => {
           ))}
         </div>
 
-        {/* Gallery Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((image) => (
             <div
@@ -82,11 +112,21 @@ const Gallery = () => {
               className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-white shadow-lg hover:shadow-xl transition-shadow"
               onClick={() => setSelectedImage(image)}
             >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+              {image.category === 'Videos' ? (
+                <video
+                  src={`${process.env.PUBLIC_URL}${image.url}${image.id}.mp4`}
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                />
+              ) : (
+                <img
+                  src={`${process.env.PUBLIC_URL}${image.url}${image.id}.jpg`}
+                  alt={image.title}
+                  className="w-full h-full object-cover"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-4 left-4 text-white">
                   <h3 className="text-lg font-semibold">{image.title}</h3>

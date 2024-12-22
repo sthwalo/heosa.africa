@@ -1,5 +1,4 @@
 import { Calendar, MapPin, CreditCard } from 'lucide-react';
-import { EVENT_IMAGES } from '../constants/images';
 
 const MedicalEventsRegister = () => {
   const events = [
@@ -11,7 +10,7 @@ const MedicalEventsRegister = () => {
       price: "R2,500",
       earlyBird: "R1,999",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit",
-      image: EVENT_IMAGES.SUMMIT_POSTER
+      image: "/images/Summit.jpeg"
     },
     {
       id: 2,
@@ -21,7 +20,7 @@ const MedicalEventsRegister = () => {
       price: "R1,000",
       earlyBird: "R899",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards",
-      image: EVENT_IMAGES.AWARDS_POSTER
+      image: "/images/Gala.jpeg"
     },
   ];
 
