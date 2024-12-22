@@ -72,7 +72,7 @@ const Navbar = () => {
       submenu: [
         { title: 'Event Photos', path: '/gallery#events' },
         { title: 'Award Ceremonies', path: '/gallery#ceremonies' },
-        { title: 'Videos', path: '/gallery#videos' }
+        { title: 'Videos', path: '#videos' }
       ]
     },
     {
