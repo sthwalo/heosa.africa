@@ -26,7 +26,7 @@ const Finalists = () => {
     { id: 'cb2', name: 'Daniella Carvalheiro', category: 'HCP Community Builder of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/43.jpg', voteCode: 'CB02' },
     { id: 'cb3', name: 'Ms Maria Britz', category: 'HCP Community Builder of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/44.jpg', voteCode: 'CB03' },
     { id: 'cb4', name: 'Ms Bulelani Mkhize', category: 'HCP Community Builder of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/45.jpg', voteCode: 'CB04' },
-    { id: 'ed1', name: 'Dr Precious Serero', category: 'HCP Educator of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/38-scaled.jpg', voteCode: 'ED01' },
+    { id: 'ed1', name: 'Dr Precious Serero', category: 'HCP Educator of the Year', image: '/images/finalists/Precious.jpeg', voteCode: 'ED01' },
     { id: 'ed2', name: 'Dr Bonolo Mashishi', category: 'HCP Educator of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/39.jpg', voteCode: 'ED02' },
     { id: 'ed3', name: 'Mr Lindokuhle Mokoena', category: 'HCP Educator of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/40.jpg', voteCode: 'ED03' },
     { id: 'ed4', name: 'Dr Gugu Nhleko Tembe', category: 'HCP Educator of the Year', image: 'https://heosa.africa/wp-content/uploads/2024/10/41.jpg', voteCode: 'ED04' },
