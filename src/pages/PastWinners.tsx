@@ -9,49 +9,49 @@ const FinalistsWinners = () => {
         {
           category: "HCP Author of the Year",
           winner: "Ms. Pamela Sedibe",
-          image: "/images/winners/23/HCP_Author of the year Ms. Pamela Sedibe.jpg",
+          image: "/images/winners/23/Pamela.jpg",
           description: "Recognized for outstanding contributions to healthcare literature"
         },
         {
           category: "Medi Personality of the Year",
           winner: "Christopher Zungu",
-          image: "/images/winners/23/Media Personality of the year Christopher Zungu.jpg",
+          image: "/images/winners/23/Zungu.jpg",
           description: "Exceptional media representation in healthcare"
         },
         {
           category: "Media HCP Educator of the Year",
           winner: "Dr. Thandeka Ngcobo",
-          image: "/images/winners/23/Media HCP Educator of the year Dr. Thandeka Ngcobo.jpg",
+          image: "/images/winners/23/Ngcobo.jpg",
           description: "Innovative approaches to healthcare education"
         },
         {
           category: "Mentor of the Year",
           winner: "Thembeka Buleni",
-          image: "/images/winners/23/Mentor of the year Thembeka Buleni.jpg",
+          image: "/images/winners/23/Buleni.jpg",
           description: "Dedicated mentorship in healthcare professionals"
         },
         {
           category: "Most Compassionate HCP",
           winner: "Noxolo Singwane",
-          image: "/images/winners/23/Most Compassionate HCP.jpg",
+          image: "/images/winners/23/Singwane.jpg",
           description: "Exemplary compassion in patient care"
         },
         {
           category: "Most Voted HCP",
           winner: "Noxolo Singwane",
-          image: "/images/winners/23/Most Voted HCP Noxolo Singwane.jpg",
+          image: "/images/winners/23/Singwane.jpg",
           description: "Recognized by peers for outstanding service"
         },
         {
           category: "Healthcare Leader",
           winner: "Ms. Tshidi Sithole-Mabila",
-          image: "/images/winners/23/Healthcare Leader Ms. Tshidi Sithole-Mabila.jpg",
+          image: "/images/winners/23/Ms-Tshidi-Sithole-Mabila.jpg",
           description: "Outstanding leadership in healthcare administration"
         },
         {
           category: "Multi-Talented HCP of the Year",
           winner: "Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla",
-          image: "/images/winners/23/Multi-Talented HCP of the Year Dr. Khanyisile Mashele & Dr. Ziyanda Vundhla.jpg",
+          image: "/images/winners/23/Dr-Khanyisile-Dr-Ziyanda.jpg",
           description: "Outstanding achievements across multiple healthcare disciplines"
         }
       ]
