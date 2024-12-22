@@ -1,5 +1,5 @@
 interface GalleryImage {
-  id: number;
+  id: string;
   url: string;
   title: string;
   category: string;
@@ -9,56 +9,168 @@ interface GalleryImage {
 export const GALLERY_IMAGES: GalleryImage[] = [
   // Events
   {
-    id: 1,
-    url: "https://heosa.africa/wp-content/uploads/2024/06/HCP-Author-of-the-year-Ms-Pamela-Sedibe.jpg",
-    title: "HCP Author of the Year Award",
+    id: "E01",
+    url: "/gallery/bignight/File 1.png",
+    title: "Gala Dinner",
     category: "Events",
-    description: "Ms. Pamela Sedibe receiving her award"
+    description: "Annual gala dinner"
+  },
+
+  {
+    id: "E02",
+    url: "/gallery/bignight/File 2.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
   },
   {
-    id: 2,
-    url: "https://heosa.africa/wp-content/uploads/2024/06/Medi-Personality-of-the-year-Christopher-Zungu.jpg",
-    title: "Media Personality Award Ceremony",
+    id: "E03",
+    url: "/gallery/bignight/File 3.png",
+    title: "Gala Dinner",
     category: "Events",
-    description: "Christopher Zungu's award presentation"
+    description: "Annual gala dinner"
   },
   {
-    id: 3,
-    url: "https://heosa.africa/wp-content/uploads/2024/06/Media-HCP-Educator-of-the-year-Dr-Thandeka-Ngcobo.jpg",
-    title: "HCP Educator Award",
+    id: "E04",
+    url: "/gallery/bignight/File 4.png",
+    title: "Gala Dinner",
     category: "Events",
-    description: "Dr. Thandeka Ngcobo's recognition ceremony"
+    description: "Annual gala dinner"
   },
+  {
+    id: "E05",
+    url: "/gallery/bignight/File 5.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E06",
+    url: "/gallery/bignight/File 6.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E07",
+    url: "/gallery/bignight/File 7.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E08",
+    url: "/gallery/bignight/File 8.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E09",
+    url: "/gallery/bignight/File 9.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E10",
+    url: "/gallery/bignight/File 10.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E11",
+    url: "/gallery/bignight/File 11.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E12",
+    url: "/gallery/bignight/File 12.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E13",
+    url: "/gallery/bignight/File 13.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E14",
+    url: "/gallery/bignight/File 14.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E15",
+    url: "/gallery/bignight/File 15.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E16",
+    url: "/gallery/bignight/File 16.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E17",
+    url: "/gallery/bignight/File 17.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E18",
+    url: "/gallery/bignight/File 18.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E19",
+    url: "/gallery/bignight/File 19.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E20",
+    url: "/gallery/bignight/File 20.png",
+    title: "Gala Dinner", 
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E21",
+    url: "/gallery/bignight/File 21.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+  {
+    id: "E22",
+    url: "/gallery/bignight/File 22.png",
+    title: "Gala Dinner",
+    category: "Events",
+    description: "Annual gala dinner"
+  },
+
+
 
   // Conferences
-  {
-    id: 4,
-    url: "https://heosa.africa/wp-content/uploads/2024/10/SUMMIT-POSTER-scaled.jpg",
-    title: "Healthcare Summit 2024",
-    category: "Conferences",
-    description: "Annual healthcare leadership summit"
-  },
-  {
-    id: 5,
-    url: "https://heosa.africa/wp-content/uploads/2024/10/Awards-Poster.jpg",
-    title: "Awards Conference",
-    category: "Conferences",
-    description: "Healthcare excellence awards conference"
-  },
+
 
   // Exhibitions
-  {
-    id: 6,
-    url: "https://heosa.africa/wp-content/uploads/2024/06/Most-Compasionate-Noxolo-Singwane.jpg",
-    title: "Healthcare Innovation Exhibition",
-    category: "Exhibitions",
-    description: "Showcasing healthcare innovations"
-  },
-  {
-    id: 7,
-    url: "https://heosa.africa/wp-content/uploads/2024/06/Most-Voted-HCP-Noxolo-Singwane.jpg",
-    title: "Medical Technology Showcase",
-    category: "Exhibitions",
-    description: "Latest medical technology exhibition"
-  }
+  
 ];
+
+ 

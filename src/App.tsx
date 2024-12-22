@@ -15,7 +15,7 @@ import Finalists from './pages/Finalists';
 import PastWinners from './pages/PastWinners';
 import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
-import Winners from './pages/AwardsWinners';
+import Winners from './pages/Winners';
 import TermsAndConditions from './pages/T&Cs';
 
 function App() {

@@ -25,7 +25,7 @@ const Navbar = () => {
       submenu: [
         { title: 'Overview', path: '/awards/overview' },
         { title: 'Award Categories', path: '/awards/categories' },
-        { title: 'Past Winners', path: '/awards/winners' },
+        { title: 'Award Winners', path: '/winners' },
         { title: 'Nominate', path: '/awards/nominate' }
       ]
     },
@@ -62,7 +62,7 @@ const Navbar = () => {
       path: '/winners',
       submenu: [
         { title: 'View Finalists', path: '/finalists' },
-        { title: 'The Winners', path: '/awards/winners' },
+        { title: 'The Winners', path: '/winners' },
         { title: 'Past Winners', path: '/finalists/past-winners' }
       ]
     },
