@@ -116,7 +116,7 @@ const Footer = () => {
         <div className="mt-12 pt-8 border-t border-gray-700">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              {currentYear} African Health Excellence Organisation. All rights reserved.
+              {currentYear} Global Hope Consortium. All rights reserved.
             </p>
             <div className="flex gap-4 mt-4 md:mt-0">
               <Link to="/privacy" className="text-gray-400 hover:text-[#F2C849] text-sm">
