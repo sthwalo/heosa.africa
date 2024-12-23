@@ -21,30 +21,45 @@ const MedicalEvents = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Medical Events</h1>
-          <p className="text-lg text-gray-600">
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/events/File 12.png"
+            alt="Partners background"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+            Medical Events
+          </h1>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
             Join us at our upcoming healthcare events and conferences
           </p>
         </div>
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+      {/* Events Section */}
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
           {events.map((event, index) => (
             <div
               key={index}
-              className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+              className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
             >
-              <div className="relative h-48">
+              <div className="relative h-48 md:h-64">
                 <img
                   src={event.image}
                   alt={event.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="p-6">
-                <h2 className="text-2xl font-bold text-[#962326] mb-4">{event.title}</h2>
+              <div className="p-6 md:p-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-[#962326] mb-4">
+                  {event.title}
+                </h2>
                 <div className="flex items-center gap-2 text-gray-600 mb-4">
                   <Users className="h-4 w-4" />
                   <span>{event.location}</span>

@@ -84,7 +84,7 @@ const Partners = () => {
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://heosa.africa/wp-content/uploads/2024/07/9.png"
+            src="/images/events/File 12.png"
             alt="Partners background"
             className="w-full h-full object-cover opacity-20"
           />
