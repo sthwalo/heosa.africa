@@ -1,4 +1,4 @@
-import React from 'react';
+//import React from 'react';
 import { Phone, MessageCircle } from 'lucide-react';
 
 const Contact = () => {

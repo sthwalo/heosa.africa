@@ -7,7 +7,7 @@ const EventsSlider = () => {
     {
       id: 1,
       name: "African Health Excellence Organisation Summit 2024",
-      date: "2024-11-29",
+      date: "2025-11-21",
       image: "/images/Summit.jpeg",
       description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
       location: "Johannesburg, South Africa",
@@ -17,7 +17,7 @@ const EventsSlider = () => {
     {
       id: 2,
       name: "African Health Excellence Awards 2024",
-      date: "2024-11-30",
+      date: "2025-11-22",
       image: "/images/Gala.jpeg", 
       description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
       location: "Johannesburg, South Africa",

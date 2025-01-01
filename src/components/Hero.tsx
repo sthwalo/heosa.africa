@@ -6,7 +6,7 @@ const Hero = () => {
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
         <img
-          src="/images/events/File 12.png"
+          src="/Users/sthwalonyoni/AHEOAS/public/images/events/File 12.png"
           alt="Hero background"
           className="w-full h-full object-cover"
         />
