@@ -108,20 +108,56 @@ A modern, responsive website for the African Health Excellence Organisation buil
 ## Project Structure
 
 ```
-src/
-├── components/         # Reusable UI components
-│   ├── Hero.tsx
-│   ├── Navbar.tsx
-│   ├── Footer.tsx
-│   ├── EventsSlider.tsx
-│   └── ...
-├── pages/             # Page components
-│   ├── Home.tsx
-│   ├── Awards/
-│   ├── Partners.tsx
-│   ├── MedicalEvents/
-│   └── ...
-└── App.tsx            # Main application component
+/heosa.africa-main
+│
+├── .gitignore                  # Specifies files and directories that should be ignored by Git
+├── README.md                   # Documentation file for the project
+├── cspell.json                 # Configuration for spell checking in code
+├── eslint.config.js            # Configuration for ESLint, a tool for identifying and fixing problems in JavaScript code
+├── index.html                  # Main HTML file for the project
+├── package-lock.json           # Automatically generated file that locks the versions of dependencies
+├── package.json                # Contains metadata about the project and lists dependencies
+├── postcss.config.js           # Configuration for PostCSS, a tool for transforming CSS with JavaScript
+├── public                      # Directory for public assets (usually static files)
+│   └── logo.png                # Logo image for the project
+│
+├── src                         # Source code directory
+│   ├── App.tsx                 # Main application component
+│   ├── components              # Reusable UI components
+│   │   ├── Contact.tsx
+│   │   ├── EventCountdown.tsx
+│   │   ├── EventsSlider.tsx
+│   │   ├── Features.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Hero.tsx
+│   │   └── Navbar.tsx
+│   ├── index.css               # Main CSS file for styling
+│   ├── main.tsx                # Entry point for the application
+│   ├── pages                   # Page components
+│   │   ├── About.tsx
+│   │   ├── Awards.tsx
+│   │   ├── AwardsCategories.tsx
+│   │   ├── AwardsNominate.tsx
+│   │   ├── AwardsWinners.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Finalists.tsx
+│   │   ├── Gallery.tsx
+│   │   ├── Home.tsx
+│   │   ├── MedicalEvents.tsx
+│   │   ├── MedicalEventsRegister.tsx
+│   │   ├── Overview.tsx
+│   │   ├── Partners.tsx
+│   │   ├── PastWinners.tsx
+│   │   ├── T&Cs.tsx
+│   │   └── Winners.tsx
+│   └── vite-env.d.ts           # Type definitions for Vite
+│
+├── tailwind.config.js          # Configuration for Tailwind CSS, a utility-first CSS framework
+├── tsconfig.app.json           # TypeScript configuration specific to the application
+├── tsconfig.json               # General TypeScript configuration
+├── tsconfig.node.json          # TypeScript configuration for Node.js
+├── vite.config.ts              # Configuration for Vite, a build tool that serves and bundles your application
+└── webpack.config.js           # Configuration for Webpack, a module bundler
 ```
 
 ## Getting Started
@@ -194,7 +230,7 @@ npm run build
 ## Contact
 
 For any queries or support, please contact:
-- Email: info@aheo.org
+- Email: info@aheo.africa
 - Phone: +27 12 345 6789
 
 ## License
