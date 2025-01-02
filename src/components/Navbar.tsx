@@ -44,9 +44,9 @@ const Navbar = () => {
       path: '/medical-events',
       submenu: [
         { title: 'Upcoming Events', path: '/medical-events' },
-        { title: 'Register for Events', path: '/medical-events/register' },
-        { title: 'Past Events', path: '/medical-events#past' },
-        { title: 'CPD Information', path: '/medical-events#cpd' }
+        //{ title: 'Register for Events', path: '/medical-events/register' },
+       // { title: 'Past Events', path: '/medical-events#past' },
+       // { title: 'CPD Information', path: '/medical-events#cpd' }
       ]
     }
   ];
@@ -70,9 +70,9 @@ const Navbar = () => {
       title: 'Gallery',
       path: '/gallery',
       submenu: [
-        { title: 'Event Photos', path: '/gallery#events' },
-        { title: 'Award Ceremonies', path: '/gallery#ceremonies' },
-        { title: 'Videos', path: '#videos' }
+        { title: 'Events', path: '/gallery#events' },
+        { title: 'Awards', path: '/gallery#awards' },
+        { title: 'Videos', path: '/gallery#videos' }
       ]
     },
     {

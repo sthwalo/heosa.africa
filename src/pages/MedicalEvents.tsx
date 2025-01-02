@@ -6,7 +6,9 @@ const MedicalEvents = () => {
       title: 'African Health Excellence Summit',
       date: '2025-11-21',
       location: 'TBC',
-      image: '/public/images/summit/27.png',
+      price: "R2,500",
+      earlyBird: "R1,999",
+      image: '/images/summit/27.png',
       description: 'Join industry leaders for insights on healthcare management and innovation.',
       registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit'
     },
@@ -14,7 +16,9 @@ const MedicalEvents = () => {
       title: 'African Health Excellence Awards',
       date: '2025-11-22',
       location: 'TBC',
-      image: 'public/images/events/1.png',
+      price: "R1,000",
+      earlyBird: "R899",
+      image: '/images/events/1.png',
       description: 'Explore the latest advances in medical technology and digital health solutions.',
       registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards'
     }
@@ -65,6 +69,14 @@ const MedicalEvents = () => {
                   <span>{event.location}</span>
                 </div>
                 <p className="text-gray-600 mb-6">{event.description}</p>
+                <div className="flex items-center gap-2">
+                  <span className="text-gray-600">
+                    Price: {event.price}
+                  </span>
+                  <span className="text-gray-600">
+                    Early Bird (before 30th September): {event.earlyBird}
+                  </span>
+                </div>
                 <a
                   href={event.registerLink}
                   target="_blank"
