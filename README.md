@@ -230,7 +230,7 @@ npm run build
 ## Contact
 
 For any queries or support, please contact:
-- Email: info@aheo.africa
+- Email: info@heosa.africa
 - Phone: +27 12 345 6789
 
 ## License
