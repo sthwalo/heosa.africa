@@ -4,17 +4,17 @@ const MedicalEvents = () => {
   const events = [
     {
       title: 'African Health Excellence Summit',
-      date: '2024-11-29',
-      location: 'Johannesburg, South Africa',
-      image: 'https://heosa.africa/wp-content/uploads/2024/10/SUMMIT-POSTER-scaled.jpg',
+      date: '2025-11-21',
+      location: 'TBC',
+      image: '/public/images/summit/27.png',
       description: 'Join industry leaders for insights on healthcare management and innovation.',
       registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit'
     },
     {
       title: 'African Health Excellence Awards',
-      date: '2024-11-29',
-      location: 'Johannesburg, South Africa',
-      image: 'https://heosa.africa/wp-content/uploads/2024/10/Awards-Poster.jpg',
+      date: '2025-11-22',
+      location: 'TBC',
+      image: 'public/images/events/1.png',
       description: 'Explore the latest advances in medical technology and digital health solutions.',
       registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards'
     }

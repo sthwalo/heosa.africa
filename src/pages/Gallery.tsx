@@ -13,25 +13,53 @@ interface GalleryImage {
 const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 1,
-    url: 'images/summit/388.png',
+    url: 'public/images/summit/27.png',
     images: [
-      '/images/summit/306.png',
-      '/images/summit/307.png',
-      '/images/summit/310.png',
-      '/images/summit/314.png',
-      '/images/summit/325.png',
-      '/images/summit/339.png',
-      '/images/summit/340.png',
-      '/images/summit/411.png',
-
+      'public/images/summit/8.png',
+      'public/images/summit/9.png',
+      'public/images/summit/10.png',
+      'public/images/summit/11.png',
+      'public/images/summit/12.png',
+      'public/images/summit/13.png',
+      'public/images/summit/15.png',
+      'public/images/summit/18.png',
+      'public/images/summit/19.png',
+      'public/images/summit/20.png',
+      'public/images/summit/21.png',
+      'public/images/summit/23.png',
+      'public/images/summit/25.png',
+      'public/images/summit/26.png',
+      'public/images/summit/27.png',
+      'public/images/summit/28.png',
+      'public/images/summit/30.png',
+      'public/images/summit/32.png',
+      'public/images/summit/33.png',
+      'public/images/summit/34.png',
+      'public/images/summit/35.png',
     ],
     title: 'Summit & Exhibition',
     category: 'Events',
     description: 'Celebrating excellence in healthcare',
   },
   {
+    id: 3,
+    url: 'images/events/1.png',
+    images: [
+      '/images/events/1.png',
+      '/images/events/2.png',
+      '/images/events/3.png',
+      '/images/events/4.png',
+      '/images/events/5.png',
+      '/images/events/6.png',
+      '/images/events/7.png',
+    ],
+    title: 'Award Gala',
+    category: 'Awards',
+    description: 'Honoring the achievements of healthcare professionals.',
+  },
+  {
     id: 2,
-    url: 'images/events/File 10.png',
+    url: 'images/events/2.png',
     images: [
       '/videos/Nominees1.mp4',
       '/videos/Nominees2.mp4',
@@ -46,28 +74,8 @@ const GALLERY_IMAGES: GalleryImage[] = [
       '/videos/Nominees11.mp4',
     ],
     title: 'Ceremony',
-    category: 'Awards',
+    category: 'Videos',
     description: 'Showcasing the latest innovations in healthcare.',
-  },
-  {
-    id: 3,
-    url: 'images/events/File 28.png',
-    images: [
-      '/images/events/File 10.png',
-      '/images/events/File 11.png',
-      '/images/events/File 12.png',
-      '/images/events/File 17.png',
-      '/images/events/File 19.png',
-      '/images/events/File 20.png',
-      '/images/events/File 21.png',
-      '/images/events/File 23.png',
-      '/images/events/File 27.png',
-      '/images/events/File 28.png',
-
-    ],
-    title: 'Award Gala',
-    category: 'Awards',
-    description: 'Honoring the achievements of healthcare professionals.',
   },
 ];
 
@@ -83,7 +91,6 @@ const Gallery = () => {
 
   const ImageModal = () => {
     if (!selectedImage) return null;
-
     // eslint-disable-next-line react-hooks/rules-of-hooks
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     if (!selectedImage) return null;
@@ -121,7 +128,7 @@ const Gallery = () => {
                 <img
                   src={selectedImage.images[currentImageIndex]}
                   alt={selectedImage.title}
-                  className="w-full h-auto rounded-lg"
+                  className="w-full h-auto rounded-lg object-cover"
                 />
               )}
               <button
@@ -141,7 +148,7 @@ const Gallery = () => {
             <img
               src={selectedImage.url}
               alt={selectedImage.title}
-              className="w-full h-auto rounded-lg"
+              className="w-full h-auto rounded-lg object-cover"
             />
           )}
           <div className="mt-4 text-white text-center">
@@ -192,7 +199,7 @@ const Gallery = () => {
               <img
                 src={image.url}
                 alt={image.title}
-                className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
                 <div className="absolute bottom-4 left-4 text-white">

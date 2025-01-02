@@ -76,7 +76,7 @@ const Footer = () => {
               <li className="flex items-center gap-2">
                 <Mail className="h-5 w-5 text-[#F2C849]" />
                 <a href="mailto:info@aheo.org" className="text-gray-300 hover:text-[#F2C849]">
-                  info@aheo.org
+                  info@heosa.africa
                 </a>
               </li>
               <li className="flex items-start gap-2">

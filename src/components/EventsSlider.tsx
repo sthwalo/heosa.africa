@@ -6,7 +6,7 @@ const EventsSlider = () => {
   const events = [
     {
       id: 1,
-      name: "African Health Excellence Organisation Summit 2024",
+      name: "African Health Excellence Organisation Summit 2025",
       date: "2025-11-21",
       image: "/images/Summit.jpeg",
       description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
@@ -16,7 +16,7 @@ const EventsSlider = () => {
     }, 
     {
       id: 2,
-      name: "African Health Excellence Awards 2024",
+      name: "African Health Excellence Awards 2025",
       date: "2025-11-22",
       image: "/images/Gala.jpeg", 
       description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
@@ -30,7 +30,7 @@ const EventsSlider = () => {
     <div className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold text-[#2B2A29]">Past and Upcoming Events</h2>
+          <h2 className="text-3xl font-bold text-[#2B2A29]">Upcoming Events</h2>
           <p className="mt-4 text-lg text-gray-600">Join us at our upcoming healthcare events</p>
         </div>
 

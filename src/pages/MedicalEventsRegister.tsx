@@ -5,22 +5,22 @@ const MedicalEventsRegister = () => {
     {
       id: 1,
       name: "African Health Excellence Summit",
-      date: "November 29, 2024",
-      location: "Johannesburg, South Africa",
+      date: "November 21, 2025",
+      location: "TBC",
       price: "R2,500",
       earlyBird: "R1,999",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit",
-      image: "/images/Summit.jpeg"
+      image: "public/images/summit/27.png"
     },
     {
       id: 2,
       name: "African Health Excellence Awards & Gala Dinner",
-      date: "November 30, 2024",
-      location: "Johannesburg, South Africa",
+      date: "November 22, 2025",
+      location: "TBC",
       price: "R1,000",
       earlyBird: "R899",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards",
-      image: "/images/Gala.jpeg"
+      image: "public/images/events/1.png"
     },
   ];
 

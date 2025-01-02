@@ -3,8 +3,8 @@ import { Award, Trophy, Calendar, Users, ArrowRight } from 'lucide-react';
 
 const Awards = () => {
   const upcomingEvent = {
-    date: "November 30, 2024",
-    venue: "Sandton Convention Centre, Johannesburg",
+    date: "November 22, 2025",
+    venue: "TBC",
     time: "18:00 - 22:00"
   };
 

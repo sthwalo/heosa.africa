@@ -20,7 +20,7 @@ const About = () => {
     },
     {
       name: "Ms Sylvia Maseko",
-      role: "Secretary",
+      role: "Chief Executive Officer",
       image: "/images/Board/4.png",
       description: "Sylvia Maseko is a dedicated professional serving as the Secretary for the African Health Excellence Organisation. With a strong background in healthcare administration and organizational management, Sylvia plays a crucial role in facilitating the smooth operations of the organization. Her passion for enhancing healthcare standards across Africa drives her commitment to supporting healthcare professionals and advocating for excellence in the industry. Sylvia’s exceptional communication skills and attention to detail ensure that the organization’s initiatives are effectively implemented, fostering collaboration and innovation within the healthcare community. Through her work, she aims to contribute significantly to the advancement of healthcare excellence across the continent.",
       linkedinUrl: "https://www.linkedin.com/in/sylviamaseko"
