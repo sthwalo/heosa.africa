@@ -83,7 +83,7 @@ const AwardsWinners = () => {
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/images/awards/winners-hero.jpg"
+            src="/images/events/1.png"
             alt="Winners background"
             className="w-full h-full object-cover opacity-20"
           />
