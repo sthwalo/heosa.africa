@@ -178,6 +178,10 @@ const AwardsNominate = () => {
                 >
                   Submit Nomination
                 </button>
+
+                <input type="hidden" name="_to" value="nominations@heosa.africa" />
+                <input type="hidden" name="_subject" value="New Nomination" />
+                <input type="hidden" name="_success" value="/awards-nominate-success" />
               </div>
             </form>
           </div>

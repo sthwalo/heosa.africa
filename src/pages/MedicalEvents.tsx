@@ -30,7 +30,7 @@ const MedicalEvents = () => {
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/images/events/File 12.png"
+            src="/images/events/2.png"
             alt="Partners background"
             className="w-full h-full object-cover opacity-20"
           />

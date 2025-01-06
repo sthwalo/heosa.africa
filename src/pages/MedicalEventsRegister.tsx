@@ -10,7 +10,7 @@ const MedicalEventsRegister = () => {
       price: "R2,500",
       earlyBird: "R1,999",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit",
-      image: 'public/images/summit/27.png'
+      image: '/images/summit/27.png'
     },
     {
       id: 2,
@@ -20,7 +20,7 @@ const MedicalEventsRegister = () => {
       price: "R1,000",
       earlyBird: "R899",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards",
-      image: 'public/images/events/1.png'
+      image: '/images/events/1.png'
     },
   ];
 

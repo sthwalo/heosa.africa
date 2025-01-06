@@ -10,7 +10,7 @@ const EventsSlider = () => {
       date: "2025-11-21",
       image: "/images/summit/27.png",
       description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
-      location: "Johannesburg, South Africa",
+      location: "Durban, South Africa",
       time: "09:00 - 17:00",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit"
     }, 
@@ -20,7 +20,7 @@ const EventsSlider = () => {
       date: "2025-11-22",
       image: "/images/events/1.png", 
       description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
-      location: "Johannesburg, South Africa",
+      location: "Durban, South Africa",
       time: "18:00 - 22:00",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards"
     }

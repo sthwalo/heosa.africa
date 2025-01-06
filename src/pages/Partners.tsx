@@ -1,8 +1,23 @@
 import { Building2, Users, Handshake, ArrowRight } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 
-const Partners = () => {
-  const partnerCategories = [
+interface Partner {
+  name: string;
+  logo: string;
+  description: string;
+  webLink?: string;
+  returnLink?: boolean;
+  className?: string;
+}
+
+interface PartnerCategory {
+  title: string;
+  icon: JSX.Element;
+  partners: Partner[];
+}
+
+function Partners() {
+  const partnerCategories: PartnerCategory[] = [
     {
       title: 'Platinum Sponsor',
       icon: <Building2 className="h-12 w-12 text-[#962326]" />,
@@ -10,8 +25,10 @@ const Partners = () => {
         {
           name: 'Momentum Health Solutions',
           logo: '/images/Sponsors/Momentum.webp',
-          description: 'Leading research and development in healthcare solutions',
-          webLink: 'https://www.momentumhealthsolutions.co.za/'
+          description: 'Momentum is a leading FSP offering financial advice, medical aid, insurance, Wills, Trust and investment products to individuals and businesses in SA. The health division of MMH, Momentum Health key strategic focus is to support communities by enabling and delivering sustainable, integrated outcomes-based healthcare solutions.',
+          webLink: 'https://www.momentumhealthsolutions.co.za/',
+          returnLink: true,
+          className: 'flex items-center justify-center'
         }
       ]
     },
@@ -34,7 +51,7 @@ const Partners = () => {
           logo: '/images/Sponsors/DPSA-Logo.jpg',
           description: 'Batho Pele: We Belong, We Care, We Serve.'
         },
-        { 
+        {
           name: 'South African Medical Association Trade Union',
           logo: '/images/Sponsors/4.png',
           description: 'Leading research and development in healthcare solutions'
@@ -79,7 +96,7 @@ const Partners = () => {
           name: 'Dr Sifiso Nxumalo',
           logo: '/images/Sponsors/drscnxumalo.png',
           description: 'Dr. Sifiso C Nxumalo’s Medical Practice is where Advanced Healthcare meets Personalized Treatment, call for quality care in a welcoming environment. Our facilities, equipped with the latest technology, offer a broad spectrum of medical services. '
-        }, 
+        },
         {
           name: 'La Roche-Posay',
           logo: '/images/Sponsors/laroche.jpg',
@@ -99,78 +116,82 @@ const Partners = () => {
           name: 'Clinical Care Platform',
           logo: '/images/Sponsors/ccp.png',
           description: 'Your Home for Continuous Professional Development (CPD). Welcome to Clinical Care Platform. Enjoy a Library of Over 100 CPD Courses.'
-          
         }
       ]
     }
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
-      {/* Hero Section */}
-      <div className="relative bg-[#2B2A29] text-white py-24">
-        <div className="absolute inset-0 overflow-hidden">
-          <img
-            src="/images/events/File 12.png"
-            alt="Partners background"
-            className="w-full h-full object-cover opacity-20"
-          />
-        </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">Our Partners & Sponsors</h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Collaborating with leading organizations to advance healthcare excellence across Africa
-          </p>
-        </div>
-      </div>
-
-      {/* Partners Grid */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <div className="min-h-screen bg-gray-50 py-20">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {partnerCategories.map((category, categoryIndex) => (
           <div key={categoryIndex} className="mb-16">
-            <div className="flex items-center justify-center mb-8">
+            <div className="flex flex-col items-center justify-center text-center mb-8">
               {category.icon}
-              <h2 className="text-3xl font-bold text-[#2B2A29] ml-4">{category.title}</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mt-4">{category.title}</h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <div className={`grid ${category.title === 'Platinum Sponsor' ? 'grid-cols-1' : 'grid-cols-1 md:grid-cols-2 lg:grid-cols-3'} gap-8`}>
               {category.partners.map((partner, partnerIndex) => (
-                <div key={partnerIndex} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-                  <div className="flex flex-col items-center text-center h-full">
-                    <div className="w-full h-48 mb-6 flex items-center justify-center bg-white rounded-lg overflow-hidden">
+                <motion.div
+                  key={partnerIndex}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: partnerIndex * 0.1 }}
+                  whileHover={category.title === 'Platinum Sponsor' ? { scale: 1.05 } : {}}
+                  className={`
+                    bg-white rounded-lg shadow-lg overflow-hidden 
+                    ${category.title === 'Platinum Sponsor' ?
+                      'border-4 border-[#962326] transform hover:shadow-2xl transition-all duration-300 max-w-3xl mx-auto' :
+                      'border border-gray-200'}
+                  `}
+                >
+                  {partner.webLink ? (
+                    <a
+                      href={partner.webLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="block h-full"
+                    >
+                      <div className="p-6 flex flex-col items-center">
+                        <img
+                          src={partner.logo}
+                          alt={partner.name}
+                          className={`h-32 object-contain mb-4 ${partner?.className ?? ''}`} />
+                        <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+                          {partner.name}
+                        </h3>
+                        <p className="text-gray-600 text-center mb-4">{partner.description}</p>
+                        {category.title === 'Platinum Sponsor' && (
+                          <motion.div
+                            whileHover={{ x: 10 }}
+                            className="flex items-center text-[#962326] font-semibold"
+                          >
+                            Visit Website <ArrowRight className="ml-2 h-5 w-5" />
+                          </motion.div>
+                        )}
+                      </div>
+                    </a>
+                  ) : (
+                    <div className="p-6 flex flex-col items-center">
                       <img
                         src={partner.logo}
-                        alt={`${partner.name} logo`}
-                        className="max-w-full max-h-full object-contain"
-                      />
+                        alt={partner.name}
+                        className={`h-32 object-contain mb-4 ${partner?.className ?? ''}`} />
+                      <h3 className="text-xl font-semibold text-gray-900 mb-2 text-center">
+                        {partner.name}
+                      </h3>
+                      <p className="text-gray-600 text-center">{partner.description}</p>
                     </div>
-                    <h3 className="text-xl font-semibold text-[#962326] mb-3">{partner.name}</h3>
-                    <p className="text-gray-600 flex-grow">{partner.description}</p>
-                  </div>
-                </div>
+                  )}
+                </motion.div>
               ))}
             </div>
           </div>
         ))}
       </div>
-
-      {/* Become a Partner CTA */}
-      <div className="bg-[#2B2A29] text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Become a Partner</h2>
-          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-            Join us in our mission to advance healthcare excellence across Africa. Partner with us to make a lasting impact in the healthcare sector.
-          </p>
-          <Link
-            to="/contact"
-            className="inline-flex items-center px-8 py-4 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors text-lg group"
-          >
-            Contact Us
-            <ArrowRight className="ml-2 h-6 w-6 group-hover:translate-x-1 transition-transform" />
-          </Link>
-        </div>
-      </div>
     </div>
   );
-};
+}
 
 export default Partners;

@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom';
 
 const Overview = () => {
   const summitHighlights = {
-    date: "2024",
+    date: "2025",
     attendees: "Nearly 1000 Healthcare Professionals",
-    venue: "Sandton Convention Centre, Johannesburg"
+    venue: "Durban, South Africa",
   };
 
   const summitTopics = [
@@ -47,7 +47,7 @@ const Overview = () => {
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="https://heosa.africa/wp-content/uploads/2024/07/9.png"
+            src="/images/summit/27.png"
             alt="Overview background"
             className="w-full h-full object-cover opacity-20"
           />

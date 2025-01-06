@@ -33,10 +33,10 @@ const Navbar = () => {
       title: 'Our Partners',
       path: '/partners',
       submenu: [
-        { title: 'Strategic Partners', path: '/partners#strategic' },
-        { title: 'Healthcare Providers', path: '/partners#healthcare' },
+        { title: 'Platinum Sponsor', path: '/partners#platinum' },
+        { title: 'Our Partners', path: '/partners#healthcare' },
         { title: 'Sponsors', path: '/partners#Sponsors' },
-        { title: 'Become a Partner', path: '/partners#Become a Partner' }
+        { title: 'Partner with Us', path: '/partners#Become a Partner' }
       ]
     },
     {
@@ -44,7 +44,7 @@ const Navbar = () => {
       path: '/medical-events',
       submenu: [
         { title: 'Upcoming Events', path: '/medical-events' },
-        //{ title: 'Register for Events', path: '/medical-events/register' },
+        { title: 'Register for Events', path: '/medical-events/register' },
        // { title: 'Past Events', path: '/medical-events#past' },
        // { title: 'CPD Information', path: '/medical-events#cpd' }
       ]

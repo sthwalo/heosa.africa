@@ -37,7 +37,7 @@ const About = () => {
       role: "Legal Advisor",
       image: "/images/Board/3.png",
       description: "Judge Legodi our legal advisor brings invaluable expertise as a retired judge, offering unparalleled insight and judgment. With a distinguished career on the bench, they provide astute guidance and ensure adherence to legal standards across our operations. Their deep understanding of law and commitment to justice enrich our decision-making processes, reinforcing our dedication to integrity and compliance.",
-      linkedinUrl: "https://www.linkedin.com/in/dr-eric-khumalo"
+      linkedinUrl: "https://www.linkedin.com/in/francis-legodi-7b4b5b1b"
     },
     {
       name: "Ms Sezanele Zondi",
