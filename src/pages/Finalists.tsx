@@ -1,70 +1,16 @@
 import { useState } from 'react';
 import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-interface Finalist {
-  id: string;
-  name: string;
-  category: string;
-  image: string;
-  voteCode: string;
-}
+import { finalistsData, type Finalist } from '../data/finalistsData';
 
 const Finalists = () => {
   const [selectedFinalist, setSelectedFinalist] = useState<Finalist | null>(null);
   const [isVoteModalOpen, setIsVoteModalOpen] = useState(false);
 
-  const finalists: Finalist[] = [
-    { id: 'hi1', name: 'Espaco Relive LDA-Mozambique', category: 'Health Institution of the Year', image: '/images/finalists/Espaco.jpeg', voteCode: 'HI01' },
-    { id: 'hi2', name: 'Foundation for Alcohol Related Research', category: 'Health Institution of the Year', image: '/images/finalists/FFARR.jpeg', voteCode: 'HI02' },
-    { id: 'hi3', name: 'Sister Jenny Burn Foundation', category: 'Health Institution of the Year', image: '/images/finalists/Sister J.jpeg', voteCode: 'HI03' },
-    { id: 'hi4', name: 'Boitekanelo College', category: 'Health Institution of the Year', image: '/images/finalists/Boitekanelo.jpeg', voteCode: 'HI04' },
-    { id: 'mt1', name: 'Ms Edith Mhlongo', category: 'Multi-Talented HCP of the Year', image: '/images/finalists/Edith.jpeg', voteCode: 'MT01' },
-    { id: 'mt2', name: 'Ms Masegafane Bapela', category: 'Multi-Talented HCP of the Year', image: '/images/finalists/Mase.jpeg', voteCode: 'MT02' },
-    { id: 'mt3', name: 'Ms Mariska Kruger', category: 'Multi-Talented HCP of the Year', image: '/images/finalists/Mariska.jpeg', voteCode: 'MT03' },
-    { id: 'mt4', name: 'Mr Sibusiso Mthembu(SbuNoah)', category: 'Multi-Talented HCP of the Year', image: '/images/finalists/SbuNoah.jpeg', voteCode: 'MT04' },
-    { id: 'cb1', name: 'Dr Unben Pillay', category: 'HCP Community Builder of the Year', image: '/images/finalists/Unben.jpeg', voteCode: 'CB01' },
-    { id: 'cb2', name: 'Daniella Carvalheiro', category: 'HCP Community Builder of the Year', image: '/images/finalists/Daniella.jpeg', voteCode: 'CB02' },
-    { id: 'cb3', name: 'Ms Maria Britz', category: 'HCP Community Builder of the Year', image: '/images/finalists/Maria.jpeg', voteCode: 'CB03' },
-    { id: 'cb4', name: 'Ms Bulelani Mkhize', category: 'HCP Community Builder of the Year', image: '/images/finalists/Bulelani.jpeg', voteCode: 'CB04' },
-    { id: 'ed1', name: 'Dr Precious Serero', category: 'HCP Educator of the Year', image: '/images/finalists/Precious.jpeg', voteCode: 'ED01' },
-    { id: 'ed2', name: 'Dr Bonolo Mashishi', category: 'HCP Educator of the Year', image: '/images/finalists/Bonolo.jpeg', voteCode: 'ED02' },
-    { id: 'ed3', name: 'Mr Lindokuhle Mokoena', category: 'HCP Educator of the Year', image: '/images/finalists/Lindo.jpeg', voteCode: 'ED03' },
-    { id: 'ed4', name: 'Dr Gugu Nhleko Tembe', category: 'HCP Educator of the Year', image: '/images/finalists/Gugu.jpeg', voteCode: 'ED04' },
-    { id: 'me1', name: 'Dr Ashlin Rampul', category: 'HCP Mentor of the Year', image: '/images/finalists/Ashlin.jpeg', voteCode: 'ME01' },
-    { id: 'me2', name: 'Dr Bongile Mabilane', category: 'HCP Mentor of the Year', image: '/images/finalists/Bongile.jpeg', voteCode: 'ME02' },
-    { id: 'me3', name: 'Dr Nokuzola Mokoena', category: 'HCP Mentor of the Year', image: '/images/finalists/Nokuzol.jpeg', voteCode: 'ME03' },
-    { id: 'me4', name: 'Dr Lola Chuma', category: 'HCP Mentor of the Year', image: '/images/finalists/Lola.jpeg', voteCode: 'ME04' },
-    { id: 'rs1', name: 'Dr Damien Bronkhorst', category: 'Rising Star HCP of the Year', image: '/images/finalists/Damien.jpeg', voteCode: 'RS01' },
-    { id: 'rs2', name: 'Dr Mutshidzi Mulondo', category: 'Rising Star HCP of the Year', image: '/images/finalists/Mutshidzi.jpeg', voteCode: 'RS02' },
-    { id: 'rs3', name: 'Dr Taz Emeran Thomas', category: 'Rising Star HCP of the Year', image: '/images/finalists/Taz.jpeg', voteCode: 'RS03' },
-    { id: 'rs4', name: 'Dr Thozama Siyotula', category: 'Rising Star HCP of the Year', image: '/images/finalists/Thozam.jpeg', voteCode: 'RS04' },
-    { id: 'rs5', name: 'Dr Ruhann Botha', category: 'Rising Star HCP of the Year', image: '/images/finalists/Ruhann.jpeg', voteCode: 'RS05' },
-    //{ id: 'mp1', name: 'Ms Casendra Malinga', category: 'HCP Media Personality of the Year', image: '', voteCode: 'MP01' },
-    { id: 'mp2', name: 'Dr Kwanele Zibane', category: 'HCP Media Personality of the Year', image: '/images/finalists/Kwanele.jpeg', voteCode: 'MP02' },
-    { id: 'mp3', name: 'Ms Busisiwe Ndlovu', category: 'HCP Media Personality of the Year', image: '/images/finalists/Busi.jpeg', voteCode: 'MP03' },
-    { id: 'mp4', name: 'Ms Moloko Mehlape', category: 'HCP Media Personality of the Year', image: '/images/finalists/Moloko.jpeg', voteCode: 'MP04' },
-    { id: 'hr1', name: 'Prof Fhumulani Mavis Mulaudzi', category: 'Health Researcher of the Year', image: '/images/finalists/Fhumu.jpeg', voteCode: 'HR01' },
-    { id: 'hr2', name: 'Dr Borna Nyaoke-Anoke', category: 'Health Researcher of the Year', image: '/images/finalists/Borna.jpeg', voteCode: 'HR02' },
-    { id: 'hr3', name: 'Prof Indiran Govender', category: 'Health Researcher of the Year', image: '/images/finalists/Indiran.jpeg', voteCode: 'HR03' },
-    { id: 'cd1', name: 'Dr Itani Dikgale', category: 'HCP Charity Driver of the Year', image: '/images/finalists/Itani.jpeg', voteCode: 'CD01' },
-    { id: 'cd2', name: 'Dr Bruce Lelala', category: 'HCP Charity Driver of the Year', image: '/images/finalists/Bruce.jpeg', voteCode: 'CD02' },
-    { id: 'cd3', name: 'Mrs Tshidi Sithole Mabila', category: 'HCP Charity Driver of the Year', image: '/images/finalists/tshidi.jpeg', voteCode: 'CD03' },
-    { id: 'cd4', name: 'Haniefa Bi Allee', category: 'HCP Charity Driver of the Year', image: '/images/finalists/Hannifea.jpeg', voteCode: 'CD04' },
-    { id: 'hl1', name: 'Dr Putswana Senoamadi', category: 'Health Care Leader of the Year', image: '/images/finalists/Putsu.jpeg', voteCode: 'HL01' },
-    { id: 'hl2', name: 'Prof Steven Matshidze', category: 'Health Care Leader of the Year', image: '/images/finalists/Steven.jpeg', voteCode: 'HL02' },
-    { id: 'hl3', name: 'Thembisile Matsinhe', category: 'Health Care Leader of the Year', image: '/images/finalists/Thembisile.jpeg', voteCode: 'HL03' },
-    { id: 'hl4', name: 'Dr Stanley Aruyaru', category: 'Health Care Leader of the Year', image: '/images/finalists/Stanley.jpeg', voteCode: 'HL04' },
-    { id: 'ew1', name: 'Mr Sifiso Mkhatshwa', category: 'Employee Wellness HCP of the Year', image: '/images/finalists/Sifiso.jpeg', voteCode: 'EW01' },
-    { id: 'ew2', name: 'Ms Nokuthula Kakaza', category: 'Employee Wellness HCP of the Year', image: '/images/finalists/Nokuthula.jpeg', voteCode: 'EW02' },
-    { id: 'ew3', name: 'Dr Chinasa Amadi', category: 'Employee Wellness HCP of the Year', image: '/images/finalists/Chinasa.jpeg', voteCode: 'EW03' },
-    { id: 'ew4', name: 'Ms Nomsa Mokoena', category: 'Employee Wellness HCP of the Year', image: '/images/finalists/Nomsa.jpeg', voteCode: 'EW04' },
-    { id: 'dh1', name: 'Dr Idara Umoette', category: 'Digital Health Innovator of the Year', image: '/images/finalists/Idara.jpeg', voteCode: 'DH01' },
-    { id: 'dh2', name: 'Clementine Phale', category: 'Digital Health Innovator of the Year', image: '/images/finalists/Phale.jpeg', voteCode: 'DH02' },
-  ];
+  const currentFinalists = finalistsData.filter(f => f.year === '2024');
 
   const categories = Object.values(
-    finalists.reduce((acc, finalist) => {
+    currentFinalists.reduce((acc, finalist) => {
       if (!acc[finalist.category]) {
         acc[finalist.category] = {
           title: finalist.category,
@@ -161,20 +107,18 @@ const Finalists = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Award Finalists
+              2024 Finalists
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Celebrating our outstanding healthcare finalists
+              Vote for your favorite healthcare professionals
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/finalists/past-winners"
-                className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
-              >
-                View Past Winners
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
-            </div>
+            <Link
+              to="/past-finalists"
+              className="inline-flex items-center px-6 py-3 rounded-full bg-[#962326] text-white hover:bg-[#7a1c1f] transition-colors"
+            >
+              View Past Finalists
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
           </div>
         </div>
       </div>
