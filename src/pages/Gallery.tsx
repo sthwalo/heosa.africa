@@ -13,37 +13,37 @@ interface GalleryImage {
 const GALLERY_IMAGES: GalleryImage[] = [
   {
     id: 1,
-    url: 'public/images/summit/27.png',
+    url: '/images/summit/27.png',
     images: [
-      'public/images/summit/8.png',
-      'public/images/summit/9.png',
-      'public/images/summit/10.png',
-      'public/images/summit/11.png',
-      'public/images/summit/12.png',
-      'public/images/summit/13.png',
-      'public/images/summit/15.png',
-      'public/images/summit/18.png',
-      'public/images/summit/19.png',
-      'public/images/summit/20.png',
-      'public/images/summit/21.png',
-      'public/images/summit/23.png',
-      'public/images/summit/25.png',
-      'public/images/summit/26.png',
-      'public/images/summit/27.png',
-      'public/images/summit/28.png',
-      'public/images/summit/30.png',
-      'public/images/summit/32.png',
-      'public/images/summit/33.png',
-      'public/images/summit/34.png',
-      'public/images/summit/35.png',
+      '/images/summit/8.png',
+      '/images/summit/9.png',
+      '/images/summit/10.png',
+      '/images/summit/11.png',
+      '/images/summit/12.png',
+      '/images/summit/13.png',
+      '/images/summit/15.png',
+      '/images/summit/18.png',
+      '/images/summit/19.png',
+      '/images/summit/20.png',
+      '/images/summit/21.png',
+      '/images/summit/23.png',
+      '/images/summit/25.png',
+      '/images/summit/26.png',
+      '/images/summit/27.png',
+      '/images/summit/28.png',
+      '/images/summit/30.png',
+      '/images/summit/32.png',
+      '/images/summit/33.png',
+      '/images/summit/34.png',
+      '/images/summit/35.png',
     ],
     title: 'Summit & Exhibition',
     category: 'Events',
     description: 'Celebrating excellence in healthcare',
   },
   {
-    id: 3,
-    url: 'images/events/1.png',
+    id: 2,
+    url: '/images/events/2.png',
     images: [
       '/images/events/1.png',
       '/images/events/2.png',
@@ -58,8 +58,8 @@ const GALLERY_IMAGES: GalleryImage[] = [
     description: 'Honoring the achievements of healthcare professionals.',
   },
   {
-    id: 2,
-    url: 'images/events/2.png',
+    id: 3,
+    url: '/images/events/1.png',
     images: [
       '/videos/Nominees1.mp4',
       '/videos/Nominees2.mp4',
@@ -115,21 +115,23 @@ const Gallery = () => {
         >
           <X className="h-8 w-8" />
         </button>
-        <div className="max-w-4xl w-full relative">
+        <div className="max-w-7xl w-full h-[80vh] relative flex items-center justify-center">
           {selectedImage.images ? (
             <>
               {selectedImage.images[currentImageIndex].endsWith('.mp4') ? (
                 <video
                   src={selectedImage.images[currentImageIndex]}
                   controls
-                  className="w-full h-auto rounded-lg"
+                  className="max-w-full max-h-full rounded-lg"
                 />
               ) : (
-                <img
-                  src={selectedImage.images[currentImageIndex]}
-                  alt={selectedImage.title}
-                  className="w-full h-auto rounded-lg object-cover"
-                />
+                <div className="relative w-full h-full flex items-center justify-center">
+                  <img
+                    src={selectedImage.images[currentImageIndex]}
+                    alt={selectedImage.title}
+                    className="max-w-full max-h-full object-contain rounded-lg"
+                  />
+                </div>
               )}
               <button
                 onClick={handlePrevImage}
@@ -145,19 +147,14 @@ const Gallery = () => {
               </button>
             </>
           ) : (
-            <img
-              src={selectedImage.url}
-              alt={selectedImage.title}
-              className="w-full h-auto rounded-lg object-cover"
-            />
+            <div className="relative w-full h-full flex items-center justify-center">
+              <img
+                src={selectedImage.url}
+                alt={selectedImage.title}
+                className="max-w-full max-h-full object-contain rounded-lg"
+              />
+            </div>
           )}
-          <div className="mt-4 text-white text-center">
-            <h3 className="text-xl font-semibold">{selectedImage.title}</h3>
-            {selectedImage.description && (
-              <p className="text-gray-300">{selectedImage.description}</p>
-            )}
-            <p className="text-gray-400 mt-2">{selectedImage.category}</p>
-          </div>
         </div>
       </div>
     );
@@ -203,22 +200,24 @@ const Gallery = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((image) => (
             <div
               key={image.id}
-              className="group relative aspect-square rounded-lg overflow-hidden cursor-pointer bg-white shadow-lg hover:shadow-xl transition-shadow"
               onClick={() => setSelectedImage(image)}
+              className="relative group cursor-pointer overflow-hidden rounded-lg"
             >
-              <img
-                src={image.url}
-                alt={image.title}
-                className="w-full h-auto object-cover transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="absolute bottom-4 left-4 text-white">
-                  <h3 className="text-lg font-semibold">{image.title}</h3>
-                  <p className="text-sm text-gray-200">{image.category}</p>
+              <div className="aspect-w-16 aspect-h-9">
+                <img
+                  src={image.url}
+                  alt={image.title}
+                  className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent">
+                  <div className="absolute bottom-6 left-6">
+                    <h3 className="text-2xl font-bold text-white mb-2">{image.title}</h3>
+                    <span className="text-sm text-gray-200">{image.category}</span>
+                  </div>
                 </div>
               </div>
             </div>
