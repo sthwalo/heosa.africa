@@ -13,18 +13,25 @@ function TermsAndConditions() {
     }, []);
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="pt-20 min-h-screen bg-gray-50">
             {/* Hero Section */}
             <div className="relative bg-[#2B2A29] text-white py-24">
                 <div className="absolute inset-0 overflow-hidden">
                     <img
-                        src="/images/events/File 12.png" 
-                        alt="Hero background"
-                        className="w-full h-full object-cover opacity-30"
+                        src="/images/legal/terms-hero.jpg"
+                        alt="Terms and Conditions background"
+                        className="w-full h-full object-cover opacity-20"
                     />
                 </div>
                 <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <h1 className="text-4xl md:text-6xl font-bold text-center">Terms and Conditions</h1>
+                    <div className="text-center">
+                        <h1 className="text-4xl md:text-6xl font-bold mb-6">
+                            Terms and Conditions
+                        </h1>
+                        <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+                            Understanding our policies and guidelines
+                        </p>
+                    </div>
                 </div>
             </div>
 

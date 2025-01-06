@@ -19,13 +19,29 @@ const Contact = () => {
   const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.5276813242584!2d30.97894631544384!3d-25.47750968377558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee84a1017f005f9%3A0x2748e0d27e501adf!2s6%20Waxbill%20St%2C%20Riverside%20Park%2C%20Mbombela%2C%201200!5e0!3m2!1sen!2sza!4v1647856231074!5m2!1sen!2sza";
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-20">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-16">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Contact Us</h1>
-          <p className="text-lg text-gray-600">Get in touch with our team for any inquiries or support</p>
+    <div className="pt-20 min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/contact/contact-hero.jpg"
+            alt="Contact Us background"
+            className="w-full h-full object-cover opacity-20"
+          />
         </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Contact Us
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Get in touch with us for any inquiries or support
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {/* Phone Numbers */}
           <div className="bg-white p-8 rounded-xl shadow-lg">

@@ -79,15 +79,27 @@ const AWARD_CATEGORIES = [
 const AwardsWinners = () => {
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Award Winners</h1>
-          <p className="text-lg text-gray-600">
-            Celebrating excellence and innovation in African healthcare
-          </p>
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/awards/winners-hero.jpg"
+            alt="Winners background"
+            className="w-full h-full object-cover opacity-20"
+          />
         </div>
-
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Winners
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Meet the outstanding individuals and organizations recognized for their excellence
+            </p>
+          </div>
+        </div>
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {AWARD_CATEGORIES.map((category, index) => (
             <div

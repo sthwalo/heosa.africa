@@ -1,4 +1,5 @@
-import { Users } from 'lucide-react';
+import { Users, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const MedicalEvents = () => {
   const events = [
@@ -25,23 +26,34 @@ const MedicalEvents = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="pt-20 min-h-screen bg-gray-50">
       {/* Hero Section */}
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
           <img
             src="/images/events/2.png"
-            alt="Partners background"
+            alt="Medical Events background"
             className="w-full h-full object-cover opacity-20"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
-            Medical Events
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto text-center">
-            Join us at our upcoming healthcare events and conferences
-          </p>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Medical Events
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Join us for impactful medical events and professional development opportunities
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/medical-events/register"
+                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+              >
+                Register Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
 

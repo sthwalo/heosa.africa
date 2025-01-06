@@ -1,5 +1,6 @@
 import { useState } from 'react';
-import { Phone, Mail, Share2, X } from 'lucide-react';
+import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface Finalist {
   id: string;
@@ -148,12 +149,37 @@ const Finalists = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">2024 Finalists</h1>
-          <p className="text-lg text-gray-600">Vote for your favorite healthcare professionals and institutions</p>
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/awards/finalists-hero.jpg"
+            alt="Finalists background"
+            className="w-full h-full object-cover opacity-20"
+          />
         </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Award Finalists
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Celebrating our outstanding healthcare finalists
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/finalists/past-winners"
+                className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
+              >
+                View Past Winners
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {categories.map((category, index) => (
           <div key={index} className="mb-16">
             <h2 className="text-2xl font-bold text-[#2B2A29] mb-8">{category.title}</h2>

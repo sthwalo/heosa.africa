@@ -1,5 +1,6 @@
 //import React from 'react';
-import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus } from 'lucide-react';
+import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AwardsCategories = () => {
   const votedCategories = [
@@ -100,58 +101,79 @@ const AwardsCategories = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Award Categories</h1>
-          <p className="text-lg text-gray-600">
-            Celebrating excellence across all aspects of healthcare
-          </p>
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/awards/categories-hero.jpg"
+            alt="Award Categories background"
+            className="w-full h-full object-cover opacity-20"
+          />
         </div>
-
-        {/* Voted Categories */}
-        <div className="mb-16">
-          <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Voted Categories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {votedCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Award Categories
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Explore our diverse range of healthcare excellence categories
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/awards/nominate"
+                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
               >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-gray-50 rounded-lg">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-[#2B2A29]">
-                    {category.title}
-                  </h3>
-                </div>
-                <p className="text-gray-600">{category.description}</p>
-              </div>
-            ))}
+                Nominate Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
+      </div>
 
-        {/* Honorary Categories */}
-        <div>
-          <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Honorary Categories</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {honoraryCategories.map((category, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-              >
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="p-3 bg-gray-50 rounded-lg">
-                    {category.icon}
-                  </div>
-                  <h3 className="text-xl font-semibold text-[#2B2A29]">
-                    {category.title}
-                  </h3>
+      {/* Voted Categories */}
+      <div className="mb-16">
+        <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Voted Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {votedCategories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-gray-50 rounded-lg">
+                  {category.icon}
                 </div>
-                <p className="text-gray-600">{category.description}</p>
+                <h3 className="text-xl font-semibold text-[#2B2A29]">
+                  {category.title}
+                </h3>
               </div>
-            ))}
-          </div>
+              <p className="text-gray-600">{category.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Honorary Categories */}
+      <div>
+        <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Honorary Categories</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {honoraryCategories.map((category, index) => (
+            <div
+              key={index}
+              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
+            >
+              <div className="flex items-center gap-4 mb-4">
+                <div className="p-3 bg-gray-50 rounded-lg">
+                  {category.icon}
+                </div>
+                <h3 className="text-xl font-semibold text-[#2B2A29]">
+                  {category.title}
+                </h3>
+              </div>
+              <p className="text-gray-600">{category.description}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>

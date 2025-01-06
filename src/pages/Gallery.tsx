@@ -166,14 +166,28 @@ const Gallery = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-12">
-          <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Gallery</h1>
-          <p className="text-lg text-gray-600">
-            Explore moments from our events and celebrations
-          </p>
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/gallery/gallery-hero.jpg"
+            alt="Gallery background"
+            className="w-full h-full object-cover opacity-20"
+          />
         </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Gallery
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Capturing moments of excellence and celebration in African healthcare
+            </p>
+          </div>
+        </div>
+      </div>
 
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           {categories.map((category) => (
             <button

@@ -1,5 +1,6 @@
 //import React from 'react';
-import {AlertCircle } from 'lucide-react';
+import {AlertCircle, ArrowRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AwardsNominate = () => {
   const categories = [
@@ -15,6 +16,36 @@ const AwardsNominate = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/awards/nominate-hero.jpg"
+            alt="Awards Nomination background"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              Nominate a Healthcare Champion
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Recognize excellence and innovation in African healthcare
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/awards/categories"
+                className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
+              >
+                View Categories
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-[#2B2A29] mb-4">Nominate</h1>

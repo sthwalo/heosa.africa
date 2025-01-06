@@ -64,6 +64,27 @@ const About = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <div className="relative bg-[#2B2A29] text-white py-24">
+        <div className="absolute inset-0 overflow-hidden">
+          <img
+            src="/images/about/about-hero.jpg"
+            alt="About Us background"
+            className="w-full h-full object-cover opacity-20"
+          />
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center">
+            <h1 className="text-4xl md:text-6xl font-bold mb-6">
+              About Us
+            </h1>
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Empowering healthcare excellence and innovation across Africa
+            </p>
+          </div>
+        </div>
+      </div>
+
       <section className="our-story px-8 py-12">
         <h2 className="text-3xl font-bold text-center mb-6">Our Story</h2>
         <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
