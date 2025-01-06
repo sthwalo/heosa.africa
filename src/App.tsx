@@ -38,6 +38,7 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/winners" element={<Winners />} />
             <Route path="/past-winners" element={<PastWinners />} />
+            <Route path="/past-winners/:year" element={<PastWinners />} />
             <Route path="/finalists" element={<Finalists />} />
             <Route path="/past-finalists" element={<PastFinalists />} />
             <Route path="/gallery" element={<Gallery />} />

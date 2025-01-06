@@ -63,7 +63,7 @@ const Navbar = () => {
       submenu: [
         { title: 'View Finalists', path: '/finalists' },
         { title: 'The Winners', path: '/winners' },
-        { title: 'Past Winners', path: '/finalists/past-winners' }
+        { title: 'Past Winners', path: '/past-winners' }
       ]
     },
     {
