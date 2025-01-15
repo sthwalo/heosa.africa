@@ -1,4 +1,3 @@
-//import { Link } from 'react-router-dom';
 import EventCountdown from './EventCountdown';
 import { ArrowRight } from 'lucide-react';
 

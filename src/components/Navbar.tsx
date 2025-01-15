@@ -20,6 +20,11 @@ const Navbar = () => {
       //submenu: null
     },
     {
+      title: 'About',
+      path: '/about',
+      //submenu: null
+    },
+    {
       title: 'Awards/Summit',
       path: '/awards',
       submenu: [
@@ -39,6 +44,10 @@ const Navbar = () => {
         { title: 'Partner with Us', path: '/partners#Become a Partner' }
       ]
     },
+   
+  ];
+
+  const rightMenuItems: MenuItem[] = [
     {
       title: 'Medical Events',
       path: '/medical-events',
@@ -48,21 +57,12 @@ const Navbar = () => {
        // { title: 'Past Events', path: '/medical-events#past' },
        // { title: 'CPD Information', path: '/medical-events#cpd' }
       ]
-    }
-  ];
-
-  const rightMenuItems: MenuItem[] = [
-    {
-      title: 'About',
-      path: '/about',
-      //submenu: null
     },
     {
       title: 'Winners',
       path: '/winners',
       submenu: [
         { title: 'View Finalists', path: '/finalists' },
-        { title: 'The Winners', path: '/winners' },
         { title: 'Past Winners', path: '/past-winners' }
       ]
     },

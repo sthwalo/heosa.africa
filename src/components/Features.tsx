@@ -1,4 +1,4 @@
-import { Award, BookOpen, TrendingUp, Heart } from 'lucide-react';
+import { Award, BookOpen, Heart } from 'lucide-react';
 
 const Features = () => {
   const features = [
@@ -16,12 +16,12 @@ const Features = () => {
       icon: <Heart className="h-8 w-8 text-[#962326]" />,
       title: 'Healthcare Innovation',
       description: 'To provide accessible, affordable, and effective management solutions for NCDs at the primary healthcare level through innovative technological interventions.'
-    },
+    }/* ,
     {
       icon: <TrendingUp className="h-8 w-8 text-[#962326]" />,
       title: 'Performance Analytics',
       description: 'Data-driven insights to measure and enhance organizational effectiveness.'
-    }
+    } */
   ];
 
   return (
