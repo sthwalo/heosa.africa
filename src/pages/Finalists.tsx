@@ -3,6 +3,7 @@ import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { finalistsData, type Finalist } from '../data/finalistsData';
 import Timeline from '../components/Timeline';
+import { finalistsTimelineData } from '../data/timelineData';
 
 const Finalists = () => {
   const [selectedFinalist, setSelectedFinalist] = useState<Finalist | null>(null);
@@ -96,7 +97,6 @@ const Finalists = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
-      <Timeline />
       {/* Hero Section */}
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
@@ -109,7 +109,7 @@ const Finalists = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              2024 Finalists
+              Finalists
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Vote for your favorite healthcare professionals
@@ -124,6 +124,8 @@ const Finalists = () => {
           </div>
         </div>
       </div>
+
+      <Timeline data={finalistsTimelineData} title="Finalist Selection Process" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {categories.map((category, index) => (

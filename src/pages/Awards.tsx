@@ -1,5 +1,8 @@
 import { Link } from 'react-router-dom';
 import { Award, Trophy, Calendar, Users, ArrowRight } from 'lucide-react';
+import { awardsTimelineData } from '../data/timelineData';
+import Timeline from '../components/Timeline';
+import TimelineMobile from '../components/TimelineMobile';
 
 const Awards = () => {
   const upcomingEvent = {
@@ -72,6 +75,12 @@ const Awards = () => {
           </div>
         </div>
       </div>
+
+      {/* Timeline Sections - Moved below hero */}
+      <div className="hidden md:block">
+        <Timeline data={awardsTimelineData} title="Awards Timeline" />
+      </div>
+      <TimelineMobile data={awardsTimelineData} title="Awards Timeline" />
 
       {/* Event Details */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
