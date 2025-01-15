@@ -27,3 +27,18 @@ build
 
 public/
 .env
+.env.local
+.env.*.local
+
+# PHP specific
+/vendor/
+composer.phar
+/.phpunit.cache
+/.php-cs-fixer.cache
+/.php_cs.cache
+/.php_cs
+.phpunit.result.cache
+
+# Keep the composer files
+!composer.json
+!composer.lock
