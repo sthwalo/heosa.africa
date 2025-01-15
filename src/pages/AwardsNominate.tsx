@@ -1,24 +1,26 @@
 import { useState } from 'react';
 import { AlertCircle, ArrowRight } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import config from '../config';
 
 const AwardsNominate = () => {
-  const navigate = useNavigate();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     nominator_name: '',
     nominator_email: '',
     nominator_phone: '',
+    nominator_location: '',
     nominee_name: '',
     nominee_email: '',
     nominee_phone: '',
+    nominee_location: '',
     category: '',
     nominee_institution: '',
     achievements: '',
     impact: ''
   });
   const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const categories = [
     // Voted Categories
@@ -55,6 +57,7 @@ const AwardsNominate = () => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
+    setSuccessMessage('');
 
     const apiUrl = `${config.apiBaseUrl}/nominations/create.php`;
     console.log('Submitting to:', apiUrl); // Debug log
@@ -92,15 +95,25 @@ const AwardsNominate = () => {
           nominator_name: '',
           nominator_email: '',
           nominator_phone: '',
+          nominator_location: '',
           nominee_name: '',
           nominee_email: '',
           nominee_phone: '',
+          nominee_location: '',
           category: '',
           nominee_institution: '',
           achievements: '',
           impact: ''
         });
-        navigate('/awards-nominate-success');
+        setSuccessMessage('Nomination submitted successfully! Thank you for your submission.');
+        
+        // Scroll to top smoothly
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        
+        // Clear success message after 5 seconds
+        setTimeout(() => {
+          setSuccessMessage('');
+        }, 5000);
       } else {
         setError(data.message || 'Failed to submit nomination. Please try again.');
       }
@@ -114,6 +127,26 @@ const AwardsNominate = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      {/* Success Message */}
+      {successMessage && (
+        <div className="fixed top-24 left-0 right-0 z-50 mx-auto max-w-md">
+          <div className="bg-green-50 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+            <strong className="font-bold">Success! </strong>
+            <span className="block sm:inline">{successMessage}</span>
+            <button
+              onClick={() => setSuccessMessage('')}
+              className="absolute top-0 bottom-0 right-0 px-4 py-3"
+            >
+              <span className="sr-only">Close</span>
+              <svg className="fill-current h-6 w-6 text-green-500" role="button" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                <title>Close</title>
+                <path d="M14.348 14.849a1.2 1.2 0 0 1-1.697 0L10 11.819l-2.651 3.029a1.2 1.2 0 1 1-1.697-1.697l2.758-3.15-2.759-3.152a1.2 1.2 0 1 1 1.697-1.697L10 8.183l2.651-3.031a1.2 1.2 0 1 1 1.697 1.697l-2.758 3.152 2.758 3.15a1.2 1.2 0 0 1 0 1.698z"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+      )}
+
       {/* Hero Section */}
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
@@ -235,6 +268,20 @@ const AwardsNominate = () => {
                       className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#962326] focus:ring-[#962326]"
                     />
                   </div>
+                  <div>
+                    <label htmlFor="nominator-location" className="block text-sm font-medium text-gray-700">
+                      Your Location
+                    </label>
+                    <input
+                      type="text"
+                      id="nominator-location"
+                      value={formData.nominator_location}
+                      onChange={handleInputChange}
+                      required
+                      placeholder="City, Country"
+                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#962326] focus:ring-[#962326]"
+                    />
+                  </div>
                 </div>
               </div>
 
@@ -280,6 +327,20 @@ const AwardsNominate = () => {
                         onChange={handleInputChange}
                         required
                         placeholder="+27 123 456 789"
+                        className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#962326] focus:ring-[#962326]"
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="nominee-location" className="block text-sm font-medium text-gray-700">
+                        Nominee Location
+                      </label>
+                      <input
+                        type="text"
+                        id="nominee-location"
+                        value={formData.nominee_location}
+                        onChange={handleInputChange}
+                        required
+                        placeholder="City, Country"
                         className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-[#962326] focus:ring-[#962326]"
                       />
                     </div>

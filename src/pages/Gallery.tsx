@@ -1,165 +1,20 @@
 import { useState } from 'react';
 import { X, ChevronLeft, ChevronRight } from 'lucide-react';
-
-interface GalleryImage {
-  id: number;
-  url: string;
-  title: string;
-  category: string;
-  description?: string;
-  images?: string[];
-}
-
-const GALLERY_IMAGES: GalleryImage[] = [
-  {
-    id: 1,
-    url: '/images/summit/27.png',
-    images: [
-      '/images/summit/8.png',
-      '/images/summit/9.png',
-      '/images/summit/10.png',
-      '/images/summit/11.png',
-      '/images/summit/12.png',
-      '/images/summit/13.png',
-      '/images/summit/15.png',
-      '/images/summit/18.png',
-      '/images/summit/19.png',
-      '/images/summit/20.png',
-      '/images/summit/21.png',
-      '/images/summit/23.png',
-      '/images/summit/25.png',
-      '/images/summit/26.png',
-      '/images/summit/27.png',
-      '/images/summit/28.png',
-      '/images/summit/30.png',
-      '/images/summit/32.png',
-      '/images/summit/33.png',
-      '/images/summit/34.png',
-      '/images/summit/35.png',
-    ],
-    title: 'Summit & Exhibition',
-    category: 'Events',
-    description: 'Celebrating excellence in healthcare',
-  },
-  {
-    id: 2,
-    url: '/images/events/2.png',
-    images: [
-      '/images/events/1.png',
-      '/images/events/2.png',
-      '/images/events/3.png',
-      '/images/events/4.png',
-      '/images/events/5.png',
-      '/images/events/6.png',
-      '/images/events/7.png',
-    ],
-    title: 'Award Gala',
-    category: 'Awards',
-    description: 'Honoring the achievements of healthcare professionals.',
-  },
-  {
-    id: 3,
-    url: '/images/events/1.png',
-    images: [
-      '/videos/Nominees1.mp4',
-      '/videos/Nominees2.mp4',
-      '/videos/Nominees3.mp4',
-      '/videos/Nominees4.mp4',
-      '/videos/Nominees5.mp4',
-      '/videos/Nominees6.mp4',
-      '/videos/Nominees7.mp4',
-      '/videos/Nominees8.mp4',
-      '/videos/Nominees9.mp4',
-      '/videos/Nominees10.mp4',
-      '/videos/Nominees11.mp4',
-    ],
-    title: 'Ceremony',
-    category: 'Videos',
-    description: 'Showcasing the latest innovations in healthcare.',
-  },
-];
+import { GalleryImage, getYears, getCategories, filterImages } from '../data/galleryData';
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
+  const [selectedYear, setSelectedYear] = useState(getYears()[0]); // Default to most recent year
   const [selectedCategory, setSelectedCategory] = useState<string>('All');
+  const [selectedImage, setSelectedImage] = useState<GalleryImage | null>(null);
 
-  const categories = ['All', ...Array.from(new Set(GALLERY_IMAGES.map(img => img.category)))];
+  const years = getYears();
+  const categories = getCategories(selectedYear);
+  const filteredImages = filterImages(selectedYear, selectedCategory);
 
-  const filteredImages = selectedCategory === 'All'
-    ? GALLERY_IMAGES
-    : GALLERY_IMAGES.filter(img => img.category === selectedCategory);
-
-  const ImageModal = () => {
-    if (!selectedImage) return null;
-    // eslint-disable-next-line react-hooks/rules-of-hooks
-    const [currentImageIndex, setCurrentImageIndex] = useState(0);
-    if (!selectedImage) return null;
-    if (!selectedImage.images) return null;
-    const handleNextImage = () => {
-      setCurrentImageIndex((prevIndex) =>
-        (prevIndex + 1) % selectedImage.images!.length
-      );
-    };
-
-    const handlePrevImage = () => {
-      setCurrentImageIndex((prevIndex) =>
-        prevIndex === 0 ? selectedImage.images!.length - 1 : prevIndex - 1
-      );
-    };
-
-    return (
-      <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
-        <button
-          onClick={() => setSelectedImage(null)}
-          className="absolute top-4 right-4 text-white hover:text-gray-300"
-        >
-          <X className="h-8 w-8" />
-        </button>
-        <div className="max-w-7xl w-full h-[80vh] relative flex items-center justify-center">
-          {selectedImage.images ? (
-            <>
-              {selectedImage.images[currentImageIndex].endsWith('.mp4') ? (
-                <video
-                  src={selectedImage.images[currentImageIndex]}
-                  controls
-                  className="max-w-full max-h-full rounded-lg"
-                />
-              ) : (
-                <div className="relative w-full h-full flex items-center justify-center">
-                  <img
-                    src={selectedImage.images[currentImageIndex]}
-                    alt={selectedImage.title}
-                    className="max-w-full max-h-full object-contain rounded-lg"
-                  />
-                </div>
-              )}
-              <button
-                onClick={handlePrevImage}
-                className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
-              >
-                <ChevronLeft className="h-6 w-6" />
-              </button>
-              <button
-                onClick={handleNextImage}
-                className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
-              >
-                <ChevronRight className="h-6 w-6" />
-              </button>
-            </>
-          ) : (
-            <div className="relative w-full h-full flex items-center justify-center">
-              <img
-                src={selectedImage.url}
-                alt={selectedImage.title}
-                className="max-w-full max-h-full object-contain rounded-lg"
-              />
-            </div>
-          )}
-        </div>
-      </div>
-    );
+  const handleYearChange = (year: string) => {
+    setSelectedYear(year);
+    setSelectedCategory('All'); // Reset category when year changes
   };
-
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
@@ -185,21 +40,43 @@ const Gallery = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Year Tabs */}
+        <div className="mb-8 border-b border-gray-200">
+          <div className="flex overflow-x-auto">
+            {years.map((year) => (
+              <button
+                key={year}
+                onClick={() => handleYearChange(year)}
+                className={`px-8 py-4 text-lg font-medium border-b-2 transition-colors ${
+                  selectedYear === year
+                    ? 'border-[#962326] text-[#962326]'
+                    : 'border-transparent text-gray-500 hover:text-gray-700 hover:border-gray-300'
+                }`}
+              >
+                {year}
+              </button>
+            ))}
+          </div>
+        </div>
+
+        {/* Category Filters */}
         <div className="flex flex-wrap gap-4 justify-center mb-8">
           {categories.map((category) => (
             <button
               key={category}
               onClick={() => setSelectedCategory(category)}
-              className={`px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all ${selectedCategory === category
-                ? 'bg-[#962326] text-white'
-                : 'bg-white text-[#2B2A29] hover:bg-[#F2C849] hover:text-white'
-                }`}
+              className={`px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all ${
+                selectedCategory === category
+                  ? 'bg-[#962326] text-white'
+                  : 'bg-white text-[#2B2A29] hover:bg-[#F2C849] hover:text-white'
+              }`}
             >
               {category}
             </button>
           ))}
         </div>
 
+        {/* Gallery Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredImages.map((image) => (
             <div
@@ -225,7 +102,77 @@ const Gallery = () => {
         </div>
       </div>
 
-      <ImageModal />
+      {/* Modal Component */}
+      {selectedImage && <ImageModal image={selectedImage} onClose={() => setSelectedImage(null)} />}
+    </div>
+  );
+};
+
+// Separate ImageModal into its own component for better organization
+const ImageModal = ({ image, onClose }: { image: GalleryImage; onClose: () => void }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  if (!image.images) return null;
+  const handleNextImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      (prevIndex + 1) % image.images!.length
+    );
+  };
+
+  const handlePrevImage = () => {
+    setCurrentImageIndex((prevIndex) =>
+      prevIndex === 0 ? image.images!.length - 1 : prevIndex - 1
+    );
+  };
+
+  return (
+    <div className="fixed inset-0 bg-black/90 flex items-center justify-center z-50 p-4">
+      <button
+        onClick={onClose}
+        className="absolute top-4 right-4 text-white hover:text-gray-300"
+      >
+        <X className="h-8 w-8" />
+      </button>
+      <div className="max-w-7xl w-full h-[80vh] relative flex items-center justify-center">
+        {image.images ? (
+          <>
+            {image.images[currentImageIndex].endsWith('.mp4') ? (
+              <video
+                src={image.images[currentImageIndex]}
+                controls
+                className="max-w-full max-h-full rounded-lg"
+              />
+            ) : (
+              <div className="relative w-full h-full flex items-center justify-center">
+                <img
+                  src={image.images[currentImageIndex]}
+                  alt={image.title}
+                  className="max-w-full max-h-full object-contain rounded-lg"
+                />
+              </div>
+            )}
+            <button
+              onClick={handlePrevImage}
+              className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
+            >
+              <ChevronLeft className="h-6 w-6" />
+            </button>
+            <button
+              onClick={handleNextImage}
+              className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white hover:text-gray-300 p-2 rounded-full bg-black/30"
+            >
+              <ChevronRight className="h-6 w-6" />
+            </button>
+          </>
+        ) : (
+          <div className="relative w-full h-full flex items-center justify-center">
+            <img
+              src={image.url}
+              alt={image.title}
+              className="max-w-full max-h-full object-contain rounded-lg"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };
