@@ -12,6 +12,7 @@ dist
 dist-ssr
 dist.zip
 build
+vendor
 *.local
 
 # Editor directories and files
@@ -29,16 +30,3 @@ public/
 .env
 .env.local
 .env.*.local
-
-# PHP specific
-/vendor/
-composer.phar
-/.phpunit.cache
-/.php-cs-fixer.cache
-/.php_cs.cache
-/.php_cs
-.phpunit.result.cache
-
-# Keep the composer files
-!composer.json
-!composer.lock

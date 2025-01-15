@@ -70,6 +70,7 @@ try {
             <li>Email: {$data->nominee_email}</li>
             <li>Phone: {$data->nominee_phone}</li>
             <li>Institution: {$data->nominee_institution}</li>
+            <li>Location: {$data->nominee_location}</li>
         </ul>
 
         <h3>Nominator Details:</h3>
@@ -77,6 +78,7 @@ try {
             <li>Name: {$data->nominator_name}</li>
             <li>Email: {$data->nominator_email}</li>
             <li>Phone: {$data->nominator_phone}</li>
+            <li>Location: {$data->nominator_location}</li>
         </ul>
 
         <h3>Nomination Details:</h3>
