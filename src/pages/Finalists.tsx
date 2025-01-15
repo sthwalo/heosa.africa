@@ -2,6 +2,7 @@ import { useState } from 'react';
 import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { finalistsData, type Finalist } from '../data/finalistsData';
+import Timeline from '../components/Timeline';
 
 const Finalists = () => {
   const [selectedFinalist, setSelectedFinalist] = useState<Finalist | null>(null);
@@ -95,6 +96,7 @@ const Finalists = () => {
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
+      <Timeline />
       {/* Hero Section */}
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">

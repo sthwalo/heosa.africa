@@ -91,21 +91,41 @@ const About = () => {
           The African Health Excellence Awards is an annual event that recognises and celebrates excellence in the African healthcare sector. It aims to highlight the outstanding achievements and contributions of individuals, organisations, and initiatives that have made a significant impact on healthcare in Africa. The awards cover various categories such as healthcare leadership, innovation, research, patient care, and community health. By honouring exceptional efforts and innovations, the African Health Excellence Awards aims to inspire and encourage further advancements in healthcare across the continent. The African Health Excellence Organisation is a home of healthcare professionals (HCPS) where they are empowered and acknowledged for their good work in our organisation we believe that appreciated employees are likely to be more productive and this is what the health excellence awards aim to achieve.
         </p>
       </section>
-
       <section className="vision-mission px-8 py-12 bg-white">
-        <h2 className="text-3xl font-bold text-center mb-6">Vision & Mission</h2>
-        <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-          To empower healthcare professionals through symposiums and CPD accredited congresses, fostering collaboration and innovation within the healthcare community. We aim to partner with stakeholders to host prestigious events that bring both private and public HCPS under one roof, enhancing healthcare standards across Africa.
-        </p>
-      </section>
+  <h2 className="text-3xl font-bold text-center mb-8">Vision & Mission</h2>
+  
+  <div className="max-w-4xl mx-auto space-y-8">
+    {/* Vision Section */}
+    <div className="text-center">
+      <h3 className="text-2xl font-semibold text-[#2B2A29] mb-4">Our Vision</h3>
+      <p className="text-lg text-gray-700 leading-relaxed">
+        AHEO envisions a future where every Healthcare Professional in Africa provides high-quality healthcare services to improve health outcomes.
+      </p>
+    </div>
 
-      <section className="our-impact px-8 py-12">
-        <h2 className="text-3xl font-bold text-center mb-6">Our Impact</h2>
-        <p className="text-lg text-gray-700 leading-relaxed max-w-4xl mx-auto">
-          This will be the 5th annual award ceremony where HCPS are recognised for going an extra mile to save lives. The health excellence organisation empowers HCPS through symposiums which are done under medical events. The symposiums give healthcare professionals an opportunity to interact with well-informed speakers who give them the latest updates on different disease management. We organise various CPD accredited congresses which focus on different disease management.
-        </p>
-      </section>
+    {/* Mission Section */}
+    <div className="text-center">
+      <h3 className="text-2xl font-semibold text-[#2B2A29] mb-4">Our Mission</h3>
+      <p className="text-lg text-gray-700 leading-relaxed mb-6">
+        AHEO is dedicated to promoting excellence in healthcare across Africa through:
+      </p>
+      
+      {/* Mission Pillars */}
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {['Capacity Building', 'Advocacy', 'Recognition', 'Collaboration'].map((pillar) => (
+          <div key={pillar} className="p-4 bg-gray-50 rounded-lg">
+            <p className="font-medium text-[#962326]">{pillar}</p>
+          </div>
+        ))}
+      </div>
 
+      {/* Mission Goal */}
+      <p className="text-lg text-gray-700 leading-relaxed mt-6">
+        AHEO aims to enhance healthcare systems, empower healthcare professionals, and improve health outcomes for all Africans.
+      </p>
+    </div>
+  </div>
+</section>
       <section className="board-members px-8 py-12 bg-white">
         <h2 className="text-3xl font-bold text-center mb-6">Board Members</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

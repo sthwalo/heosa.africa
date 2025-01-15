@@ -57,11 +57,6 @@ function Partners() {
           description: 'Leading research and development in healthcare solutions'
         },
         {
-          name: 'The Department of Health Mpumalanga',
-          logo: '/images/Sponsors/mpumahealthdept.jpg',
-          description: 'Improving health status through the prevention of illnesses and the promotion of healthy lifestyles and to consistently improve the healthcare delivery system by focusing on access, equity, efficiency, quality and sustainability.'
-        },
-        {
           name: 'The Department of Health Gauteng',
           logo: '/images/Sponsors/Gauteng.png',
           description: 'Our mission is to create an effective public healthcare system in Gauteng by ensuring we have the right people, skills, system and equipment to provide the care our patients need to live healthy and quality lives.'
