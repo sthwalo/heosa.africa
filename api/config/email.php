@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/env.php';
-loadEnv(__DIR__ . '/../../.env');
+// Update path to look one level above public_html
+$envPath = dirname(dirname(dirname(__DIR__))) . '/.env';
+loadEnv($envPath);
 
 return [
     'smtp' => [
