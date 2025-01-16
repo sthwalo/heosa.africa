@@ -8,12 +8,35 @@ export default defineConfig({
     exclude: ['lucide-react'],
   },
   server: {
+    port: 4173,
     proxy: {
       '/api': {
-        target: 'http://localhost:8000',
+        target: 'https://heosa.africa',
+        changeOrigin: true,
+        secure: false,
+      },
+      '/assets': {
+        target: 'https://heosa.africa',
         changeOrigin: true,
         secure: false,
       }
     }
   },
+  preview: {
+    port: 4173,
+  },
+  build: {
+    outDir: 'dist',
+    assetsDir: 'assets',
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+        },
+      },
+    },
+  },
+  base: process.env.NODE_ENV === 'production' 
+    ? 'https://heosa.africa/' 
+    : '/',
 });
