@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 
@@ -11,7 +11,20 @@ interface MenuItem {
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
+        setIsOpen(false);
+        setActiveSubmenu(null);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   const leftMenuItems: MenuItem[] = [
     {
@@ -37,12 +50,7 @@ const Navbar = () => {
     {
       title: 'Our Partners',
       path: '/partners',
-      submenu: [
-        { title: 'Platinum Sponsor', path: '/partners#platinum' },
-        { title: 'Our Partners', path: '/partners#healthcare' },
-        { title: 'Sponsors', path: '/partners#Sponsors' },
-        { title: 'Partner with Us', path: '/partners#Become a Partner' }
-      ]
+      //submenu: null
     },
    
   ];
@@ -142,7 +150,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <nav className="bg-white shadow-lg fixed w-full z-50" ref={menuRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Left Menu */}
