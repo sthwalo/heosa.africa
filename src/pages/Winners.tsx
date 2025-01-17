@@ -2,6 +2,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { winnersData } from '../data/winnersData';
 import Timeline from '../components/Timeline';
+import TimelineMobile from '../components/TimelineMobile';
 import { awardsTimelineData } from '../data/timelineData';
 
 const Winners = () => {
@@ -47,12 +48,14 @@ const Winners = () => {
             </div>
           </div>
         </div>
-      </div>{/* Timeline Section */}
-    <section className="py-16 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Timeline data={awardsTimelineData} title="Awards Timeline" />
       </div>
-    </section>
+      {/* Timeline Section */}
+      <div className="bg-gray-50">
+        <div className="hidden md:block max-w-7xl mx-auto">
+          <Timeline data={awardsTimelineData} title="Awards Timeline" />
+        </div>
+        <TimelineMobile data={awardsTimelineData} title="Awards Timeline" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">

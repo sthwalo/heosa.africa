@@ -3,6 +3,7 @@ import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { finalistsData, type Finalist } from '../data/finalistsData';
 import Timeline from '../components/Timeline';
+import TimelineMobile from '../components/TimelineMobile';
 import { finalistsTimelineData } from '../data/timelineData';
 
 const Finalists = () => {
@@ -125,7 +126,13 @@ const Finalists = () => {
         </div>
       </div>
 
-      <Timeline data={finalistsTimelineData} title="Finalist Selection Process" />
+      {/* Timeline Section */}
+      <div className="bg-gray-50">
+        <div className="hidden md:block max-w-7xl mx-auto">
+          <Timeline data={finalistsTimelineData} title="Finalist Selection Process" />
+        </div>
+        <TimelineMobile data={finalistsTimelineData} title="Finalist Selection Process" />
+      </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {categories.map((category, index) => (

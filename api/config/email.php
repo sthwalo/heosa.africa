@@ -17,3 +17,11 @@ return [
         'verify_peer' => getenv('ENVIRONMENT') === 'production'
     ]
 ];
+
+const config = {
+    apiBaseUrl: import.meta.env.PROD 
+        ? 'https://heosa.africa/api'
+        : 'http://localhost:8000/api'
+};
+
+export default config;

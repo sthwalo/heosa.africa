@@ -20,6 +20,7 @@ $allowedOrigins = [
     'http://localhost:5173',  // Vite dev server
     'http://localhost:4173',  // Vite preview server
     'https://heosa.africa'    // Production
+    'http://heosa.africa'
 ];
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 if (in_array($origin, $allowedOrigins) || getenv('ENVIRONMENT') !== 'production') {
@@ -159,4 +160,22 @@ try {
         "error" => $e->getMessage()
     ]);
 }
+?>
+<?php
+return [
+    'production' => [
+        'api_base' => 'https://heosa.africa/api',
+        'db_host' => 'localhost',
+        'db_name' => 'heosabcc_nominations',
+        'db_user' => 'heosabcc_nominations',
+        'db_pass' => 'AH30nomination5!'
+    ],
+    'development' => [
+        'api_base' => 'http://localhost:8000/api',
+        'db_host' => 'localhost',
+        'db_name' => 'heosabcc_nominations',
+        'db_user' => 'root',
+        'db_pass' => ''
+    ]
+];
 ?>
