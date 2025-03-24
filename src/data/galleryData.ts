@@ -39,7 +39,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     id: 101,
     url: '/images/2023/20232.jpeg',
     images: [
-        ...Array.from({ length: 109 }, (_, i) => `/images/2023/2023${i + 1}.jpeg`),
+      ...Array.from({ length: 109 }, (_, i) => `/images/2023/2023${i + 1}.jpeg`),
     ],
     title: 'African Health Excellence Awards',
     category: 'Awards',

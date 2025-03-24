@@ -1,5 +1,5 @@
 //import React from 'react';
-import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight } from 'lucide-react';
+import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight, Accessibility } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AwardsCategories = () => {
@@ -48,6 +48,11 @@ const AwardsCategories = () => {
       title: 'HEALTH RESEARCHER OF THE YEAR',
       icon: <Search className="h-8 w-8 text-[#962326]" />,
       description: 'Recognizing outstanding contributions to healthcare research, including clinical trials, medical studies, and innovative research methodologies that advance medical knowledge.'
+    },
+    {
+      title: 'HEALTHCARE PROFESSIONAL LIVING WITH A DISABILITY',
+      icon: <Accessibility className="h-8 w-8 text-[#962326]" />,
+      description: 'Recognizes and honors the remarkable contributions of healthcare professionals who navigate the challenges of living with disabilities. This award celebrates individuals who exemplify resilience, dedication, and excellence in their respective fields, demonstrating that barriers can be overcome through determination and passion for healthcare.'
     },
     {
       title: 'HEALTH INSTITUTION OF THE YEAR',
