@@ -17,6 +17,7 @@ import Gallery from './pages/Gallery';
 import Contact from './pages/Contact';
 import Winners from './pages/Winners';
 import TermsAndConditions from './pages/T&Cs';
+import QRCodes from './pages/QRCodes';
 
 function App() {
   return (
@@ -32,6 +33,7 @@ function App() {
             <Route path="/awards/winners" element={<Winners />} />
             <Route path="/awards/past-winners" element={<PastWinners />} />
             <Route path="/awards/nominate" element={<AwardsNominate />} />
+            <Route path="/awards/qrcodes" element={<QRCodes />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/medical-events" element={<MedicalEvents />} />
             <Route path="/medical-events/register" element={<MedicalEventsRegister />} />

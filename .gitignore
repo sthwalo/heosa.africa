@@ -31,3 +31,7 @@ public/
 .env
 .env.local
 .env.*.local
+dist
+site.webmanifest
+dis
+dis.zip

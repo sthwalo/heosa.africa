@@ -33,10 +33,9 @@ export default defineConfig({
         manualChunks: {
           vendor: ['react', 'react-dom'],
         },
+        assetFileNames: 'assets/[name]-[hash].[ext]'
       },
     },
   },
-  base: process.env.NODE_ENV === 'production' 
-    ? 'https://heosa.africa/' 
-    : '/',
+  base: '/',
 });

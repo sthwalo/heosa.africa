@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import { ArrowRight, ExternalLink, QrCode } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const AwardsNominate = () => {
@@ -77,13 +77,23 @@ const AwardsNominate = () => {
 
           {/* Nomination Button */}
           <div className="text-center">
-            <button
-              onClick={handleRedirect}
-              className="inline-flex items-center px-8 py-4 bg-[#962326] text-white rounded-md hover:bg-[#7a1c1f] transition-colors text-lg font-semibold"
-            >
-              Submit Nomination
-              <ExternalLink className="ml-2 h-5 w-5" />
-            </button>
+            <div className="flex flex-col sm:flex-row justify-center gap-4">
+              <button
+                onClick={handleRedirect}
+                className="inline-flex items-center px-8 py-4 bg-[#962326] text-white rounded-md hover:bg-[#7a1c1f] transition-colors text-lg font-semibold"
+              >
+                Submit Nomination
+                <ExternalLink className="ml-2 h-5 w-5" />
+              </button>
+              
+              <Link
+                to="/awards/qrcodes"
+                className="inline-flex items-center px-8 py-4 border-2 border-[#962326] text-[#962326] rounded-md hover:bg-gray-100 transition-colors text-lg font-semibold"
+              >
+                Get QR Codes
+                <QrCode className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
