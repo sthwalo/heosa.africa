@@ -50,7 +50,7 @@ const Navbar = () => {
     {
       title: 'Our Partners',
       path: '/partners',
-      //submenu: null
+
     },
    
   ];
@@ -59,12 +59,7 @@ const Navbar = () => {
     {
       title: 'Medical Events',
       path: '/medical-events',
-      submenu: [
-        { title: 'Upcoming Events', path: '/medical-events' },
-        { title: 'Register for Events', path: '/medical-events/register' },
-       // { title: 'Past Events', path: '/medical-events#past' },
-       // { title: 'CPD Information', path: '/medical-events#cpd' }
-      ]
+  
     },
     {
       title: 'Winners',

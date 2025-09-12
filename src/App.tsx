@@ -8,7 +8,6 @@ import AwardsCategories from './pages/AwardsCategories';
 import AwardsNominate from './pages/AwardsNominate';
 import Partners from './pages/Partners';
 import MedicalEvents from './pages/MedicalEvents';
-import MedicalEventsRegister from './pages/MedicalEventsRegister';
 import About from './pages/About';
 import Finalists from './pages/Finalists';
 import PastWinners from './pages/PastWinners';
@@ -36,7 +35,6 @@ function App() {
             <Route path="/awards/qrcodes" element={<QRCodes />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/medical-events" element={<MedicalEvents />} />
-            <Route path="/medical-events/register" element={<MedicalEventsRegister />} />
             <Route path="/about" element={<About />} />
             <Route path="/winners" element={<Winners />} />
             <Route path="/past-winners" element={<PastWinners />} />
@@ -46,6 +44,7 @@ function App() {
             <Route path="/gallery" element={<Gallery />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/t&cs" element={<TermsAndConditions />} />
+            <Route path="/awards/vote" element={<Finalists />} />
           </Routes>
         </main>
         <Footer />

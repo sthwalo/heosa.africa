@@ -1,15 +1,9 @@
 import { Link } from 'react-router-dom';
-import { Award, Trophy, Calendar, Users, ArrowRight } from 'lucide-react';
-import { awardsTimelineData } from '../data/timelineData';
+import { Award, ArrowRight } from 'lucide-react';
 import Timeline from '../components/Timeline';
-import TimelineMobile from '../components/TimelineMobile';
+import { awardsTimelineData } from '../data/timelineData';
 
 const Awards = () => {
-  const upcomingEvent = {
-    date: "November 22, 2025",
-    venue: "TBC",
-    time: "18:00 - 22:00"
-  };
 
   const categories = [
     {
@@ -39,7 +33,7 @@ const Awards = () => {
   ];
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-teal-50">
       {/* Hero Section */}
       <div className="relative bg-[#2B2A29] text-white py-24">
         <div className="absolute inset-0 overflow-hidden">
@@ -58,13 +52,13 @@ const Awards = () => {
               Recognizing and celebrating outstanding achievements in African healthcare
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/awards/nominate"
-                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+              <button
+                className="inline-flex items-center px-6 py-3 bg-gray-500 rounded-md cursor-not-allowed opacity-70"
+                disabled
               >
-                Nominate Now
+                Nominations Closed
                 <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              </button>
               <Link
                 to="/awards/categories"
                 className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
@@ -76,35 +70,11 @@ const Awards = () => {
         </div>
       </div>
 
-      {/* Timeline Sections - Moved below hero */}
-      <div className="hidden md:block">
+      {/* Timeline Sections */}
+      <div className="block">
         <Timeline data={awardsTimelineData} title="Awards Timeline" />
       </div>
-      <TimelineMobile data={awardsTimelineData} title="Awards Timeline" />
-
-      {/* Event Details */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="bg-white rounded-xl shadow-lg p-8 -mt-32 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="text-center">
-              <Calendar className="h-8 w-8 text-[#962326] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-[#2B2A29] mb-2">Date</h3>
-              <p className="text-gray-600">{upcomingEvent.date}</p>
-            </div>
-            <div className="text-center">
-              <Trophy className="h-8 w-8 text-[#962326] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-[#2B2A29] mb-2">Venue</h3>
-              <p className="text-gray-600">{upcomingEvent.venue}</p>
-            </div>
-            <div className="text-center">
-              <Users className="h-8 w-8 text-[#962326] mx-auto mb-4" />
-              <h3 className="text-lg font-semibold text-[#2B2A29] mb-2">Time</h3>
-              <p className="text-gray-600">{upcomingEvent.time}</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      
       {/* Award Categories Overview */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="text-center mb-16">
@@ -152,15 +122,15 @@ const Awards = () => {
       <div className="bg-[#2B2A29] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">Ready to Make a Nomination?</h2>
+            <h2 className="text-3xl font-bold mb-4">African Health Excellence Awards 2025</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Help us recognize outstanding healthcare professionals and institutions by submitting your nominations for the African Health Excellence Awards.
+              Nominations are now closed. Join us at the awards ceremony on November 15, 2025 - "Night of the Health Stars".
             </p>
             <Link
-              to="/awards/nominate"
-              className="inline-flex items-center px-8 py-4 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+              to="/medical-events"
+              className="inline-flex items-center px-8 py-4 bg-[#A7864B] rounded-md hover:bg-[#962326] transition-colors"
             >
-              Submit Nomination
+              Register for Awards Ceremony
               <ArrowRight className="ml-2 h-5 w-5" />
             </Link>
           </div>

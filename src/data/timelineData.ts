@@ -2,58 +2,79 @@ export const homeTimelineData = [
   {
     date: "January 1 - May 31, 2025",
     phase: "Open for nominations",
-    status: "upcoming",
+    status: "closed",
     cta: {
-      text: "View Categories & Nominate",
-      link: "/awards"
+      text: "Nominations Closed",
+      link: "#"
     }
   },
   {
-    date: "August 30, 2025",
+    date: "September 6, 2025",
     phase: "Finalists Announcement",
-    status: "upcoming",
+    status: "completed",
     cta: {
       text: "View Finalists",
       link: "/finalists"
     }
   },
   {
-    date: "November 22, 2025",
-    phase: "Winners Announcement",
+    date: "November 14, 2025",
+    phase: "Summit",
     status: "upcoming",
+    description: "African Health Excellence Summit at Liberty Building, Umhlanga",
+    cta: {
+      text: "Register for Summit",
+      link: "/medical-events"
+    }
+  },
+  {
+    date: "November 15, 2025",
+    phase: "Awards Ceremony",
+    status: "upcoming",
+    description: "Winners will be announced at our awards ceremony - \"Night of the Health Stars\"",
+    cta: {
+      text: "Register for Awards",
+      link: "/medical-events"
+    }
+  },
+  {
+    date: "November 15, 2025",
+    phase: "Winners Announcement",
+    status: "register",
+    description: "\"Night of the Health Stars\" - Join us for the celebration!",
     cta: {
       text: "View Winners",
       link: "/winners"
     }
-  }
+  } 
 ];
 
 export const awardsTimelineData = [
   {
     date: "January 1 - May 31, 2025",
     phase: "Open for nominations",
-    status: "upcoming",
+    status: "closed",
     cta: {
-      text: "Nominate Now",
-      link: "/awards/nominate"
+      text: "Nominations Closed",
+      link: "#"
     }
   },
   {
     date: "June 1 - 30, 2025",
     phase: "Consolidation of Nominations",
-    status: "upcoming",
+    status: "closed",
     cta: {
-      text: "Coming Soon",
+      text: "Completed",
       link: "#"
     }
   },
   {
-    date: "November 22, 2025",
+    date: "November 15, 2025",
     phase: "Awards Ceremony",
     status: "upcoming",
     cta: {
-      text: "View Winners",
-      link: "/winners"
+      text: "Register Now",
+      link: "/medical-events"
     }
   }
 ];
@@ -62,16 +83,16 @@ export const finalistsTimelineData = [
   {
     date: "July 1 - August 23, 2025",
     phase: "Adjudication Process",
-    status: "upcoming",
+    status: "closed",
     cta: {
-      text: "Coming Soon",
+      text: "Completed",
       link: "#"
     }
   },
   {
-    date: "August 30, 2025",
+    date: "September 6, 2025",
     phase: "Finalists Announcement",
-    status: "upcoming",
+    status: "completed",
     cta: {
       text: "Meet the Finalists",
       link: "/finalists"
@@ -80,17 +101,17 @@ export const finalistsTimelineData = [
   {
     date: "September 1 - October 31, 2025",
     phase: "Public Voting",
-    status: "upcoming",
+    status: "closed",
     cta: {
-      text: "Vote",
-      link: "/vote"
+      text: "Voting Closed",
+      link: "#"
     }
   }
 ];
 
 export const winnersTimelineData = [
   {
-    date: "November 22, 2025",
+    date: "November 15, 2025",
     phase: "Winners Announcement",
     status: "upcoming",
     cta: {
@@ -99,3 +120,28 @@ export const winnersTimelineData = [
     }
   }
 ];
+
+// Event details for the awards ceremony
+export const awardsEventDetails = {
+  title: "African Health Excellence Awards 2025",
+  subtitle: "\"Night of the Health Stars\"",
+  date: "November 15, 2025",
+  venue: "The Capital Hotel (Zimbali)",
+  schedule: {
+    redCarpet: "15:00 - Red Carpet & Interviews",
+    mainEvent: "17:00 - Main Event"
+  },
+  dressCode: "Black tie with a touch of African Print",
+  description: "Join us as we celebrate and honor Africa's healthcare heroes at a night of excellence, elegance, and recognition."
+};
+
+// Accommodation information
+export const accommodationInfo = {
+  hotel: "The Capital Zimbali",
+  specialOffer: "Special delegate discount available",
+  bookingNote: "Our delegates will receive a special discount when booking accommodation",
+  contact: {
+    phone: "079 950 1565",
+    email: "info@heosa.africa"
+  }
+};

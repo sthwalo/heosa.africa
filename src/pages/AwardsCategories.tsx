@@ -68,6 +68,11 @@ const AwardsCategories = () => {
       title: 'EMPLOYEE WELLNESS HCP OF THE YEAR',
       icon: <UserPlus className="h-8 w-8 text-[#962326]" />,
       description: 'Celebrating healthcare professionals who champion workplace wellness programs and initiatives that promote the health and well-being of healthcare workers.'
+    },
+    {
+      title: 'HEALTH CARE RISING STAR OF THE YEAR',
+      icon: <Star className="h-8 w-8 text-[#962326]" />,
+      description: 'A rising star in the healthcare profession typically refers to a young or early-career to a maximum age of 40 years. An individual who is demonstrating exceptional talent, leadership, or innovation in their field. These professionals often show a strong commitment to improving patient care, contributing to research, or advancing healthcare practices. Here are some key traits and examples of rising stars in healthcare.'
     }
   ];
 

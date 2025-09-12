@@ -5,23 +5,23 @@ const EventsSlider = () => {
   const events = [
     {
       id: 1,
-      name: "African Health Excellence Organisation Summit 2025",
-      date: "2025-11-21",
-      image: "/images/summit/27.png",
-      description: "Join us for the African Health Excellence Organisation Awards and Summit, celebrating excellence in healthcare.",
-      location: "Durban, South Africa",
+      name: "African Health Excellence Summit 2025",
+      date: "2025-11-14",
+      image: "public/2025 Summit.jpg",
+      description: "Join industry leaders for insights on healthcare management and innovation at the African Health Excellence Summit.",
+      location: "Liberty Building, Umhlanga",
       time: "09:00 - 17:00",
       registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit"
     }, 
     {
       id: 2,
       name: "African Health Excellence Awards 2025",
-      date: "2025-11-22",
-      image: "/images/events/1.png", 
-      description: "Join us for the prestigious African Health Excellence Awards ceremony celebrating outstanding achievements in healthcare.",
-      location: "Durban, South Africa",
-      time: "18:00 - 22:00",
-      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards"
+      date: "2025-11-15",
+      image: "public/2025 Awards.jpg", 
+      description: "\"Night of the Health Stars\" - Celebrating and honoring Africa's healthcare heroes at a night of excellence, elegance, and recognition.",
+      location: "The Capital Hotel (Zimbali)",
+      time: "15:00 - 22:00",
+      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1"
     }
   ];
 
