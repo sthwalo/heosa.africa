@@ -14,7 +14,7 @@ const MedicalEvents = () => {
       summitOnlyGeneralReg: "R2100",
       image: '/images/summit/27.png',
       description: 'Join industry leaders for insights on healthcare management and innovation at the African Health Excellence Summit.',
-      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit'
+      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1'
     },
     {
       title: 'African Health Excellence Awards',

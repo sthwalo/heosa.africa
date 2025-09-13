@@ -7,17 +7,17 @@ const EventsSlider = () => {
       id: 1,
       name: "African Health Excellence Summit 2025",
       date: "2025-11-14",
-      image: "public/2025 Summit.jpg",
+      image: "images/2025 Summit.jpg",
       description: "Join industry leaders for insights on healthcare management and innovation at the African Health Excellence Summit.",
       location: "Liberty Building, Umhlanga",
       time: "09:00 - 17:00",
-      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit"
+      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1"
     }, 
     {
       id: 2,
       name: "African Health Excellence Awards 2025",
       date: "2025-11-15",
-      image: "public/2025 Awards.jpg", 
+      image: "images/2025 Awards.jpg", 
       description: "\"Night of the Health Stars\" - Celebrating and honoring Africa's healthcare heroes at a night of excellence, elegance, and recognition.",
       location: "The Capital Hotel (Zimbali)",
       time: "15:00 - 22:00",

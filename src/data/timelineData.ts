@@ -13,7 +13,7 @@ export const homeTimelineData = [
     phase: "Finalists Announcement",
     status: "completed",
     cta: {
-      text: "View Finalists",
+      text: "Vote for Finalists",
       link: "/finalists"
     }
   },
@@ -101,10 +101,10 @@ export const finalistsTimelineData = [
   {
     date: "September 1 - October 31, 2025",
     phase: "Public Voting",
-    status: "closed",
+    status: "active",
     cta: {
-      text: "Voting Closed",
-      link: "#"
+      text: "Vote for Finalists",
+      link: "/finalists"
     }
   }
 ];
