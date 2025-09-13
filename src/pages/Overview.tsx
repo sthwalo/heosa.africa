@@ -62,7 +62,7 @@ const Overview = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/medical-events/register"
+                to="/medical-events"
                 className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
               >
                 Register Now

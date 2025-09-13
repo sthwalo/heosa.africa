@@ -1,13 +1,13 @@
 export const homeTimelineData = [
-  {
+  /* {
     date: "January 1 - May 31, 2025",
     phase: "Open for nominations",
     status: "closed",
     cta: {
       text: "Nominations Closed",
       link: "#"
-    }
-  },
+    } 
+  },*/
   {
     date: "September 6, 2025",
     phase: "Finalists Announcement",
@@ -50,7 +50,7 @@ export const homeTimelineData = [
 ];
 
 export const awardsTimelineData = [
-  {
+ /*  {
     date: "January 1 - May 31, 2025",
     phase: "Open for nominations",
     status: "closed",
@@ -67,7 +67,7 @@ export const awardsTimelineData = [
       text: "Completed",
       link: "#"
     }
-  },
+  }, */
   {
     date: "November 15, 2025",
     phase: "Awards Ceremony",
@@ -80,16 +80,16 @@ export const awardsTimelineData = [
 ];
 
 export const finalistsTimelineData = [
-  {
+  /* {
     date: "July 1 - August 23, 2025",
     phase: "Adjudication Process",
     status: "closed",
     cta: {
       text: "Completed",
       link: "#"
-    }
-  },
-  {
+    } 
+  },*/
+  /* {
     date: "September 6, 2025",
     phase: "Finalists Announcement",
     status: "completed",
@@ -97,8 +97,8 @@ export const finalistsTimelineData = [
       text: "Meet the Finalists",
       link: "/finalists"
     }
-  },
-  {
+  } */
+  /* {
     date: "September 1 - October 31, 2025",
     phase: "Public Voting",
     status: "active",
@@ -106,7 +106,7 @@ export const finalistsTimelineData = [
       text: "Vote for Finalists",
       link: "/finalists"
     }
-  }
+  } */
 ];
 
 export const winnersTimelineData = [

@@ -130,10 +130,10 @@ const AwardsCategories = () => {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                to="/awards/nominate"
+                to=""
                 className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
               >
-                Nominate Now
+                Nominations Closed
                 <ArrowRight className="ml-2 h-5 w-5" />
               </Link>
             </div>

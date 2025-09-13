@@ -44,7 +44,7 @@ const Navbar = () => {
         { title: 'Overview', path: '/awards/overview' },
         { title: 'Award Categories', path: '/awards/categories' },
         { title: 'Award Winners', path: '/winners' },
-        { title: 'Nominate', path: '/awards/nominate' }
+        //{ title: 'Nominate', path: '/awards/nominate' }
       ]
     },
     {
