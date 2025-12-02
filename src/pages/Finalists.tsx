@@ -1,117 +1,55 @@
 import { useState } from 'react';
-import { Phone, Mail, Share2, X, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { type Finalist } from '../data/finalistsData';
-import { finalists25Data } from '../data/finalists25';
-import Timeline from '../components/Timeline';
-import TimelineMobile from '../components/TimelineMobile';
-import { finalistsTimelineData } from '../data/timelineData';
+import { ArrowRight, X } from 'lucide-react';
+import { finalistsData, type Finalist } from '../data/finalistsData';
 
 const Finalists = () => {
   const [selectedFinalist, setSelectedFinalist] = useState<Finalist | null>(null);
-  const [isVoteModalOpen, setIsVoteModalOpen] = useState(false);
-
-  // Use 2025 finalists data
-  const currentFinalists = finalists25Data.filter(f => f.year === '2025');
+  
+  // Get unique years from the data and default to most recent
+  const years = Array.from(new Set(finalistsData.map(f => f.year))).sort().reverse();
+  const [selectedYear, setSelectedYear] = useState(years[0] || '2025');
 
   const categories = Object.values(
-    currentFinalists.reduce((acc, finalist) => {
-      if (!acc[finalist.category]) {
-        acc[finalist.category] = {
-          title: finalist.category,
-          finalists: []
-        };
-      }
-      acc[finalist.category].finalists.push(finalist);
-      return acc;
-    }, {} as Record<string, { title: string; finalists: Finalist[] }>));
-
-  const handleVote = (finalist: Finalist) => {
-    setSelectedFinalist(finalist);
-    setIsVoteModalOpen(true);
-  };
-
-  const VoteModal = () => {
-    if (!selectedFinalist) return null;
-
-    const votingMethods = [
-      {
-        title: 'SMS Voting - South Africa',
-        icon: <Phone className="h-6 w-6" />,
-        description: `SMS ${selectedFinalist.voteCode} to 34855`,
-        action: () => window.location.href = `sms:33351?body=${selectedFinalist.voteCode}`
-      },
-      {
-        title: 'SMS Voting - Africa', 
-        icon: <Phone className="h-6 w-6" />,
-        description: `SMS ${selectedFinalist.voteCode} to 34855 or Pay via Bank details`,
-        action: () => window.location.href = `sms:34433?body=${selectedFinalist.voteCode}`
-      },
-      {
-        title: 'WhatsApp Voting',
-        icon: <Phone className="h-6 w-6" />,
-        description: `WhatsApp ${selectedFinalist.voteCode} to +27 79 950 1565`,
-        action: () => window.location.href = `https://wa.me/27799501565?text=${selectedFinalist.voteCode}`
-      },
-      {
-        title: 'Email Voting',
-        icon: <Mail className="h-6 w-6" />,
-        description: 'Vote via email',
-        action: () => window.location.href = `mailto:vote@heosa.africa?subject=Vote for ${selectedFinalist.name}&body=I would like to vote for ${selectedFinalist.name} (${selectedFinalist.voteCode})`
-      },
-      {
-        title: 'Share',
-        icon: <Share2 className="h-6 w-6" />,
-        description: 'Share with friends',
-        action: () => {
-          if (navigator.share) {
-            navigator.share({
-              title: 'Vote for ' + selectedFinalist.name,
-              text: `Vote for ${selectedFinalist.name} in the African Health Excellence Awards 2025! SMS ${selectedFinalist.voteCode} to 33351 (SA) or 34433 (ZW)`,
-              url: window.location.href
-            });
-          }
+    finalistsData
+      .filter(f => f.year === selectedYear)
+      .reduce((acc, finalist) => {
+        if (!acc[finalist.category]) {
+          acc[finalist.category] = {
+            title: finalist.category,
+            finalists: []
+          };
         }
-      }
-    ];
+        acc[finalist.category].finalists.push(finalist);
+        return acc;
+      }, {} as Record<string, { title: string; finalists: Finalist[] }>)
+  );
+
+  const ImageModal = () => {
+    if (!selectedFinalist) return null;
 
     return (
       <div className="fixed inset-0 bg-black/70 flex items-center justify-center z-50 p-4">
-        <div className="bg-white rounded-xl max-w-md w-full p-6">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-xl font-semibold text-[#2B2A29]">Vote for {selectedFinalist.name}</h3>
+        <div className="bg-white rounded-xl max-w-4xl w-full p-6">
+          <div className="flex justify-between items-center mb-6">
+            <div>
+              <h3 className="text-xl font-semibold text-[#2B2A29]">{selectedFinalist.name}</h3>
+              <p className="text-gray-600">{selectedFinalist.category}</p>
+              <p className="text-sm text-[#962326]">{selectedFinalist.year}</p>
+            </div>
             <button
-              onClick={() => setIsVoteModalOpen(false)}
+              onClick={() => setSelectedFinalist(null)}
               className="text-gray-500 hover:text-gray-700"
             >
               <X className="h-6 w-6" />
             </button>
           </div>
-          
-          {/* Voting deadline notice */}
-          <div className="bg-[#F2C849] bg-opacity-20 border border-[#F2C849] rounded-lg p-3 mb-6">
-            <p className="text-sm text-[#962326] font-semibold text-center">
-              ⏰ Voting closes on October 31, 2025
-            </p>
-          </div>
 
-          <div className="space-y-4">
-            {votingMethods.map((method, index) => (
-              <button
-                key={index}
-                onClick={method.action}
-                className="w-full flex items-center gap-4 p-4 rounded-lg border border-gray-200 hover:border-[#962326] hover:bg-gray-50 transition-colors"
-              >
-                <div className="flex-shrink-0 text-[#962326]">
-                  {method.icon}
-                </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-[#2B2A29]">{method.title}</h4>
-                  <p className="text-sm text-gray-600">{method.description}</p>
-                </div>
-              </button>
-            ))}
-          </div>
+          <img
+            src={selectedFinalist.image}
+            alt={selectedFinalist.name}
+            className="w-full h-auto rounded-lg"
+          />
         </div>
       </div>
     );
@@ -131,46 +69,93 @@ const Finalists = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              2025 Finalists
+              {selectedYear} Finalists
             </h1>
-            <p className="text-xl text-gray-300 mb-4 max-w-3xl mx-auto">
-              Vote for your favorite healthcare professionals in the African Health Excellence Awards 2025
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
+              Celebrating our finalists who have demonstrated excellence in healthcare
             </p>
-            <div className="bg-[#F2C849] bg-opacity-20 border border-[#F2C849] rounded-lg p-4 mb-8 max-w-md mx-auto">
-              <p className="text-[#F2C849] font-semibold">
-                ⏰ Voting closes October 31, 2025
+            
+            {/* Info Box */}
+            <div className="bg-blue-100 bg-opacity-20 border border-blue-400 rounded-lg p-6 mb-8 max-w-2xl mx-auto">
+              <p className="text-blue-300 font-semibold mb-2 text-lg">ℹ️ Voting Status</p>
+              <p className="text-gray-300">
+                Voting for {selectedYear} finalists has closed. Winners were announced at the awards ceremony.
+              </p>
+              <p className="text-sm text-gray-300 mt-3">
+                Nominations for 2026 are now open until April 30, 2026.
               </p>
             </div>
-            <Link
-              to="/past-finalists"
-              className="inline-flex items-center px-6 py-3 rounded-full bg-[#962326] text-white hover:bg-[#7a1c1f] transition-colors"
-            >
-              View Past Finalists
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                to="/awards/nominate"
+                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+              >
+                Nominate for 2026
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+              <Link
+                to="/winners"
+                className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
+              >
+                View Winners
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      {/* Timeline Section */}
-      <div className="bg-gray-50">
-        <div className="hidden md:block max-w-7xl mx-auto">
-          <Timeline data={finalistsTimelineData} title="Finalist Selection Process" />
-        </div>
-        <TimelineMobile data={finalistsTimelineData} title="Finalist Selection Process" />
-      </div>
-
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        {categories.map((category, index) => (
-          <div key={index} className="mb-16">
-            <h2 className="text-2xl font-bold text-[#2B2A29] mb-8">{category.title}</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Year Selection */}
+        <div className="flex flex-wrap gap-4 justify-center mb-8">
+          {years.map((year) => (
+            year && (
+              <button
+                key={year}
+                onClick={() => setSelectedYear(year)}
+                className={`px-6 py-2 rounded-full shadow-md hover:shadow-lg transition-all ${
+                  selectedYear === year
+                    ? 'bg-[#962326] text-white'
+                    : 'bg-white text-[#2B2A29] hover:bg-[#F2C849] hover:text-white'
+                }`}
+              >
+                {year}
+              </button>
+            )
+          ))}
+        </div>
+
+        {/* Info about 2026 */}
+        <div className="bg-white rounded-xl shadow-lg p-6 mb-8 max-w-3xl mx-auto">
+          <h2 className="text-2xl font-bold text-[#2B2A29] mb-4">2026 Finalists Coming Soon</h2>
+          <p className="text-gray-600 mb-4">
+            The 2026 finalists will be announced on <span className="font-semibold text-[#962326]">August 29, 2026</span>.
+          </p>
+          <div className="bg-gray-50 rounded-lg p-4">
+            <h3 className="font-semibold text-[#2B2A29] mb-2">2026 Timeline:</h3>
+            <ul className="text-sm text-gray-600 space-y-1">
+              <li>✅ <strong>Nominations:</strong> December 1, 2025 - April 30, 2026 (Currently Open)</li>
+              <li>⏳ <strong>Adjudication:</strong> May 1 - August 28, 2026</li>
+              <li>📢 <strong>Finalists Announced:</strong> August 29, 2026</li>
+              <li>🗳️ <strong>Public Voting:</strong> September 1 - October 15, 2026</li>
+              <li>🏆 <strong>Awards Ceremony:</strong> November 14, 2026</li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Categories */}
+        {categories.map((category) => (
+          <div key={category.title} className="mb-12">
+            <h2 className="text-2xl font-bold text-[#2B2A29] mb-6">{category.title}</h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
               {category.finalists.map((finalist) => (
                 <div
                   key={finalist.id}
-                  className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow"
+                  onClick={() => setSelectedFinalist(finalist)}
+                  className="bg-white rounded-lg shadow-lg overflow-hidden cursor-pointer transform transition-transform hover:scale-105"
                 >
-                  <div className="relative aspect-square">
+                  <div className="aspect-w-3 aspect-h-4 relative">
                     <img
                       src={finalist.image}
                       alt={finalist.name}
@@ -178,13 +163,8 @@ const Finalists = () => {
                     />
                   </div>
                   <div className="p-4">
-                    <h3 className="font-semibold text-[#2B2A29] mb-4">{finalist.name}</h3>
-                    <button
-                      onClick={() => handleVote(finalist)}
-                      className="w-full py-2 bg-[#962326] text-white rounded-md hover:bg-[#A7864B] transition-colors"
-                    >
-                      Vote Now
-                    </button>
+                    <h3 className="font-semibold text-[#2B2A29] mb-1">{finalist.name}</h3>
+                    <p className="text-sm text-gray-600">{finalist.category}</p>
                   </div>
                 </div>
               ))}
@@ -193,7 +173,7 @@ const Finalists = () => {
         ))}
       </div>
 
-      {isVoteModalOpen && <VoteModal />}
+      <ImageModal />
     </div>
   );
 };

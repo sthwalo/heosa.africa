@@ -1,75 +1,84 @@
 export const homeTimelineData = [
-  /* {
-    date: "January 1 - May 31, 2025",
-    phase: "Open for nominations",
-    status: "closed",
-    cta: {
-      text: "Nominations Closed",
-      link: "#"
-    } 
-  },*/
   {
-    date: "September 6, 2025",
+    date: "December 1, 2025 - April 30, 2026",
+    phase: "Open for nominations",
+    status: "active",
+    cta: {
+      text: "Nominate Now",
+      link: "/awards/nominate"
+    } 
+  },
+  {
+    date: "August 29, 2026",
     phase: "Finalists Announcement",
-    status: "completed",
+    status: "upcoming",
+    cta: {
+      text: "View Finalists",
+      link: "/finalists"
+    }
+  },
+  {
+    date: "September 1 - October 15, 2026",
+    phase: "Public Voting",
+    status: "upcoming",
+    description: "Vote for your favorite finalists",
     cta: {
       text: "Vote for Finalists",
       link: "/finalists"
     }
   },
   {
-    date: "November 14, 2025",
-    phase: "Summit",
+    date: "October 16-18, 2026",
+    phase: "National Obesity Conference",
     status: "upcoming",
-    description: "African Health Excellence Summit at Liberty Building, Umhlanga",
+    description: "Join industry leaders. Venue to be announced",
     cta: {
-      text: "Register for Summit",
+      text: "Register for Conference",
       link: "/medical-events"
     }
   },
   {
-    date: "November 15, 2025",
+    date: "November 14, 2026",
     phase: "Awards Ceremony",
     status: "upcoming",
-    description: "Winners will be announced at our awards ceremony - \"Night of the Health Stars\"",
+    description: "\"Night of the Health Stars\" - Winners will be announced",
     cta: {
       text: "Register for Awards",
       link: "/medical-events"
     }
-  },
-  {
-    date: "November 15, 2025",
-    phase: "Winners Announcement",
-    status: "register",
-    description: "\"Night of the Health Stars\" - Join us for the celebration!",
-    cta: {
-      text: "View Winners",
-      link: "/winners"
-    }
-  } 
+  }
 ];
 
 export const awardsTimelineData = [
- /*  {
-    date: "January 1 - May 31, 2025",
+  {
+    date: "December 1, 2025 - April 30, 2026",
     phase: "Open for nominations",
-    status: "closed",
+    status: "active",
     cta: {
-      text: "Nominations Closed",
-      link: "#"
+      text: "Nominate Now",
+      link: "/awards/nominate"
     }
   },
   {
-    date: "June 1 - 30, 2025",
-    phase: "Consolidation of Nominations",
-    status: "closed",
+    date: "August 29, 2026",
+    phase: "Finalists Announcement",
+    status: "upcoming",
     cta: {
-      text: "Completed",
-      link: "#"
+      text: "View Finalists",
+      link: "/finalists"
     }
-  }, */
+  },
   {
-    date: "November 15, 2025",
+    date: "September 1 - October 15, 2026",
+    phase: "Public Voting",
+    status: "upcoming",
+    cta: {
+      text: "Vote for Finalists",
+      link: "/finalists"
+    }
+  },
+  {
+    date: "November 14, 2026",
     phase: "Awards Ceremony",
     status: "upcoming",
     cta: {
@@ -80,38 +89,38 @@ export const awardsTimelineData = [
 ];
 
 export const finalistsTimelineData = [
-  /* {
-    date: "July 1 - August 23, 2025",
+  {
+    date: "May 1 - August 28, 2026",
     phase: "Adjudication Process",
-    status: "closed",
+    status: "upcoming",
     cta: {
-      text: "Completed",
+      text: "In Progress",
       link: "#"
     } 
-  },*/
-  /* {
-    date: "September 6, 2025",
+  },
+  {
+    date: "August 29, 2026",
     phase: "Finalists Announcement",
-    status: "completed",
+    status: "upcoming",
     cta: {
       text: "Meet the Finalists",
       link: "/finalists"
     }
-  } */
-  /* {
-    date: "September 1 - October 31, 2025",
+  },
+  {
+    date: "September 1 - October 15, 2026",
     phase: "Public Voting",
-    status: "active",
+    status: "upcoming",
     cta: {
       text: "Vote for Finalists",
       link: "/finalists"
     }
-  } */
+  }
 ];
 
 export const winnersTimelineData = [
   {
-    date: "November 15, 2025",
+    date: "November 14, 2026",
     phase: "Winners Announcement",
     status: "upcoming",
     cta: {
@@ -123,10 +132,10 @@ export const winnersTimelineData = [
 
 // Event details for the awards ceremony
 export const awardsEventDetails = {
-  title: "African Health Excellence Awards 2025",
+  title: "African Health Excellence Awards 2026",
   subtitle: "\"Night of the Health Stars\"",
-  date: "November 15, 2025",
-  venue: "The Capital Hotel (Zimbali)",
+  date: "November 14, 2026",
+  venue: "Venue to be announced",
   schedule: {
     redCarpet: "15:00 - Red Carpet & Interviews",
     mainEvent: "17:00 - Main Event"

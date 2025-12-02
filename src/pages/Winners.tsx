@@ -1,5 +1,6 @@
 import { Link, useLocation } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
+import { useState } from 'react';
 import { winnersData } from '../data/winnersData';
 import Timeline from '../components/Timeline';
 import TimelineMobile from '../components/TimelineMobile';
@@ -8,10 +9,15 @@ import { awardsTimelineData } from '../data/timelineData';
 const Winners = () => {
   const location = useLocation();
   const isAwardsWinners = location.pathname.startsWith('/awards');
-  const currentWinners = winnersData.filter(winner => winner.year === '2024');
+  
+  // Get available years and default to the most recent
+  const availableYears = [...new Set(winnersData.map(winner => winner.year))].sort().reverse();
+  const [selectedYear, setSelectedYear] = useState(availableYears[0] || '2025');
+  
+  const currentWinners = winnersData.filter(winner => winner.year === selectedYear);
 
   const content = {
-    title: isAwardsWinners ? "2024 Award Winners" : "2024 Winners",
+    title: isAwardsWinners ? `${selectedYear} Award Winners` : `${selectedYear} Winners`,
     description: isAwardsWinners 
       ? "Meet our outstanding award winners who have demonstrated excellence in healthcare"
       : "Meet the outstanding individuals and organizations recognized for their excellence",
@@ -58,6 +64,27 @@ const Winners = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        {/* Year Selector */}
+        {availableYears.length > 1 && (
+          <div className="flex justify-center mb-8">
+            <div className="inline-flex rounded-lg border border-gray-300 bg-white p-1">
+              {availableYears.map((year) => (
+                <button
+                  key={year}
+                  onClick={() => setSelectedYear(year)}
+                  className={`px-6 py-2 rounded-md font-medium transition-colors ${
+                    selectedYear === year
+                      ? 'bg-[#962326] text-white'
+                      : 'text-gray-700 hover:bg-gray-100'
+                  }`}
+                >
+                  {year}
+                </button>
+              ))}
+            </div>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
           {currentWinners.map((winner) => (
             <div

@@ -1,11 +1,10 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Footer from './components/Footer';
+import { Navbar, Footer } from './components/layout';
 import Home from './pages/Home';
 import Awards from './pages/Awards';
 import Overview from './pages/Overview';
 import AwardsCategories from './pages/AwardsCategories';
-//import AwardsNominate from './pages/AwardsNominate';
+import AwardsNominate from './pages/AwardsNominate';
 import Partners from './pages/Partners';
 import MedicalEvents from './pages/MedicalEvents';
 import About from './pages/About';
@@ -31,7 +30,7 @@ function App() {
             <Route path="/awards/categories" element={<AwardsCategories />} />
             <Route path="/awards/winners" element={<Winners />} />
             <Route path="/awards/past-winners" element={<PastWinners />} />
-            {/* <Route path="/awards/nominate" element={<AwardsNominate />} /> */}
+            <Route path="/awards/nominate" element={<AwardsNominate />} />
             <Route path="/awards/qrcodes" element={<QRCodes />} />
             <Route path="/partners" element={<Partners />} />
             <Route path="/medical-events" element={<MedicalEvents />} />

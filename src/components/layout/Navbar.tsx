@@ -1,12 +1,10 @@
 import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-
-interface MenuItem {
-  title: string;
-  path: string;
-  submenu?: MenuItem[];
-}
+import { MenuItem } from '../../types';
+import { NAVIGATION } from '../../constants';
+import { useClickOutside } from '../../hooks';
+import { scrollToElement, getHashFromUrl } from '../../utils';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -14,93 +12,23 @@ const Navbar = () => {
   const menuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (menuRef.current && !menuRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-        setActiveSubmenu(null);
-      }
-    };
+  // Use custom hook for click outside
+  useClickOutside(menuRef, () => {
+    setIsOpen(false);
+    setActiveSubmenu(null);
+  });
 
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
-
-  const leftMenuItems: MenuItem[] = [
-    {
-      title: 'Home',
-      path: '/',
-      //submenu: null
-    },
-    {
-      title: 'About',
-      path: '/about',
-      //submenu: null
-    },
-    {
-      title: 'Awards/Summit',
-      path: '/awards',
-      submenu: [
-        { title: 'Overview', path: '/awards/overview' },
-        { title: 'Award Categories', path: '/awards/categories' },
-        { title: 'Award Winners', path: '/winners' },
-        //{ title: 'Nominate', path: '/awards/nominate' }
-      ]
-    },
-    {
-      title: 'Our Partners',
-      path: '/partners',
-
-    },
-   
-  ];
-
-  const rightMenuItems: MenuItem[] = [
-    {
-      title: 'Medical Events',
-      path: '/medical-events',
-  
-    },
-    {
-      title: 'Winners',
-      path: '/winners',
-      submenu: [
-        { title: 'View Finalists', path: '/finalists' },
-        { title: 'Past Winners', path: '/past-winners' }
-      ]
-    },
-    {
-      title: 'Gallery',
-      path: '/gallery',
-      submenu: [
-        { title: 'Events', path: '/gallery#events' },
-        { title: 'Awards', path: '/gallery#awards' },
-        { title: 'Videos', path: '/gallery#videos' }
-      ]
-    },
-    {
-      title: 'Contact',
-      path: '/contact',
-      submenu: [
-        { title: 'Get in Touch', path: '/contact' },
-        { title: 'Support', path: '/contact#support' },
-        { title: 'Locations', path: '/contact#locations' }
-      ]
-    }
-  ];
+  // Get menu items from constants
+  const leftMenuItems = NAVIGATION.leftMenu;
+  const rightMenuItems = NAVIGATION.rightMenu;
 
   const handleMenuClick = (path: string) => {
     setIsOpen(false);
     setActiveSubmenu(null);
 
-    const [, hash] = path.split('#');
+    const hash = getHashFromUrl(path);
     if (hash) {
-      setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      setTimeout(() => scrollToElement(hash), 100);
     }
   };
 

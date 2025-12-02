@@ -1,77 +1,80 @@
-import EventCountdown from './EventCountdown';
-import { ArrowRight } from 'lucide-react';
+/**
+ * EventsSlider Component
+ * Displays upcoming events with auto-updating status and countdowns
+ */
 
-const EventsSlider = () => {
-  const events = [
-    {
-      id: 1,
-      name: "African Health Excellence Summit 2025",
-      date: "2025-11-14",
-      image: "images/2025 Summit.jpg",
-      description: "Join industry leaders for insights on healthcare management and innovation at the African Health Excellence Summit.",
-      location: "Liberty Building, Umhlanga",
-      time: "09:00 - 17:00",
-      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1"
-    }, 
-    {
-      id: 2,
-      name: "African Health Excellence Awards 2025",
-      date: "2025-11-15",
-      image: "images/2025 Awards.jpg", 
-      description: "\"Night of the Health Stars\" - Celebrating and honoring Africa's healthcare heroes at a night of excellence, elegance, and recognition.",
-      location: "The Capital Hotel (Zimbali)",
-      time: "15:00 - 22:00",
-      registerLink: "https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1"
+import { useState, useEffect } from 'react';
+import { Event } from '../types/event.types';
+import { getAllEvents, getUpcomingEvents } from '../services/api/events.service';
+import { EventCard } from './features/events';
+
+export default function EventsSlider() {
+  const [events, setEvents] = useState<Event[]>([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    loadEvents();
+  }, []);
+
+  const loadEvents = async () => {
+    try {
+      setLoading(true);
+      // Get upcoming events (or all events with registration links)
+      const upcomingEvents = await getUpcomingEvents();
+      
+      // If no upcoming events, show all events with registration
+      if (upcomingEvents.length === 0) {
+        const allEvents = await getAllEvents();
+        const eventsWithRegistration = allEvents.filter(e => e.registerLink);
+        setEvents(eventsWithRegistration);
+      } else {
+        setEvents(upcomingEvents.filter(e => e.registerLink));
+      }
+    } catch (error) {
+      console.error('Failed to load events:', error);
+      // Fallback to all events on error
+      const allEvents = await getAllEvents();
+      setEvents(allEvents.filter(e => e.registerLink));
+    } finally {
+      setLoading(false);
     }
-  ];
+  };
+
+  if (loading) {
+    return (
+      <div className="py-12 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p className="text-gray-600">Loading events...</p>
+        </div>
+      </div>
+    );
+  }
+
+  if (events.length === 0) {
+    return null;
+  }
 
   return (
     <div className="py-12 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h2 className="text-3xl font-bold text-[#2B2A29]">Upcoming Events</h2>
-          <p className="mt-4 text-lg text-gray-600">Join us at our upcoming healthcare events</p>
+          <p className="mt-4 text-lg text-gray-600">
+            Join us at our upcoming healthcare events
+          </p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {events.map((event) => (
-            <div 
+            <EventCard 
               key={event.id} 
-              className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col h-full"
-            >
-              <div className="relative h-[600px] overflow-hidden">
-                <img
-                  src={event.image}
-                  alt={event.name}
-                  className="w-full h-full object-contain"
-                />
-              </div>
-              <div className="p-6 flex-1 flex flex-col">
-                <h3 className="text-xl font-bold text-[#2B2A29] mb-2">{event.name}</h3>
-                <EventCountdown targetDate={event.date} eventName={event.name} />
-                <p className="text-gray-600 mt-4 flex-1">{event.description}</p>
-                <div className="mt-4 space-y-2 text-gray-600">
-                  <p> 📍 {event.location}</p>
-                  <p> 🕒 {event.time}</p>
-                </div>
-                <div className="mt-6 flex justify-between items-center">
-                  <a
-                    href={event.registerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center px-6 py-3 bg-[#962326] text-white rounded-md hover:bg-[#A7864B] transition-colors"
-                  >
-                    Register Now
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
+              event={event}
+              showCountdown={true}
+              showStatus={true}
+            />
           ))}
         </div>
       </div>
     </div>
   );
-};
-
-export default EventsSlider;
+}

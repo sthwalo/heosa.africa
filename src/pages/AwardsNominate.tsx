@@ -1,9 +1,14 @@
-import { ArrowRight, ExternalLink, QrCode } from 'lucide-react';
+import { ArrowRight, ExternalLink, QrCode, Clock, AlertCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNominationsStatus } from '../hooks/useNominationsStatus';
 
 const AwardsNominate = () => {
+  const nominations = useNominationsStatus();
+  
   const handleRedirect = () => {
-    window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_WILeDUFGrZAsNour9NvMAwzUC4qZFVeUk5cJ9_H-Xbi9HA/viewform?usp=pp_url', '_blank');
+    if (nominations.isOpen) {
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_WILeDUFGrZAsNour9NvMAwzUC4qZFVeUk5cJ9_H-Xbi9HA/viewform?usp=pp_url', '_blank');
+    }
   };
 
   return (
@@ -70,29 +75,72 @@ const AwardsNominate = () => {
                 <strong>Winners Announcement:</strong> The healthcare professionals who receive the most votes will be declared winners in their respective categories.
               </li>
               <li className="font-semibold text-[#962326]">
-                Nominations close on May 30th, 2025
+                Nominations {nominations.isOpen ? `close on ${nominations.closeDateFormatted}` : `closed on ${nominations.closeDateFormatted}`}
               </li>
             </ul>
           </div>
 
+          {/* Nomination Status and Buttons */}
+          {!nominations.isOpen && nominations.status === 'not-open' && (
+            <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-8">
+              <div className="flex items-start gap-3">
+                <Clock className="h-6 w-6 text-blue-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-semibold text-blue-900 mb-2">Nominations Opening Soon</h3>
+                  <p className="text-blue-800">
+                    Nominations will open on {nominations.openDateFormatted}. Check back then to submit your nomination.
+                    {nominations.daysUntilOpen > 0 && ` (${nominations.daysUntilOpen} days remaining)`}
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {!nominations.isOpen && nominations.status === 'closed' && (
+            <div className="bg-red-50 border border-red-200 rounded-lg p-6 mb-8">
+              <div className="flex items-start gap-3">
+                <AlertCircle className="h-6 w-6 text-red-600 flex-shrink-0 mt-1" />
+                <div>
+                  <h3 className="text-lg font-semibold text-red-900 mb-2">Nominations Have Closed</h3>
+                  <p className="text-red-800">
+                    The nomination period closed on {nominations.closeDateFormatted}. Thank you to everyone who submitted nominations. 
+                    Winners will be announced at the awards ceremony.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
+
           {/* Nomination Button */}
           <div className="text-center">
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-              <button
-                onClick={handleRedirect}
-                className="inline-flex items-center px-8 py-4 bg-[#962326] text-white rounded-md hover:bg-[#7a1c1f] transition-colors text-lg font-semibold"
-              >
-                Submit Nomination
-                <ExternalLink className="ml-2 h-5 w-5" />
-              </button>
-              
-              <Link
-                to="/awards/qrcodes"
-                className="inline-flex items-center px-8 py-4 border-2 border-[#962326] text-[#962326] rounded-md hover:bg-gray-100 transition-colors text-lg font-semibold"
-              >
-                Get QR Codes
-                <QrCode className="ml-2 h-5 w-5" />
-              </Link>
+              {nominations.isOpen ? (
+                <>
+                  <button
+                    onClick={handleRedirect}
+                    className="inline-flex items-center px-8 py-4 bg-[#962326] text-white rounded-md hover:bg-[#7a1c1f] transition-colors text-lg font-semibold"
+                  >
+                    Submit Nomination
+                    <ExternalLink className="ml-2 h-5 w-5" />
+                  </button>
+                  
+                  <Link
+                    to="/awards/qrcodes"
+                    className="inline-flex items-center px-8 py-4 border-2 border-[#962326] text-[#962326] rounded-md hover:bg-gray-100 transition-colors text-lg font-semibold"
+                  >
+                    Get QR Codes
+                    <QrCode className="ml-2 h-5 w-5" />
+                  </Link>
+                </>
+              ) : (
+                <Link
+                  to="/awards/categories"
+                  className="inline-flex items-center px-8 py-4 bg-[#962326] text-white rounded-md hover:bg-[#7a1c1f] transition-colors text-lg font-semibold"
+                >
+                  View Award Categories
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              )}
             </div>
           </div>
         </div>

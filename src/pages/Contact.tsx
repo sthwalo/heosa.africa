@@ -1,5 +1,7 @@
 //import React from 'react';
 import { Phone, MapPin, MessageCircle } from 'lucide-react';
+import { OFFICE_MAP_URL } from '../constants';
+import { buildPhoneUrl, buildWhatsAppUrl, buildMapsUrl } from '../utils';
 
 const Contact = () => {
   const phoneNumbers = [
@@ -16,7 +18,6 @@ const Contact = () => {
   };
 
   const whatsapp = '+27824355370';
-  const mapUrl = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3613.5276813242584!2d30.97894631544384!3d-25.47750968377558!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1ee84a1017f005f9%3A0x2748e0d27e501adf!2s6%20Waxbill%20St%2C%20Riverside%20Park%2C%20Mbombela%2C%201200!5e0!3m2!1sen!2sza!4v1647856231074!5m2!1sen!2sza";
 
   return (
     <div className="pt-20 min-h-screen bg-gray-50">
@@ -52,9 +53,9 @@ const Contact = () => {
             <div className="space-y-4">
               {phoneNumbers.map((phone, index) => (
                 <div key={index} className="text-center">
-                  <p className="text-gray-600 mb-1">{phone.label}</p>
+                    <p className="text-gray-600 mb-1">{phone.label}</p>
                   <a
-                    href={`tel:${phone.number.replace(/\s/g, '')}`}
+                    href={buildPhoneUrl(phone.number)}
                     className="inline-block px-6 py-2 bg-[#F2C849] text-[#2B2A29] rounded-full hover:bg-[#A7864B] transition-colors"
                   >
                     {phone.number}
@@ -73,7 +74,7 @@ const Contact = () => {
             <div className="text-center">
               <p className="text-gray-600 mb-4">Message us on WhatsApp for quick responses</p>
               <a
-                href={`https://wa.me/${whatsapp.replace(/\s/g, '')}`}
+                href={buildWhatsAppUrl(whatsapp, 'Hello, I would like to get in touch')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block px-6 py-2 bg-[#25D366] text-white rounded-full hover:bg-[#128C7E] transition-colors"
@@ -98,9 +99,7 @@ const Contact = () => {
                 <p>{address.postal}</p>
               </address>
               <a
-                href={`https://maps.google.com/?q=${encodeURIComponent(
-                  Object.values(address).join(', ')
-                )}`}
+                href={buildMapsUrl(Object.values(address).join(', '))}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-block mt-4 px-6 py-2 bg-[#F2C849] text-[#2B2A29] rounded-full hover:bg-[#A7864B] transition-colors"
@@ -115,7 +114,7 @@ const Contact = () => {
         <div className="bg-white rounded-xl shadow-lg overflow-hidden">
           <div className="aspect-w-16 aspect-h-9">
             <iframe
-              src={mapUrl}
+              src={OFFICE_MAP_URL}
               width="100%"
               height="450"
               style={{ border: 0 }}

@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
-import { Award, ArrowRight } from 'lucide-react';
+import { Award, ArrowRight, Clock } from 'lucide-react';
 import Timeline from '../components/Timeline';
 import { awardsTimelineData } from '../data/timelineData';
+import { EVENT_CONFIG } from '../constants/app.constants';
+import { useNominationsStatus } from '../hooks/useNominationsStatus';
+import { useRegistrationStatus } from '../hooks/useRegistrationStatus';
 
 const Awards = () => {
+  const nominations = useNominationsStatus();
+  const { awards: awardsRegistration } = useRegistrationStatus();
 
   const categories = [
     {
@@ -52,13 +57,28 @@ const Awards = () => {
               Recognizing and celebrating outstanding achievements in African healthcare
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                className="inline-flex items-center px-6 py-3 bg-gray-500 rounded-md cursor-not-allowed opacity-70"
-                disabled
-              >
-                Nominations Closed
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </button>
+              {nominations.isOpen ? (
+                <Link
+                  to="/awards/nominate"
+                  className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+                >
+                  Nominate Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              ) : nominations.status === 'not-open' ? (
+                <div className="inline-flex items-center px-6 py-3 bg-blue-600 rounded-md cursor-default">
+                  <Clock className="mr-2 h-5 w-5" />
+                  Opens {nominations.openDateFormatted}
+                </div>
+              ) : (
+                <button
+                  className="inline-flex items-center px-6 py-3 bg-gray-500 rounded-md cursor-not-allowed opacity-70"
+                  disabled
+                >
+                  Nominations Closed
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </button>
+              )}
               <Link
                 to="/awards/categories"
                 className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
@@ -122,17 +142,35 @@ const Awards = () => {
       <div className="bg-[#2B2A29] text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-4">African Health Excellence Awards 2025</h2>
+            <h2 className="text-3xl font-bold mb-4">African Health Excellence Awards 2026</h2>
             <p className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Nominations are now closed. Join us at the awards ceremony on November 15, 2025 - "Night of the Health Stars".
+              {nominations.isOpen 
+                ? `Nominations are open until ${nominations.closeDateFormatted}. Join us at the awards ceremony on ${EVENT_CONFIG.awardsCeremonyDate} - "Night of the Health Stars".`
+                : `Nominations are now closed. Join us at the awards ceremony on ${EVENT_CONFIG.awardsCeremonyDate} - "Night of the Health Stars".`
+              }
             </p>
-            <Link
-              to="/medical-events"
-              className="inline-flex items-center px-8 py-4 bg-[#A7864B] rounded-md hover:bg-[#962326] transition-colors"
-            >
-              Register for Awards Ceremony
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
+            {awardsRegistration.isOpen ? (
+              <Link
+                to="/medical-events"
+                className="inline-flex items-center px-8 py-4 bg-[#A7864B] rounded-md hover:bg-[#962326] transition-colors"
+              >
+                Register for Awards Ceremony
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            ) : awardsRegistration.status === 'not-open' ? (
+              <div className="inline-flex items-center px-8 py-4 bg-blue-600 rounded-md cursor-default">
+                <Clock className="mr-2 h-5 w-5" />
+                Registration Opens {awardsRegistration.openDateFormatted}
+              </div>
+            ) : awardsRegistration.status === 'event-passed' ? (
+              <div className="inline-flex items-center px-8 py-4 bg-gray-600 rounded-md cursor-default opacity-70">
+                Event Has Passed
+              </div>
+            ) : (
+              <div className="inline-flex items-center px-8 py-4 bg-gray-600 rounded-md cursor-default opacity-70">
+                Registration Closed
+              </div>
+            )}
           </div>
         </div>
       </div>

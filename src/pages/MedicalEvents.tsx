@@ -1,11 +1,13 @@
-import { Users, ArrowRight } from 'lucide-react';
+import { Users, ArrowRight, Clock } from 'lucide-react';
+import { useRegistrationStatus } from '../hooks/useRegistrationStatus';
 
 const MedicalEvents = () => {
+  const { summit, awards } = useRegistrationStatus();
   const events = [
     {
-      title: 'African Health Excellence Summit',
-      date: '2025-11-14',
-      location: 'Liberty Building, Umhlanga',
+      title: 'National Obesity Conference',
+      date: '2026-10-16 to 2026-10-18',
+      location: 'Venue to be announced',
       price: "R2500",
       earlyBird: "R1800",
       generalReg: "R2100", 
@@ -13,22 +15,24 @@ const MedicalEvents = () => {
       summitOnlyEarlyBird: "R1800",
       summitOnlyGeneralReg: "R2100",
       image: '/images/summit/27.png',
-      description: 'Join industry leaders for insights on healthcare management and innovation at the African Health Excellence Summit.',
-      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1'
+      description: 'Join industry leaders for insights on healthcare management and innovation at the National Obesity Conference.',
+      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1',
+      registrationStatus: summit
     },
     {
       title: 'African Health Excellence Awards',
-      date: '2025-11-15',
-      location: 'The Capital Hotel (Zimbali)',
+      date: '2026-11-14',
+      location: 'Venue to be announced',
       price: "R2000",
       earlyBird: "R1500",
       generalReg: "R1800",
       tablePrice: "R18000",
-      tableEarlyBird: "R10000",
+      tableEarlyBird: "R13000",
       tableGeneralReg: "R15000",
       image: '/images/events/1.png',
       description: '"Night of the Health Stars" - Celebrating and honoring Africa\'s healthcare heroes at a night of excellence, elegance, and recognition.',
-      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1'
+      registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1',
+      registrationStatus: awards
     }
   ];
 
@@ -150,7 +154,7 @@ const MedicalEvents = () => {
                         <div className="text-center p-2 bg-[#962326] text-white rounded">
                           <div className="font-semibold">EARLY BIRD</div>
                           <div className="text-xs mb-1">(Until Oct 31)</div>
-                          <div>R10,000</div>
+                          <div>R13,000</div>
                         </div>
                         <div className="text-center p-2 bg-[#A7864B] text-white rounded">
                           <div className="font-semibold">GENERAL REG.</div>
@@ -166,14 +170,29 @@ const MedicalEvents = () => {
                     </>
                   )}
                 </div>
-                <a
-                  href={event.registerLink}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-block px-6 py-2 text-base font-semibold leading-6 text-white transition duration-150 ease-in-out bg-[#962326] border border-transparent rounded-md hover:bg-[#8B1C1C] focus:outline-none focus:border-[#962326] focus:shadow-outline-indigo active:bg-[#8B1C1C]"
-                >
-                  Register Now
-                </a>
+                {event.registrationStatus.isOpen ? (
+                  <a
+                    href={event.registerLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-block px-6 py-2 text-base font-semibold leading-6 text-white transition duration-150 ease-in-out bg-[#962326] border border-transparent rounded-md hover:bg-[#8B1C1C] focus:outline-none focus:border-[#962326] focus:shadow-outline-indigo active:bg-[#8B1C1C]"
+                  >
+                    Register Now
+                  </a>
+                ) : event.registrationStatus.status === 'not-open' ? (
+                  <div className="inline-flex items-center px-6 py-2 text-base font-semibold text-white bg-blue-600 rounded-md cursor-default">
+                    <Clock className="mr-2 h-5 w-5" />
+                    Opens {event.registrationStatus.openDateFormatted}
+                  </div>
+                ) : event.registrationStatus.status === 'event-passed' ? (
+                  <div className="inline-block px-6 py-2 text-base font-semibold text-white bg-gray-500 rounded-md cursor-default opacity-70">
+                    Event Has Passed
+                  </div>
+                ) : (
+                  <div className="inline-block px-6 py-2 text-base font-semibold text-white bg-gray-500 rounded-md cursor-default opacity-70">
+                    Registration Closed
+                  </div>
+                )}
               </div>
             </div>
           ))}
