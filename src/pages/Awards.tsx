@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Award, ArrowRight, Clock } from 'lucide-react';
-import Timeline from '../components/Timeline';
+import HorizontalTimeline from '../components/HorizontalTimeline';
 import { awardsTimelineData } from '../data/timelineData';
 import { EVENT_CONFIG } from '../constants/app.constants';
 import { useNominationsStatus } from '../hooks/useNominationsStatus';
@@ -92,7 +92,7 @@ const Awards = () => {
 
       {/* Timeline Sections */}
       <div className="block">
-        <Timeline data={awardsTimelineData} title="Awards Timeline" />
+        <HorizontalTimeline data={awardsTimelineData} title="Awards Timeline" />
       </div>
       
       {/* Award Categories Overview */}
