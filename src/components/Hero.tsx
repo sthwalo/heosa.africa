@@ -1,12 +1,15 @@
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Clock } from 'lucide-react';
+import { useNominationsStatus } from '../hooks/useNominationsStatus';
 
 const Hero = () => {
+  const nominations = useNominationsStatus();
+
   return (
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
         <img
-          src="/images/events/2.png"
+          src="/images/2025/Awards/10.jpg"
           alt="Hero background"
           className="w-full h-full object-cover"
         />
@@ -22,18 +25,33 @@ const Hero = () => {
             Empowering healthcare organizations to achieve operational excellence through innovative solutions and expert guidance.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
+            {nominations.isOpen ? (
+              <Link
+                to="/awards/nominate"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#962326] hover:bg-[#A7864B] transition-colors"
+              >
+                Nominate Now
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            ) : nominations.status === 'not-open' ? (
+              <div className="inline-flex items-center px-6 py-3 bg-blue-600 rounded-md cursor-default">
+                <Clock className="mr-2 h-5 w-5" />
+                Opens {nominations.openDateFormatted}
+              </div>
+            ) : (
+              <Link
+                to="/awards"
+                className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-500 hover:bg-gray-600 transition-colors"
+              >
+                View Awards
+                <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
+            )}
             <Link
               to="/about"
-              className="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-white bg-[#962326] hover:bg-[#A7864B] transition-colors"
-            >
-              Learn More
-              <ArrowRight className="ml-2 h-5 w-5" />
-            </Link>
-            <Link
-              to="/contact"
               className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] text-base font-medium rounded-md text-white hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"
             >
-              Contact Us
+              Learn More
             </Link>
           </div>
         </div>

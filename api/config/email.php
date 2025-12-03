@@ -1,6 +1,8 @@
 <?php
 require_once __DIR__ . '/env.php';
-loadEnv(__DIR__ . '/../../.env');
+// Update path to look one level above public_html
+$envPath = dirname(dirname(dirname(__DIR__))) . '/.env';
+loadEnv($envPath);
 
 return [
     'smtp' => [
@@ -15,3 +17,11 @@ return [
         'verify_peer' => getenv('ENVIRONMENT') === 'production'
     ]
 ];
+
+const config = {
+    apiBaseUrl: import.meta.env.PROD 
+        ? 'https://heosa.africa/api'
+        : 'http://localhost:8000/api'
+};
+
+export default config;

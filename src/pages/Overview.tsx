@@ -1,11 +1,13 @@
-import { ArrowRight, Calendar, Users, Award, Microscope, BookOpen, Cpu, Building2, Users2, Heart } from 'lucide-react';
+import { ArrowRight, Calendar, Users, Award, Microscope, BookOpen, Cpu, Building2, Users2, Heart, Clock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useRegistrationStatus } from '../hooks/useRegistrationStatus';
 
 const Overview = () => {
+  const { summit } = useRegistrationStatus();
   const summitHighlights = {
-    date: "2025",
+    date: "October 16-18, 2026",
     attendees: "Nearly 1000 Healthcare Professionals",
-    venue: "Durban, South Africa",
+    venue: "Venue to be announced",
   };
 
   const summitTopics = [
@@ -55,19 +57,34 @@ const Overview = () => {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              African Health Excellence Summit
+              National Obesity Conference
             </h1>
             <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               A premier gathering of healthcare professionals, researchers, and thought leaders dedicated to advancing healthcare excellence across Africa
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/medical-events/register"
-                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
-              >
-                Register Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              {summit.isOpen ? (
+                <Link
+                  to="/medical-events"
+                  className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+                >
+                  Register Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              ) : summit.status === 'not-open' ? (
+                <div className="inline-flex items-center px-6 py-3 bg-blue-600 rounded-md cursor-default">
+                  <Clock className="mr-2 h-5 w-5" />
+                  Registration Opens {summit.openDateFormatted}
+                </div>
+              ) : summit.status === 'event-passed' ? (
+                <div className="inline-flex items-center px-6 py-3 bg-gray-600 rounded-md cursor-default opacity-70">
+                  Event Has Passed
+                </div>
+              ) : (
+                <div className="inline-flex items-center px-6 py-3 bg-gray-600 rounded-md cursor-default opacity-70">
+                  Registration Closed
+                </div>
+              )}
               <Link
                 to="/medical-events"
                 className="inline-flex items-center px-6 py-3 border-2 border-[#F2C849] rounded-md hover:bg-[#F2C849] hover:text-[#2B2A29] transition-colors"

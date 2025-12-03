@@ -15,8 +15,18 @@ error_log("Received request from: " . $_SERVER['REMOTE_ADDR']);
 error_log("Request method: " . $_SERVER['REQUEST_METHOD']);
 error_log("Request headers: " . json_encode(getallheaders()));
 
-// Update CORS headers to be more specific in development
-header("Access-Control-Allow-Origin: " . (getenv('ENVIRONMENT') === 'production' ? 'https://heosa.africa' : 'http://localhost:5173'));
+// Update CORS headers to allow both development and preview ports
+$allowedOrigins = [
+    'http://localhost:5173',  // Vite dev server
+    'http://localhost:4173',  // Vite preview server
+    'https://heosa.africa'    // Production
+    'http://heosa.africa'
+];
+$origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
+if (in_array($origin, $allowedOrigins) || getenv('ENVIRONMENT') !== 'production') {
+    header("Access-Control-Allow-Origin: " . $origin);
+}
+
 header("Access-Control-Allow-Credentials: true");
 header("Access-Control-Allow-Methods: POST, OPTIONS");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
@@ -150,4 +160,22 @@ try {
         "error" => $e->getMessage()
     ]);
 }
+?>
+<?php
+return [
+    'production' => [
+        'api_base' => 'https://heosa.africa/api',
+        'db_host' => 'localhost',
+        'db_name' => 'heosabcc_nominations',
+        'db_user' => 'heosabcc_nominations',
+        'db_pass' => 'AH30nomination5!'
+    ],
+    'development' => [
+        'api_base' => 'http://localhost:8000/api',
+        'db_host' => 'localhost',
+        'db_name' => 'heosabcc_nominations',
+        'db_user' => 'root',
+        'db_pass' => ''
+    ]
+];
 ?>

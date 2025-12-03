@@ -1,0 +1,52 @@
+# Enable URL rewriting
+RewriteEngine On
+
+# =============================================
+# 1. Force HTTPS and www/non-www consistency
+# =============================================
+# Choose ONE of these options:
+
+# Option 1: Redirect www to non-www with HTTPS
+RewriteCond %{HTTP_HOST} ^www\.heosa\.africa$ [NC]
+RewriteRule ^(.*)$ https://heosa.africa/$1 [L,R=301]
+
+# Option 2: Redirect non-www to www with HTTPS
+# RewriteCond %{HTTP_HOST} ^heosa\.africa$ [NC]
+# RewriteRule ^(.*)$ https://www.heosa.africa/$1 [L,R=301]
+
+# Force HTTPS for all traffic
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+# =============================================
+# 2. Frontend routing for React
+# =============================================
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^ index.html [QSA,L]
+
+# =============================================
+# 3. Error handling
+# =============================================
+ErrorDocument 404 /404.html
+
+# =============================================
+# 4. CORS headers (adjust for production)
+# =============================================
+<IfModule mod_headers.c>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
+    
+    <FilesMatch "\.(css|js)$">
+        Header set Cache-Control "max-age=31536000, public"
+    </FilesMatch>
+</IfModule>
+
+# =============================================
+# 5. PHP handling (remove if not needed)
+# =============================================
+<IfModule mime_module>
+  AddHandler application/x-httpd-ea-php83 .php .php8 .phtml
+</IfModule>

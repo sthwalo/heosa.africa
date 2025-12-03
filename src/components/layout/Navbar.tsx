@@ -1,103 +1,34 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
-
-interface MenuItem {
-  title: string;
-  path: string;
-  submenu?: MenuItem[];
-}
+import { MenuItem } from '../../types';
+import { NAVIGATION } from '../../constants';
+import { useClickOutside } from '../../hooks';
+import { scrollToElement, getHashFromUrl } from '../../utils';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null);
+  const menuRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
-  const leftMenuItems: MenuItem[] = [
-    {
-      title: 'Home',
-      path: '/',
-      //submenu: null
-    },
-    {
-      title: 'About',
-      path: '/about',
-      //submenu: null
-    },
-    {
-      title: 'Awards/Summit',
-      path: '/awards',
-      submenu: [
-        { title: 'Overview', path: '/awards/overview' },
-        { title: 'Award Categories', path: '/awards/categories' },
-        { title: 'Award Winners', path: '/winners' },
-        { title: 'Nominate', path: '/awards/nominate' }
-      ]
-    },
-    {
-      title: 'Our Partners',
-      path: '/partners',
-      submenu: [
-        { title: 'Platinum Sponsor', path: '/partners#platinum' },
-        { title: 'Our Partners', path: '/partners#healthcare' },
-        { title: 'Sponsors', path: '/partners#Sponsors' },
-        { title: 'Partner with Us', path: '/partners#Become a Partner' }
-      ]
-    },
-   
-  ];
+  // Use custom hook for click outside
+  useClickOutside(menuRef, () => {
+    setIsOpen(false);
+    setActiveSubmenu(null);
+  });
 
-  const rightMenuItems: MenuItem[] = [
-    {
-      title: 'Medical Events',
-      path: '/medical-events',
-      submenu: [
-        { title: 'Upcoming Events', path: '/medical-events' },
-        { title: 'Register for Events', path: '/medical-events/register' },
-       // { title: 'Past Events', path: '/medical-events#past' },
-       // { title: 'CPD Information', path: '/medical-events#cpd' }
-      ]
-    },
-    {
-      title: 'Winners',
-      path: '/winners',
-      submenu: [
-        { title: 'View Finalists', path: '/finalists' },
-        { title: 'Past Winners', path: '/past-winners' }
-      ]
-    },
-    {
-      title: 'Gallery',
-      path: '/gallery',
-      submenu: [
-        { title: 'Events', path: '/gallery#events' },
-        { title: 'Awards', path: '/gallery#awards' },
-        { title: 'Videos', path: '/gallery#videos' }
-      ]
-    },
-    {
-      title: 'Contact',
-      path: '/contact',
-      submenu: [
-        { title: 'Get in Touch', path: '/contact' },
-        { title: 'Support', path: '/contact#support' },
-        { title: 'Locations', path: '/contact#locations' }
-      ]
-    }
-  ];
+  // Get menu items from constants
+  const leftMenuItems = NAVIGATION.leftMenu;
+  const rightMenuItems = NAVIGATION.rightMenu;
 
   const handleMenuClick = (path: string) => {
     setIsOpen(false);
     setActiveSubmenu(null);
 
-    const [, hash] = path.split('#');
+    const hash = getHashFromUrl(path);
     if (hash) {
-      setTimeout(() => {
-        const element = document.getElementById(hash);
-        if (element) {
-          element.scrollIntoView({ behavior: 'smooth' });
-        }
-      }, 100);
+      setTimeout(() => scrollToElement(hash), 100);
     }
   };
 
@@ -142,7 +73,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="bg-white shadow-lg fixed w-full z-50">
+    <nav className="bg-white shadow-lg fixed w-full z-50" ref={menuRef}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-24">
           {/* Left Menu */}
@@ -158,7 +89,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/">
               <img
-                src="/logo.png"
+                src="logo.png"
                 alt="AHEO Logo"
                 className="h-24 w-auto max-h-full"
               />

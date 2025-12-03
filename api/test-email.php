@@ -6,6 +6,16 @@ use PHPMailer\PHPMailer\Exception;
 try {
     $config = require_once 'config/email.php';
     
+    // Simulate nomination form data
+    $nominationData = [
+        'category' => 'Outstanding Achievement',
+        'nominee_name' => 'John Doe',
+        'nominee_email' => 'test@example.com',
+        'nominator_name' => 'Jane Smith',
+        'nominator_email' => 'nominator@example.com',
+        'nomination_reason' => 'Outstanding contributions to the field of education in Africa'
+    ];
+    
     $mail = new PHPMailer(true);
     $mail->isSMTP();
     $mail->Host = $config['smtp']['host'];
@@ -18,11 +28,25 @@ try {
 
     $mail->setFrom($config['smtp']['from_email'], $config['smtp']['from_name']);
     $mail->addAddress('nominations@heosa.africa');
-    $mail->Subject = 'Test Email';
-    $mail->Body = 'This is a test email to verify SMTP configuration';
+    $mail->Subject = 'New Nomination Submission - ' . $nominationData['category'];
+    
+    // Create HTML body
+    $body = "
+        <h2>New Nomination Submission</h2>
+        <p><strong>Category:</strong> {$nominationData['category']}</p>
+        <p><strong>Nominee Name:</strong> {$nominationData['nominee_name']}</p>
+        <p><strong>Nominee Email:</strong> {$nominationData['nominee_email']}</p>
+        <p><strong>Nominator Name:</strong> {$nominationData['nominator_name']}</p>
+        <p><strong>Nominator Email:</strong> {$nominationData['nominator_email']}</p>
+        <p><strong>Nomination Reason:</strong> {$nominationData['nomination_reason']}</p>
+    ";
+    
+    $mail->isHTML(true);
+    $mail->Body = $body;
+    $mail->AltBody = strip_tags($body); // Plain text version
 
     $mail->send();
-    echo "Test email sent successfully";
+    echo json_encode(["message" => "Test nomination email sent successfully"]);
 } catch (Exception $e) {
-    echo "Error: {$mail->ErrorInfo}";
+    echo json_encode(["error" => $mail->ErrorInfo]);
 }

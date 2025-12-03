@@ -1,8 +1,10 @@
 //import React from 'react';
-import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight } from 'lucide-react';
+import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight, Accessibility } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNominationsStatus } from '../hooks/useNominationsStatus';
 
 const AwardsCategories = () => {
+  const nominations = useNominationsStatus();
   const votedCategories = [
     {
       title: 'HCP AUTHOR OF THE YEAR',
@@ -50,6 +52,11 @@ const AwardsCategories = () => {
       description: 'Recognizing outstanding contributions to healthcare research, including clinical trials, medical studies, and innovative research methodologies that advance medical knowledge.'
     },
     {
+      title: 'HEALTHCARE PROFESSIONAL LIVING WITH A DISABILITY',
+      icon: <Accessibility className="h-8 w-8 text-[#962326]" />,
+      description: 'Recognizes and honors the remarkable contributions of healthcare professionals who navigate the challenges of living with disabilities. This award celebrates individuals who exemplify resilience, dedication, and excellence in their respective fields, demonstrating that barriers can be overcome through determination and passion for healthcare.'
+    },
+    {
       title: 'HEALTH INSTITUTION OF THE YEAR',
       icon: <Building2 className="h-8 w-8 text-[#962326]" />,
       description: 'Honoring healthcare facilities that demonstrate excellence in patient care, operational efficiency, innovation, and community impact.'
@@ -63,6 +70,11 @@ const AwardsCategories = () => {
       title: 'EMPLOYEE WELLNESS HCP OF THE YEAR',
       icon: <UserPlus className="h-8 w-8 text-[#962326]" />,
       description: 'Celebrating healthcare professionals who champion workplace wellness programs and initiatives that promote the health and well-being of healthcare workers.'
+    },
+    {
+      title: 'HEALTH CARE RISING STAR OF THE YEAR',
+      icon: <Star className="h-8 w-8 text-[#962326]" />,
+      description: 'A rising star in the healthcare profession typically refers to a young or early-career to a maximum age of 40 years. An individual who is demonstrating exceptional talent, leadership, or innovation in their field. These professionals often show a strong commitment to improving patient care, contributing to research, or advancing healthcare practices. Here are some key traits and examples of rising stars in healthcare.'
     }
   ];
 
@@ -119,13 +131,27 @@ const AwardsCategories = () => {
               Explore our diverse range of healthcare excellence categories
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to="/awards/nominate"
-                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
-              >
-                Nominate Now
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              {nominations.isOpen ? (
+                <Link
+                  to="/awards/nominate"
+                  className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+                >
+                  Nominate Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              ) : (
+                <div className="inline-flex items-center px-6 py-3 bg-gray-400 rounded-md cursor-not-allowed text-white">
+                  Nominations {nominations.status === 'not-open' ? 'Open Soon' : 'Closed'}
+                </div>
+              )}
+              <p className="text-gray-300 text-sm mt-2">
+                {nominations.isOpen 
+                  ? `Nominations close on ${nominations.closeDateFormatted}`
+                  : nominations.status === 'not-open'
+                  ? `Nominations open on ${nominations.openDateFormatted}`
+                  : `Nominations closed on ${nominations.closeDateFormatted}`
+                }
+              </p>
             </div>
           </div>
         </div>

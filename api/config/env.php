@@ -1,4 +1,6 @@
 <?php
+// Save this file for future use when implementing backend
+<?php
 function loadEnv($path) {
     if(!file_exists($path)) {
         throw new Exception(".env file not found");
@@ -11,10 +13,14 @@ function loadEnv($path) {
             $key = trim($key);
             $value = trim($value);
             
-            if (!array_key_exists($key, $_ENV)) {
+            // Don't override existing environment variables
+            // This prevents potential security issues where an attacker
+            // might try to override critical environment variables
+            if (!getenv($key)) {
                 putenv(sprintf('%s=%s', $key, $value));
                 $_ENV[$key] = $value;
             }
         }
     }
 }
+?>
