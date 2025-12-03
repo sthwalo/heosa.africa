@@ -9,7 +9,7 @@ const Hero = () => {
     <div className="relative min-h-screen">
       <div className="absolute inset-0">
         <img
-          src="/images/events/2.png"
+          src="/images/2025/Awards/10.jpg"
           alt="Hero background"
           className="w-full h-full object-cover"
         />

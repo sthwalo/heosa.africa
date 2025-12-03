@@ -9,9 +9,33 @@ export interface GalleryImage {
 }
 
 export const GALLERY_IMAGES: GalleryImage[] = [
-  // 2024 Images
+  // 2025 Images
   {
     id: 1,
+    url: '/images/2025/Awards/1.jpg',
+    images: [
+      ...Array.from({ length: 10 }, (_, i) => `/images/2025/Awards/${i + 1}.jpg`),
+    ],
+    title: 'Awards Ceremony 2025',
+    category: 'Awards',
+    year: '2025',
+    description: 'African Health Excellence Awards Ceremony 2025',
+  },
+  {
+    id: 2,
+    url: '/images/2025/Summit/1.jpg',
+    images: [
+      ...Array.from({ length: 10 }, (_, i) => `/images/2025/Summit/${i + 1}.jpg`),
+    ],
+    title: 'Summit & Exhibition 2025',
+    category: 'Events',
+    year: '2025',
+    description: 'African Health Excellence Summit 2025',
+  },
+  
+  // 2024 Images
+  {
+    id: 101,
     url: '/images/2024/Awards/1.jpg',
     images: [
       ...Array.from({ length: 21 }, (_, i) => `/images/2024/Awards/${i + 1}.jpg`),
@@ -23,7 +47,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     description: 'African Health Excellence Awards Ceremony',
   },
   {
-    id: 2,
+    id: 102,
     url: '/images/summit/27.png',
     images: [
       ...Array.from({ length: 28 }, (_, i) => `/images/2024/Summit/${i + 1}.png`),
@@ -36,7 +60,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
   // 2023 Images
   {
-    id: 101,
+    id: 201,
     url: '/images/2023/20232.jpeg',
     images: [
       ...Array.from({ length: 109 }, (_, i) => `/images/2023/2023${i + 1}.jpeg`),
@@ -49,7 +73,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
   // 2022 Images
   {
-    id: 201,
+    id: 301,
     url: '/images/2022/Awards/202216.jpg',
     images: [
         ...Array.from({ length: 20 }, (_, i) => `/images/2022/Awards/2022${i + 1}.jpg`),
@@ -60,7 +84,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     description: 'Excellence in Healthcare Awards',
   },
   {
-    id: 202,
+    id: 302,
     url: '/images/2022/Symposium/202210.jpg',
     images: [
       ...Array.from({ length: 20 }, (_, i) => `/images/2022/Symposium/2022${i + 1}.jpg`),
@@ -73,7 +97,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
   // 2019 Images
   {
-    id: 301,
+    id: 401,
     url: '/images/2019/Awards /20196.jpg',
     images: [
       ...Array.from({ length: 20 }, (_, i) => `/images/2019/Awards /2019${i + 1}.jpg`),
@@ -84,7 +108,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     description: 'Pre-pandemic Healthcare Excellence Event',
   },
   {
-    id: 302,
+    id: 402,
     url: '/images/2019/Congress/20191.jpg',
     images: [
       ...Array.from({ length: 20 }, (_, i) => `/images/2019/Congress/2019${i + 1}.jpg`),
@@ -97,7 +121,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
 
   // 2018 Images
   {
-    id: 401,
+    id: 501,
     url: '/images/2018/201819.jpg',
     images: [
       ...Array.from({ length: 20 }, (_, i) => `/images/2018/2018${i + 1}.jpg`),  
@@ -109,7 +133,7 @@ export const GALLERY_IMAGES: GalleryImage[] = [
   },
   // 2017 Images
   {
-    id: 501,
+    id: 601,
     url: '/images/2017/201720.jpg',
     images: [
       ...Array.from({ length: 20 }, (_, i) => `/images/2017/2017${i + 1}.jpg`),
@@ -119,29 +143,6 @@ export const GALLERY_IMAGES: GalleryImage[] = [
     year: '2017',
     description: 'First African Health Excellence Awards Event',
   },
-
-  // Videos Section (can be added to any year)
-  {
-    id: 601,
-    url: '/images/events/1.png',
-    images: [
-      '/videos/Nominees1.mp4',
-      '/videos/Nominees2.mp4',
-      '/videos/Nominees3.mp4',
-      '/videos/Nominees4.mp4',
-      '/videos/Nominees5.mp4',
-      '/videos/Nominees6.mp4',
-      '/videos/Nominees7.mp4',
-      '/videos/Nominees8.mp4',
-      '/videos/Nominees9.mp4',
-      '/videos/Nominees10.mp4',
-      '/videos/Nominees11.mp4',
-    ],
-    title: 'Nominees',
-    category: 'Videos',
-    year: '2024',
-    description: 'Video highlights from our ceremonies',
-  }
 ];
 
 export const getYears = () => {

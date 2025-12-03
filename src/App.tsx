@@ -1,4 +1,5 @@
 import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import ErrorBoundary from './components/ErrorBoundary';
 import { Navbar, Footer } from './components/layout';
 import Home from './pages/Home';
 import Awards from './pages/Awards';
@@ -18,38 +19,57 @@ import TermsAndConditions from './pages/T&Cs';
 import QRCodes from './pages/QRCodes';
 
 function App() {
-  return (
-    <Router>
-      <div className="min-h-screen flex flex-col">
-        <Navbar />
-        <main className="flex-grow">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/awards" element={<Awards />} />
-            <Route path="/awards/overview" element={<Overview />} />
-            <Route path="/awards/categories" element={<AwardsCategories />} />
-            <Route path="/awards/winners" element={<Winners />} />
-            <Route path="/awards/past-winners" element={<PastWinners />} />
-            <Route path="/awards/nominate" element={<AwardsNominate />} />
-            <Route path="/awards/qrcodes" element={<QRCodes />} />
-            <Route path="/partners" element={<Partners />} />
-            <Route path="/medical-events" element={<MedicalEvents />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/winners" element={<Winners />} />
-            <Route path="/past-winners" element={<PastWinners />} />
-            <Route path="/past-winners/:year" element={<PastWinners />} />
-            <Route path="/finalists" element={<Finalists />} />
-            <Route path="/past-finalists" element={<PastFinalists />} />
-            <Route path="/gallery" element={<Gallery />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/t&cs" element={<TermsAndConditions />} />
-            <Route path="/awards/vote" element={<Finalists />} />
-          </Routes>
-        </main>
-        <Footer />
+  
+  try {
+    return (
+      <ErrorBoundary>
+        <Router>
+          <div className="min-h-screen flex flex-col">
+            <ErrorBoundary>
+              <Navbar />
+            </ErrorBoundary>
+            <main className="flex-grow">
+              <ErrorBoundary>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/awards" element={<Awards />} />
+                  <Route path="/awards/overview" element={<Overview />} />
+                  <Route path="/awards/categories" element={<AwardsCategories />} />
+                  <Route path="/awards/winners" element={<Winners />} />
+                  <Route path="/awards/past-winners" element={<PastWinners />} />
+                  <Route path="/awards/nominate" element={<AwardsNominate />} />
+                  <Route path="/awards/qrcodes" element={<QRCodes />} />
+                  <Route path="/partners" element={<Partners />} />
+                  <Route path="/medical-events" element={<MedicalEvents />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/winners" element={<Winners />} />
+                  <Route path="/past-winners" element={<PastWinners />} />
+                  <Route path="/past-winners/:year" element={<PastWinners />} />
+                  <Route path="/finalists" element={<Finalists />} />
+                  <Route path="/past-finalists" element={<PastFinalists />} />
+                  <Route path="/gallery" element={<Gallery />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="/t&cs" element={<TermsAndConditions />} />
+                  <Route path="/awards/vote" element={<Finalists />} />
+                </Routes>
+              </ErrorBoundary>
+            </main>
+            <ErrorBoundary>
+              <Footer />
+            </ErrorBoundary>
+          </div>
+        </Router>
+      </ErrorBoundary>
+    );
+  } catch (error) {
+    console.error('Error rendering App:', error);
+    return (
+      <div style={{ padding: '40px', fontFamily: 'Arial, sans-serif' }}>
+        <h1 style={{ color: '#dc2626' }}>App Rendering Error</h1>
+        <p>Error: {error instanceof Error ? error.message : String(error)}</p>
       </div>
-    </Router>
-  );
+    );
+  }
 }
 
 export default App;

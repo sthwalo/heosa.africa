@@ -19,6 +19,7 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react'],
   },
+  publicDir: 'public',
   server: {
     port: 4173,
     proxy: {
@@ -40,6 +41,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
+    copyPublicDir: true, // Copy public folder to dist
     rollupOptions: {
       output: {
         manualChunks: {

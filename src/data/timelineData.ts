@@ -1,132 +1,115 @@
 export const homeTimelineData = [
   {
+    id: "nominations",
+    title: "Open for nominations",
     date: "December 1, 2025 - April 30, 2026",
-    phase: "Open for nominations",
-    status: "active",
-    cta: {
-      text: "Nominate Now",
-      link: "/awards/nominate"
-    } 
+    description: "Nominate healthcare champions in various categories",
+    status: "active" as const,
+    link: "/awards/nominate"
   },
   {
+    id: "finalists",
+    title: "Finalists Announcement",
     date: "August 29, 2026",
-    phase: "Finalists Announcement",
-    status: "upcoming",
-    cta: {
-      text: "View Finalists",
-      link: "/finalists"
-    }
+    description: "Meet the shortlisted finalists across all categories",
+    status: "upcoming" as const,
+    link: "/finalists"
   },
   {
+    id: "voting",
+    title: "Public Voting",
     date: "September 1 - October 15, 2026",
-    phase: "Public Voting",
-    status: "upcoming",
     description: "Vote for your favorite finalists",
-    cta: {
-      text: "Vote for Finalists",
-      link: "/finalists"
-    }
+    status: "upcoming" as const,
+    link: "/finalists"
   },
   {
+    id: "conference",
+    title: "National Obesity Conference",
     date: "October 16-18, 2026",
-    phase: "National Obesity Conference",
-    status: "upcoming",
     description: "Join industry leaders. Venue to be announced",
-    cta: {
-      text: "Register for Conference",
-      link: "/medical-events"
-    }
+    status: "upcoming" as const,
+    link: "/medical-events"
   },
   {
+    id: "awards",
+    title: "Awards Ceremony",
     date: "November 14, 2026",
-    phase: "Awards Ceremony",
-    status: "upcoming",
-    description: "\"Night of the Health Stars\" - Winners will be announced",
-    cta: {
-      text: "Register for Awards",
-      link: "/medical-events"
-    }
+    description: "\"Night of the Health Stars\" at The Capital Zimbali Resort",
+    status: "upcoming" as const,
+    link: "/medical-events"
   }
 ];
 
 export const awardsTimelineData = [
   {
+    id: "nominations-awards",
+    title: "Open for nominations",
     date: "December 1, 2025 - April 30, 2026",
-    phase: "Open for nominations",
-    status: "active",
-    cta: {
-      text: "Nominate Now",
-      link: "/awards/nominate"
-    }
+    description: "Nominate healthcare champions",
+    status: "active" as const,
+    link: "/awards/nominate"
   },
   {
+    id: "finalists-awards",
+    title: "Finalists Announcement",
     date: "August 29, 2026",
-    phase: "Finalists Announcement",
-    status: "upcoming",
-    cta: {
-      text: "View Finalists",
-      link: "/finalists"
-    }
+    description: "Meet the shortlisted finalists",
+    status: "upcoming" as const,
+    link: "/finalists"
   },
   {
+    id: "voting-awards",
+    title: "Public Voting",
     date: "September 1 - October 15, 2026",
-    phase: "Public Voting",
-    status: "upcoming",
-    cta: {
-      text: "Vote for Finalists",
-      link: "/finalists"
-    }
+    description: "Vote for your favorite finalists",
+    status: "upcoming" as const,
+    link: "/finalists"
   },
   {
+    id: "ceremony",
+    title: "Awards Ceremony",
     date: "November 14, 2026",
-    phase: "Awards Ceremony",
-    status: "upcoming",
-    cta: {
-      text: "Register Now",
-      link: "/medical-events"
-    }
+    description: "\"Night of the Health Stars\" at The Capital Zimbali Resort",
+    status: "upcoming" as const,
+    link: "/medical-events"
   }
 ];
 
 export const finalistsTimelineData = [
   {
+    id: "adjudication",
+    title: "Adjudication Process",
     date: "May 1 - August 28, 2026",
-    phase: "Adjudication Process",
-    status: "upcoming",
-    cta: {
-      text: "In Progress",
-      link: "#"
-    } 
+    description: "Expert panel reviews and shortlists candidates",
+    status: "upcoming" as const
   },
   {
+    id: "announcement",
+    title: "Finalists Announcement",
     date: "August 29, 2026",
-    phase: "Finalists Announcement",
-    status: "upcoming",
-    cta: {
-      text: "Meet the Finalists",
-      link: "/finalists"
-    }
+    description: "Meet the finalists",
+    status: "upcoming" as const,
+    link: "/finalists"
   },
   {
+    id: "voting-period",
+    title: "Public Voting",
     date: "September 1 - October 15, 2026",
-    phase: "Public Voting",
-    status: "upcoming",
-    cta: {
-      text: "Vote for Finalists",
-      link: "/finalists"
-    }
+    description: "Vote for finalists",
+    status: "upcoming" as const,
+    link: "/finalists"
   }
 ];
 
 export const winnersTimelineData = [
   {
+    id: "winners-announcement",
+    title: "Winners Announcement",
     date: "November 14, 2026",
-    phase: "Winners Announcement",
-    status: "upcoming",
-    cta: {
-      text: "Meet the Winners",
-      link: "/winners"
-    }
+    description: "Celebrating healthcare excellence",
+    status: "upcoming" as const,
+    link: "/winners"
   }
 ];
 
@@ -135,7 +118,7 @@ export const awardsEventDetails = {
   title: "African Health Excellence Awards 2026",
   subtitle: "\"Night of the Health Stars\"",
   date: "November 14, 2026",
-  venue: "Venue to be announced",
+  venue: "The Capital Zimbali Resort",
   schedule: {
     redCarpet: "15:00 - Red Carpet & Interviews",
     mainEvent: "17:00 - Main Event"

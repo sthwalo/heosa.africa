@@ -22,14 +22,14 @@ const MedicalEvents = () => {
     {
       title: 'African Health Excellence Awards',
       date: '2026-11-14',
-      location: 'Venue to be announced',
+      location: 'The Capital Zimbali Resort',
       price: "R2000",
       earlyBird: "R1500",
       generalReg: "R1800",
       tablePrice: "R18000",
       tableEarlyBird: "R13000",
       tableGeneralReg: "R15000",
-      image: '/images/events/1.png',
+      image: '/images/2026/Posters/awards-poster.jpg',
       description: '"Night of the Health Stars" - Celebrating and honoring Africa\'s healthcare heroes at a night of excellence, elegance, and recognition.',
       registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1',
       registrationStatus: awards

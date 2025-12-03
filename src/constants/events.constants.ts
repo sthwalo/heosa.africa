@@ -44,7 +44,7 @@ export const EVENTS_CONFIG: Event[] = [
     startDate: EVENT_DATES.summit2025,
     location: 'Venue to be announced',
     time: '09:00 - 17:00',
-    image: 'images/2025 Summit.jpg',
+    image: '/images/summit/27.png',
     registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-summit-1',
   },
   {
@@ -54,9 +54,9 @@ export const EVENTS_CONFIG: Event[] = [
     description: '"Night of the Health Stars" - Celebrating and honoring Africa\'s healthcare heroes at a night of excellence, elegance, and recognition.',
     date: '2026-11-14',
     startDate: EVENT_DATES.awards2025,
-    location: 'Venue to be announced',
+    location: 'The Capital Zimbali Resort',
     time: '15:00 - 22:00',
-    image: 'images/2025 Awards.jpg',
+    image: '/images/2026/Posters/awards-poster.jpg',
     registerLink: 'https://www.medical-events.org/event-details-registration/african-health-excellence-awards-1',
   },
   {

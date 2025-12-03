@@ -1,8 +1,10 @@
 //import React from 'react';
 import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight, Accessibility } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useNominationsStatus } from '../hooks/useNominationsStatus';
 
 const AwardsCategories = () => {
+  const nominations = useNominationsStatus();
   const votedCategories = [
     {
       title: 'HCP AUTHOR OF THE YEAR',
@@ -129,13 +131,27 @@ const AwardsCategories = () => {
               Explore our diverse range of healthcare excellence categories
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                to=""
-                className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
-              >
-                Nominations Closed
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Link>
+              {nominations.isOpen ? (
+                <Link
+                  to="/awards/nominate"
+                  className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
+                >
+                  Nominate Now
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              ) : (
+                <div className="inline-flex items-center px-6 py-3 bg-gray-400 rounded-md cursor-not-allowed text-white">
+                  Nominations {nominations.status === 'not-open' ? 'Open Soon' : 'Closed'}
+                </div>
+              )}
+              <p className="text-gray-300 text-sm mt-2">
+                {nominations.isOpen 
+                  ? `Nominations close on ${nominations.closeDateFormatted}`
+                  : nominations.status === 'not-open'
+                  ? `Nominations open on ${nominations.openDateFormatted}`
+                  : `Nominations closed on ${nominations.closeDateFormatted}`
+                }
+              </p>
             </div>
           </div>
         </div>
