@@ -23,3 +23,6 @@ export interface Category {
   title: string;
   finalists: Finalist[];
 }
+
+// Re-export award category types
+export type { AwardCategory } from '../data/awardCategories';

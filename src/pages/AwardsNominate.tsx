@@ -1,6 +1,7 @@
-import { ArrowRight, ExternalLink, QrCode, Clock, AlertCircle } from 'lucide-react';
+import { ArrowRight, ExternalLink, QrCode, Clock, AlertCircle, FileText, CheckCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useNominationsStatus } from '../hooks/useNominationsStatus';
+import { REQUIRED_DOCUMENTS } from '../data/awardCategories';
 
 const AwardsNominate = () => {
   const nominations = useNominationsStatus();
@@ -78,6 +79,30 @@ const AwardsNominate = () => {
                 Nominations {nominations.isOpen ? `close on ${nominations.closeDateFormatted}` : `closed on ${nominations.closeDateFormatted}`}
               </li>
             </ul>
+          </div>
+
+          {/* Required Documents */}
+          <div className="bg-white rounded-lg shadow-lg p-6 mb-8">
+            <div className="flex items-center mb-4">
+              <FileText className="h-6 w-6 text-[#962326] mr-3" />
+              <h2 className="text-xl font-semibold text-[#2B2A29]">Required Documentation</h2>
+            </div>
+            <p className="text-gray-600 mb-4">
+              All nominations must include the following documentation to be considered complete:
+            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+              {REQUIRED_DOCUMENTS.map((document, index) => (
+                <div key={index} className="flex items-start">
+                  <CheckCircle className="h-5 w-5 text-[#962326] mr-3 mt-0.5 flex-shrink-0" />
+                  <span className="text-sm text-gray-600">{document}</span>
+                </div>
+              ))}
+            </div>
+            <div className="mt-4 p-3 bg-[#F2C849]/10 rounded-lg">
+              <p className="text-sm text-[#2B2A29]">
+                <strong>Note:</strong> Additional category-specific documents may be required. Please review the specific requirements for each award category.
+              </p>
+            </div>
           </div>
 
           {/* Nomination Status and Buttons */}

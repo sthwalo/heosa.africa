@@ -28,11 +28,7 @@ export default defineConfig({
         changeOrigin: true,
         secure: false,
       },
-      '/assets': {
-        target: 'https://heosa.africa',
-        changeOrigin: true,
-        secure: false,
-      }
+      // Removed /assets proxy - let Vite handle assets in development
     }
   },
   preview: {
@@ -41,7 +37,7 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    copyPublicDir: true, // Copy public folder to dist
+    copyPublicDir: true,
     rollupOptions: {
       output: {
         manualChunks: {

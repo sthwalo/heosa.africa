@@ -1,205 +1,274 @@
 //import React from 'react';
-import {Users, BookOpen, Star, Heart, Brain, Stethoscope, Building2, Trophy, Lightbulb, Globe, Briefcase, Radio, Laptop, Search, UserPlus, ArrowRight, Accessibility } from 'lucide-react';
+import {
+  BookOpen,
+  Heart,
+  Users,
+  Globe,
+  Star,
+  Brain,
+  Radio,
+  Laptop,
+  Search,
+  Accessibility,
+  Building2,
+  Trophy,
+  UserPlus,
+  Briefcase,
+  Stethoscope,
+  Lightbulb
+} from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { useNominationsStatus } from '../hooks/useNominationsStatus';
+import { getVotedCategories, getHonoraryCategories } from '../data/awardCategories';
+import { AwardCategory } from '../types/finalist.types';
+
+// Icon mapping
+const iconMap = {
+  BookOpen: BookOpen,
+  Heart: Heart,
+  Users: Users,
+  Globe: Globe,
+  Star: Star,
+  Brain: Brain,
+  Radio: Radio,
+  Laptop: Laptop,
+  Search: Search,
+  Accessibility: Accessibility,
+  Building2: Building2,
+  Trophy: Trophy,
+  UserPlus: UserPlus,
+  Briefcase: Briefcase,
+  Stethoscope: Stethoscope,
+  Lightbulb: Lightbulb
+} as const;
+
+// Dynamic icon import
+const getIcon = (iconName: string) => {
+  const IconComponent = iconMap[iconName as keyof typeof iconMap];
+  return IconComponent ? <IconComponent size={24} /> : null;
+};
 
 const AwardsCategories = () => {
   const nominations = useNominationsStatus();
-  const votedCategories = [
-    {
-      title: 'HCP AUTHOR OF THE YEAR',
-      icon: <BookOpen className="h-8 w-8 text-[#962326]" />,
-      description: 'The Healthcare Professional Author of the Year Award recognizes healthcare professionals who have demonstrated exceptional talent and impact in the field of healthcare literature and writing. This award celebrates those who contribute to medical knowledge through published works, research papers, or educational materials.'
-    },
-    {
-      title: 'HCP CHARITY DRIVER OF THE YEAR',
-      icon: <Heart className="h-8 w-8 text-[#962326]" />,
-      description: 'Honoring healthcare professionals who have shown exceptional commitment to charitable initiatives, organizing fundraising events, and driving community service projects that improve healthcare access and outcomes for underserved populations.'
-    },
-    {
-      title: 'HCP MENTOR OF THE YEAR',
-      icon: <Users className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing healthcare professionals who excel in guiding and developing the next generation of healthcare providers through dedicated mentorship, knowledge sharing, and professional development support.'
-    },
-    {
-      title: 'HCP COMMUNITY BUILDER OF THE YEAR',
-      icon: <Globe className="h-8 w-8 text-[#962326]" />,
-      description: 'Celebrating individuals who actively strengthen healthcare communities through networking, collaboration, and initiatives that bring healthcare professionals together for improved patient care.'
-    },
-    {
-      title: 'MULTI-TALENTED HCP OF THE YEAR',
-      icon: <Star className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing healthcare professionals who demonstrate excellence across multiple disciplines, combining clinical practice with other talents or skills that benefit the healthcare community.'
-    },
-    {
-      title: 'HCP EDUCATOR OF THE YEAR',
-      icon: <Brain className="h-8 w-8 text-[#962326]" />,
-      description: 'Honoring healthcare professionals who excel in education, whether through formal teaching, training programs, or innovative educational initiatives that enhance healthcare knowledge and skills.'
-    },
-    {
-      title: 'HCP MEDIA PERSONALITY OF THE YEAR',
-      icon: <Radio className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing healthcare professionals who effectively use media platforms to educate, inform, and engage the public on health-related matters, promoting health awareness and education.'
-    },
-    {
-      title: 'DIGITAL HEALTH INNOVATOR OF THE YEAR',
-      icon: <Laptop className="h-8 w-8 text-[#962326]" />,
-      description: 'Celebrating healthcare professionals who leverage digital technologies and innovations to improve healthcare delivery, patient care, or healthcare systems.'
-    },
-    {
-      title: 'HEALTH RESEARCHER OF THE YEAR',
-      icon: <Search className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing outstanding contributions to healthcare research, including clinical trials, medical studies, and innovative research methodologies that advance medical knowledge.'
-    },
-    {
-      title: 'HEALTHCARE PROFESSIONAL LIVING WITH A DISABILITY',
-      icon: <Accessibility className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizes and honors the remarkable contributions of healthcare professionals who navigate the challenges of living with disabilities. This award celebrates individuals who exemplify resilience, dedication, and excellence in their respective fields, demonstrating that barriers can be overcome through determination and passion for healthcare.'
-    },
-    {
-      title: 'HEALTH INSTITUTION OF THE YEAR',
-      icon: <Building2 className="h-8 w-8 text-[#962326]" />,
-      description: 'Honoring healthcare facilities that demonstrate excellence in patient care, operational efficiency, innovation, and community impact.'
-    },
-    {
-      title: 'HEALTH CARE LEADER OF THE YEAR',
-      icon: <Trophy className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing exceptional leadership in healthcare management, administration, and organizational development that drives positive change and improvement.'
-    },
-    {
-      title: 'EMPLOYEE WELLNESS HCP OF THE YEAR',
-      icon: <UserPlus className="h-8 w-8 text-[#962326]" />,
-      description: 'Celebrating healthcare professionals who champion workplace wellness programs and initiatives that promote the health and well-being of healthcare workers.'
-    },
-    {
-      title: 'HEALTH CARE RISING STAR OF THE YEAR',
-      icon: <Star className="h-8 w-8 text-[#962326]" />,
-      description: 'A rising star in the healthcare profession typically refers to a young or early-career to a maximum age of 40 years. An individual who is demonstrating exceptional talent, leadership, or innovation in their field. These professionals often show a strong commitment to improving patient care, contributing to research, or advancing healthcare practices. Here are some key traits and examples of rising stars in healthcare.'
-    }
-  ];
+  const votedCategories = getVotedCategories();
+  const honoraryCategories = getHonoraryCategories();
 
-  const honoraryCategories = [
-    {
-      title: 'OUTSTANDING HEALTHCARE PROFESSIONAL',
-      icon: <Stethoscope className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing individual healthcare professionals who have made significant contributions to their respective fields, displayed exceptional clinical skills, and provided outstanding patient care.'
-    },
-    {
-      title: 'HEALTHCARE INNOVATION',
-      icon: <Lightbulb className="h-8 w-8 text-[#962326]" />,
-      description: 'Honoring breakthrough innovations in healthcare delivery, treatment methods, or medical technology that significantly improve patient outcomes or healthcare efficiency.'
-    },
-    {
-      title: 'EXCELLENCE IN HEALTH CARE LEADERSHIP',
-      icon: <Briefcase className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing exemplary leadership that transforms healthcare organizations, inspires teams, and drives sustainable improvements in healthcare delivery.'
-    },
-    {
-      title: 'OUTSTANDING HEALTHCARE INSTITUTION',
-      icon: <Building2 className="h-8 w-8 text-[#962326]" />,
-      description: 'Celebrating healthcare institutions that set new standards in patient care, operational excellence, and innovative healthcare delivery models.'
-    },
-    {
-      title: 'COMMUNITY HEALTH IMPACT',
-      icon: <Globe className="h-8 w-8 text-[#962326]" />,
-      description: 'Recognizing initiatives and programs that significantly improve community health outcomes and access to healthcare services.'
-    },
-    {
-      title: 'ACADEMIC IMPACT IN HEALTH',
-      icon: <BookOpen className="h-8 w-8 text-[#962326]" />,
-      description: 'Honoring significant contributions to healthcare education, research, and academic advancement that shape the future of healthcare practice.'
-    }
-  ];
+  const CategoryCard = ({ category }: { category: AwardCategory }) => (
+    <div className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
+      <div className="flex items-center mb-4">
+        <div className="bg-[#962326]/10 p-3 rounded-full mr-4">
+          <div className="text-[#962326]">
+            {getIcon(category.icon)}
+          </div>
+        </div>
+        <h3 className="text-xl font-bold text-[#2B2A29]">{category.shortTitle}</h3>
+      </div>
+
+      <p className="text-gray-600 mb-4">{category.description}</p>
+
+      {category.qualificationCriteria.length > 0 && (
+        <div className="mb-4">
+          <h4 className="font-semibold text-[#962326] mb-2">Qualification Criteria:</h4>
+          <ul className="text-sm text-gray-600 space-y-1">
+            {category.qualificationCriteria.map((criteria, index) => (
+              <li key={index} className="flex items-start">
+                <span className="text-[#962326] mr-2">•</span>
+                {criteria}
+              </li>
+            ))}
+          </ul>
+        </div>
+      )}
+
+      <div className="mb-4">
+        <h4 className="font-semibold text-[#962326] mb-2">Score Metrics:</h4>
+        <div className="flex flex-wrap gap-2">
+          {category.scoreMetrics.map((metric, index) => (
+            <span
+              key={index}
+              className="bg-[#F2C849] text-[#2B2A29] px-2 py-1 rounded-full text-xs font-medium"
+            >
+              {metric}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <div className="mb-4">
+        <h4 className="font-semibold text-[#962326] mb-2">Required Documents:</h4>
+        <ul className="text-sm text-gray-600 space-y-1">
+          {category.requiredDocuments.slice(0, 3).map((doc, index) => (
+            <li key={index} className="flex items-start">
+              <span className="text-[#962326] mr-2">•</span>
+              {doc}
+            </li>
+          ))}
+          {category.requiredDocuments.length > 3 && (
+            <li className="text-[#962326] text-sm font-medium">
+              +{category.requiredDocuments.length - 3} more documents required
+            </li>
+          )}
+        </ul>
+      </div>
+    </div>
+  );
 
   return (
-    <div className="pt-20 min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <div className="relative bg-[#2B2A29] text-white py-24">
+      <div className="relative h-96 flex items-center justify-center">
         <div className="absolute inset-0 overflow-hidden">
           <img
-            src="/images/events/1.png"
-            alt="Award Categories background"
-            className="w-full h-full object-cover opacity-20"
+            src="/images/2025/Awards/10.jpg"
+            alt="2025 Awards"
+            className="w-full h-full object-cover"
           />
         </div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Award Categories
-            </h1>
-            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
-              Explore our diverse range of healthcare excellence categories
+        <div className="absolute inset-0 bg-black bg-opacity-50"></div>
+        <div className="relative z-10 text-center text-white px-4">
+          <h1 className="text-5xl font-bold mb-4">Award Categories</h1>
+          <p className="text-xl max-w-2xl mx-auto">
+            Discover the comprehensive range of categories celebrating excellence in African healthcare
+          </p>
+        </div>
+      </div>
+
+      {/* Voted Categories Section */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#2B2A29] mb-4">Voted Categories</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            These categories are determined by public voting, recognizing outstanding achievements
+            and contributions across the African healthcare landscape.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {votedCategories.map((category) => (
+            <CategoryCard key={category.id} category={category} />
+          ))}
+        </div>
+
+        {/* Nomination CTA */}
+        <div className="text-center">
+          <div className="bg-[#962326] text-white rounded-lg p-8 max-w-4xl mx-auto">
+            <h3 className="text-3xl font-bold mb-4">Ready to Nominate?</h3>
+            <p className="text-xl mb-6">
+              {nominations.isOpen
+                ? "Nominations are now open! Submit your nomination for any of these categories."
+                : "Nominations will open soon. Stay tuned for updates."
+              }
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              {nominations.isOpen ? (
-                <Link
-                  to="/awards/nominate"
-                  className="inline-flex items-center px-6 py-3 bg-[#962326] rounded-md hover:bg-[#A7864B] transition-colors"
-                >
-                  Nominate Now
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Link>
-              ) : (
-                <div className="inline-flex items-center px-6 py-3 bg-gray-400 rounded-md cursor-not-allowed text-white">
-                  Nominations {nominations.status === 'not-open' ? 'Open Soon' : 'Closed'}
-                </div>
-              )}
-              <p className="text-gray-300 text-sm mt-2">
-                {nominations.isOpen 
-                  ? `Nominations close on ${nominations.closeDateFormatted}`
-                  : nominations.status === 'not-open'
-                  ? `Nominations open on ${nominations.openDateFormatted}`
-                  : `Nominations closed on ${nominations.closeDateFormatted}`
-                }
-              </p>
-            </div>
+            {nominations.isOpen && (
+              <Link
+                to="/awards/nominate"
+                className="inline-flex items-center bg-[#F2C849] text-[#2B2A29] font-bold py-3 px-8 rounded-lg hover:bg-[#F2C849]/90 transition-colors duration-300"
+              >
+                Nominate Now
+                <svg className="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+            )}
           </div>
         </div>
       </div>
 
-      {/* Voted Categories */}
-      <div className="mb-16">
-        <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Voted Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {votedCategories.map((category, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  {category.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-[#2B2A29]">
-                  {category.title}
-                </h3>
+      {/* Honorary Categories Section (if any) */}
+      {honoraryCategories.length > 0 && (
+        <div className="bg-gray-100 py-16">
+          <div className="max-w-7xl mx-auto px-4">
+            <div className="text-center mb-12">
+              <h2 className="text-4xl font-bold text-[#2B2A29] mb-4">Honorary Categories</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                Special recognition categories celebrating exceptional achievements in healthcare.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {honoraryCategories.map((category) => (
+                <CategoryCard key={category.id} category={category} />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Score Metrics Overview */}
+      <div className="max-w-7xl mx-auto px-4 py-16">
+        <div className="text-center mb-12">
+          <h2 className="text-4xl font-bold text-[#2B2A29] mb-4">Evaluation Framework</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            All nominations are evaluated using a comprehensive scoring system across five key metrics.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+          {[
+            {
+              title: 'Impact & Contribution',
+              description: 'Measurable positive effects on healthcare delivery and patient outcomes'
+            },
+            {
+              title: 'Innovation & Creativity',
+              description: 'Novel approaches, solutions, and creative problem-solving in healthcare'
+            },
+            {
+              title: 'Professional Excellence',
+              description: 'Demonstrated mastery, leadership, and adherence to professional standards'
+            },
+            {
+              title: 'Evidence & Documentation',
+              description: 'Comprehensive documentation and verifiable proof of achievements'
+            },
+            {
+              title: 'Community Engagement',
+              description: 'Active involvement in community health initiatives and outreach'
+            }
+          ].map((metric, index) => (
+            <div key={index} className="bg-white rounded-lg shadow-lg p-6 text-center">
+              <div className="bg-[#F2C849] w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <span className="text-2xl font-bold text-[#2B2A29]">{index + 1}</span>
               </div>
-              <p className="text-gray-600">{category.description}</p>
+              <h3 className="text-lg font-bold text-[#2B2A29] mb-2">{metric.title}</h3>
+              <p className="text-gray-600 text-sm">{metric.description}</p>
             </div>
           ))}
         </div>
       </div>
 
-      {/* Honorary Categories */}
-      <div>
-        <h2 className="text-3xl font-bold text-[#2B2A29] mb-8">Honorary Categories</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {honoraryCategories.map((category, index) => (
-            <div
-              key={index}
-              className="bg-white rounded-lg shadow-lg p-6 hover:shadow-xl transition-shadow"
-            >
-              <div className="flex items-center gap-4 mb-4">
-                <div className="p-3 bg-gray-50 rounded-lg">
-                  {category.icon}
+      {/* Nomination Requirements */}
+      <div className="bg-[#962326] text-white py-16">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold mb-4">Nomination Requirements</h2>
+            <p className="text-xl max-w-3xl mx-auto">
+              All nominations must include the following documentation to be considered complete.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              'Copy of professional registration (e.g., HPCSA, SAPC, SANC)',
+              'CV or institutional profile',
+              'Reviews from patients',
+              'Motivation letter (maximum 2 pages)',
+              'Portfolio of evidence (photos, reports, letters, media links)',
+              'Reference letters (minimum 2)',
+              'Proof of achievements (certificates, publications, awards)',
+              'For institutions: compliance and accreditation documents',
+              'For entrepreneurs: business registration and proof of operations'
+            ].map((requirement, index) => (
+              <div key={index} className="flex items-start">
+                <div className="bg-[#F2C849] rounded-full p-2 mr-4 mt-1">
+                  <svg className="w-4 h-4 text-[#2B2A29]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  </svg>
                 </div>
-                <h3 className="text-xl font-semibold text-[#2B2A29]">
-                  {category.title}
-                </h3>
+                <p className="text-sm leading-relaxed">{requirement}</p>
               </div>
-              <p className="text-gray-600">{category.description}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </div>
