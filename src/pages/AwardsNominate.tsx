@@ -8,7 +8,7 @@ const AwardsNominate = () => {
   
   const handleRedirect = () => {
     if (nominations.isOpen) {
-      window.open('https://docs.google.com/forms/d/e/1FAIpQLSf_WILeDUFGrZAsNour9NvMAwzUC4qZFVeUk5cJ9_H-Xbi9HA/viewform?usp=pp_url', '_blank');
+      window.open('https://docs.google.com/forms/d/e/1FAIpQLSeDn6dQtTYPM8sUsNC2CbpEREhmFM8pSkFjQ5FJosrYGlb5hw/viewform?usp=sharing&ouid=115228437543903286104', '_blank');
     }
   };
 

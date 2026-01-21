@@ -5,7 +5,7 @@ import QRCodeGenerator from '../components/QRCodeGenerator';
 
 const QRCodes: React.FC = () => {
   // Use the actual nomination and voting URLs
-  const nominationUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSf_WILeDUFGrZAsNour9NvMAwzUC4qZFVeUk5cJ9_H-Xbi9HA/viewform?usp=pp_url';
+  const nominationUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSeDn6dQtTYPM8sUsNC2CbpEREhmFM8pSkFjQ5FJosrYGlb5hw/viewform?usp=sharing&ouid=115228437543903286104';
   // You'll need to replace this with your actual voting URL when it's available
   const votingUrl = 'https://heosa.africa/awards/vote';
   
