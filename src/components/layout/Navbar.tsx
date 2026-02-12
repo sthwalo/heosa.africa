@@ -89,7 +89,7 @@ const Navbar = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/">
               <img
-                src="logo.png"
+                src="/logo.png"
                 alt="AHEO Logo"
                 className="h-24 w-auto max-h-full"
               />

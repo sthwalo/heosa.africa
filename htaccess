@@ -1,52 +1,76 @@
-# Enable URL rewriting
+<IfModule mod_rewrite.c>
 RewriteEngine On
+RewriteBase /
 
 # =============================================
-# 1. Force HTTPS and www/non-www consistency
+# Force HTTPS and www consistency
 # =============================================
-# Choose ONE of these options:
-
-# Option 1: Redirect www to non-www with HTTPS
 RewriteCond %{HTTP_HOST} ^www\.heosa\.africa$ [NC]
 RewriteRule ^(.*)$ https://heosa.africa/$1 [L,R=301]
 
-# Option 2: Redirect non-www to www with HTTPS
-# RewriteCond %{HTTP_HOST} ^heosa\.africa$ [NC]
-# RewriteRule ^(.*)$ https://www.heosa.africa/$1 [L,R=301]
-
-# Force HTTPS for all traffic
 RewriteCond %{HTTPS} off
 RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
 # =============================================
-# 2. Frontend routing for React
+# CRITICAL: Protect all static files FIRST
 # =============================================
-RewriteBase /
+# Don't rewrite if it's a real file
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Don't rewrite /api/ calls
+RewriteCond %{REQUEST_URI} ^/api/ [NC]
+RewriteRule ^ - [L]
+
+# Rewrite everything else to index.html for React routing
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^ index.html [QSA,L]
-
-# =============================================
-# 3. Error handling
-# =============================================
-ErrorDocument 404 /404.html
-
-# =============================================
-# 4. CORS headers (adjust for production)
-# =============================================
-<IfModule mod_headers.c>
-    Header set Access-Control-Allow-Origin "*"
-    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS"
-    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept"
-    
-    <FilesMatch "\.(css|js)$">
-        Header set Cache-Control "max-age=31536000, public"
-    </FilesMatch>
+RewriteRule ^ /index.html [L]
 </IfModule>
 
 # =============================================
-# 5. PHP handling (remove if not needed)
+# Cache control headers
 # =============================================
-<IfModule mime_module>
+<IfModule mod_headers.c>
+  # Long cache for assets (they're hashed)
+  <FilesMatch "\.(js|css|png|jpg|jpeg|gif|ico|svg|woff|woff2|ttf|eot|webp)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+    Header unset Pragma
+    Header unset Expires
+  </FilesMatch>
+  
+  # Don't cache HTML
+  <FilesMatch "\.html$">
+    Header set Cache-Control "public, max-age=0, must-revalidate"
+    Header set Pragma "no-cache"
+  </FilesMatch>
+  
+  # API CORS
+  <FilesMatch "^/api/">
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, POST, OPTIONS, PUT, DELETE"
+    Header set Access-Control-Allow-Headers "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+  </FilesMatch>
+</IfModule>
+
+# =============================================
+# Gzip compression
+# =============================================
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/plain text/css text/javascript application/javascript application/json text/xml application/xml
+</IfModule>
+
+# =============================================
+# Character encoding
+# =============================================
+<IfModule mod_charset.c>
+  AddDefaultCharset UTF-8
+</IfModule>
+
+# =============================================
+# PHP (if needed)
+# =============================================
+<IfModule mod_php.c>
   AddHandler application/x-httpd-ea-php83 .php .php8 .phtml
 </IfModule>
